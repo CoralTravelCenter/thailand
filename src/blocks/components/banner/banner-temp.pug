@@ -1,0 +1,10 @@
+mixin banner(data)
+    .dm-banner
+        .dm-banner__img-wrap
+            .dm-banner__img
+                img.dm-banner__img(src=data.img_lg, data-src-desk=data.img_lg, data-src-mobile=data.img_sm, alt=data.alt)
+        .dm-banner__desc
+            .dm-title.dm-title--banner!=data.title
+            .dm-text.dm-text--banner!=data.text
+            .dm-banner__btn-row
+                a.dm-btn.dm-btn--banner(href=data.link target="_blank")!=data.btn_title

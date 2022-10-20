@@ -1,0 +1,93 @@
+.dm-benefits
+    margin-bottom em(60)
+    padding-top em(60)
+
+    @media screen and (min-width: 769px)
+        text-align center
+        padding-top em(80)
+        max-width em(1336)
+        margin-left auto
+        margin-right auto
+
+    &__desc
+        padding 0 em(72) em(30)
+
+        @media screen and (min-width: 769px)
+            padding 0 0 em(60)
+            max-width em(1048)
+            margin-left auto
+            margin-right auto
+
+    &__items
+        padding 0 em(60)
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+
+        @media screen and (min-width: 769px)
+            padding 0
+
+    &__item
+        width em(180)
+        max-width em(180)
+        margin-bottom em(50)
+
+        @media screen and (min-width: 769px)
+            margin-bottom em(60)
+
+    &__img-wrap
+        margin-bottom em(12)
+
+    &__img
+        height em(48)
+        background-repeat no-repeat
+        background-position 50% 0
+        background-size contain
+        width 100%
+
+        &--1
+            background-image embedurl('../img/content/coral/icon-1.svg')
+        &--2
+            background-image embedurl('../img/content/coral/icon-2.svg')
+        &--3
+            background-image embedurl('../img/content/coral/icon-3.svg')
+        &--4
+            background-image embedurl('../img/content/coral/icon-4.svg')
+        &--5
+            background-image embedurl('../img/content/coral/icon-5.svg')
+        &--6
+            background-image embedurl('../img/content/coral/icon-6.svg')
+        &--7
+            background-image embedurl('../img/content/coral/icon-7.svg')
+
+    &__title
+        font-size em(20)
+        line-height (24/20em)
+        text-align center
+        font-weight normal
+
+        @media screen and (min-width: 769px)
+            font-size em(16)
+            line-height (20/16em)
+
+    &__title2
+        font-size em(48)
+        line-height (52/48em)
+        color #000
+        text-align center
+        margin-bottom (60/48em)
+
+        @media screen and (min-width: 769px)
+            font-size em(40)
+            line-height (44/40em)
+            margin-bottom 0
+    
+    &__title3
+        font-size em(48)
+        line-height (52/48em)
+        color #000
+        text-align center
+        margin-bottom 0.2em
+
+    &__btn-wrap
+        text-align center

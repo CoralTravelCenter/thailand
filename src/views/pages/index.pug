@@ -1,0 +1,49 @@
+extends ../layouts/default
+
+block variables
+	- const title = "Coral / Sunmar"
+
+block content
+	
+	ul.list
+		li
+			a(href="./coral.html")
+				img(src="https://cdn.coral.ru/content/corallogo-41fb4cf7.svg", alt="")
+
+		li
+			a(href="./sunmar.html")
+				img(src="https://cdn.sunmar.ru/content/sunmarlogo-075299b5.svg", alt="")
+
+		//- li #[a(href="https://www.sunmar.ru/uae-excursion-new/", target="_blank") https://www.sunmar.ru/uae-excursion-new/]#[br] #[a(href="https://www.sunmar.ru/uae-excursion/", target="_blank") https://www.sunmar.ru/uae-excursion/]#[br]- разводящая страница.
+		//- li https://www.sunmar.ru/uae-excursion/yacht/ - яхта, рыбалка или морская прогулка
+		//- li https://www.sunmar.ru/uae-excursion/chopper/ - вертолет или воздушный шар
+		//- li https://www.sunmar.ru/uae-excursion/safari/ - городские экскурсии и сафари
+		//- li https://www.sunmar.ru/uae-excursion/personal-transport/ - индивидуальный транспорт
+		//- li https://www.sunmar.ru/uae-excursion/tickets/ - билеты
+	style.
+		.list{
+			width: 600px;
+			min-height: 600px;
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+			font-size: 20px;
+			list-style: none;
+			justify-content: center;
+			font-family: "Verdana";
+		}
+		li + li {
+			margin-top: 20px;
+		}
+		img{
+			display: block;
+			margin: 10px auto;
+			padding: 10px;
+			width: 310px;
+			height: auto;
+			box-shadow: 0 0 10px rgba(0,0,0, 0.2);
+			transition: all 0.3s;
+		}
+		a:hover img{
+			transform: scale(1.2);
+		}

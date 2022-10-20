@@ -1,0 +1,24 @@
+mixin info(data, index)
+    div(class=data.class_wrap class=data.class_wrap + data.class_suffix class=data.class_wrap + '--' + index)
+        div(class=data.class_left class=data.class_left + data.class_suffix)
+            div(class=data.class_title class=data.class_title + data.class_suffix)!=data.title
+                if data.title_note
+                    div(class=data.class_title_note class=data.class_title_note + data.class_suffix)!=data.title_note
+            div(class=data.class_text class=data.class_text + data.class_suffix)!=data.text
+
+        div(class=data.class_right class=data.class_right + data.class_suffix)
+            each right_item, index in data.items
+                div(class=data.class_right_item class=data.class_right_item + data.class_suffix)
+                    each right_item2, index in right_item
+
+                        div(class=data.class_right_inner class=data.class_right_inner + data.class_suffix)
+                            div(class=data.class_right_left class=data.class_right_left + data.class_suffix)
+                                div(class=data.class_right_title class=data.class_right_title + data.class_suffix)!=right_item2.title
+                                if right_item2.note
+                                    div(class=data.class_right_note class=data.class_right_note + data.class_suffix)!=right_item2.note
+                                if right_item2.text
+                                    div(class=data.class_right_text class=data.class_right_text + data.class_suffix)!=right_item2.text
+                            
+                            div(class=data.class_right_right class=data.class_right_right + data.class_suffix)
+                                if right_item2.price
+                                    div(class=data.class_right_price class=data.class_right_price + data.class_suffix)!=right_item2.price

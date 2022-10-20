@@ -1,0 +1,25 @@
+body
+    .subpage-search-bg
+        .searchtabsmain
+            position absolute
+            left 0
+            top 0
+            width 100%
+
+        >.background
+            background none
+            min-height em(980)
+            position static
+            background-image url(../img/content/sunmar/intro-sm.jpg)
+            background-repeat no-repeat
+            background-position 0 0
+            background-size cover
+            font-size ( 100vw / 45 )
+
+            @media screen and (min-width: 769px)
+                background-image url(../img/content/sunmar/intro-lg.jpg)
+                min-height em(680)
+                font-size ( 100vw / 120 )
+
+            &:before
+                display none

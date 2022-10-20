@@ -1,0 +1,14 @@
+mixin block-img-text2(data)
+    .dm-block-text2__wrap(class="dm-block-text2__wrap--" + data.class_suffix)
+        .dm-block-text2__left(class="dm-block-text2__left--" + data.class_suffix)
+            each image, index in data.images
+                if image.img_lg && image.img_sm
+                    img.dm-block-text2__img(class="dm-block-text2__img--" + data.class_suffix src=image.img_lg, data-src-desk=image.img_lg, data-src-mobile=image.img_sm, alt=data.alt)
+                else
+                    img.dm-block-text2__img(class="dm-block-text2__img--" + data.class_suffix, src=image.img_lg, alt=data.alt)
+
+        .dm-block-text2__right(class="dm-block-text2__right--" + data.class_suffix)
+            if data.title
+                .dm-block-text2__title(class="dm-block-text2__title--" + data.class_suffix)!=data.title
+            if data.text
+                .dm-block-text2__text(class="dm-block-text2__text--" + data.class_suffix)!=data.text

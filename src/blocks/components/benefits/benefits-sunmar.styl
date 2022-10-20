@@ -1,0 +1,80 @@
+.dm-benefits
+    padding-top em(60)
+
+    @media screen and (min-width: 769px)
+        text-align center
+        padding-top em(60)
+        max-width em(1152)
+        margin-left auto
+        margin-right auto
+        margin-bottom em(20)
+
+    &__desc
+        padding 0 em(60) em(60)
+
+        @media screen and (min-width: 769px)
+            padding 0 0 em(60)
+            max-width em(952)
+            margin-left auto
+            margin-right auto
+
+    &__items
+        padding 0 em(68)
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+
+        @media screen and (min-width: 769px)
+            padding 0
+
+    &__item
+        flex-basis: auto
+        margin-bottom em(60)
+        display flex
+        flex-direction column
+        align-items: center
+
+        @media screen and (min-width: 769px)
+            flex-direction: row
+
+    &__img-wrap
+        margin-bottom em(26)
+
+        @media screen and (min-width: 769px)
+            margin-bottom 0
+
+    &__img
+        width em(132)
+        height em(132)
+        background-repeat no-repeat
+        background-position 50% 0
+        background-size contain
+
+        &--1
+            background-image embedurl('../img/content/sunmar/icon-1.svg')
+        &--2
+            background-image embedurl('../img/content/sunmar/icon-2.svg')
+        &--3
+            background-image embedurl('../img/content/sunmar/icon-3.svg')
+
+    &__title
+        font-size em(20)
+        line-height (28/20em)
+        text-align center
+        font-weight normal
+
+        @media screen and (min-width: 769px)
+            text-align left
+            margin-left (24/20em)
+
+    &__header
+        font-size em(48)
+        line-height (52/48em)
+        text-align center
+        font-weight 700
+        color #000
+        margin-top 1em
+
+        @media screen and (min-width: 769px)
+            font-size em(40)
+            line-height (44/40em)

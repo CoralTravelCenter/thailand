@@ -1,0 +1,276 @@
+include ../block-img-text/block-img-text
+include ../block-img-text2/block-img-text2
+
+section.dm-section--tabs
+    .dm-tabs
+        .dm-tab__headers.dm-tab__headers--main
+            .dm-tab__title.selected(data-show="individual") #[span.dm-tab__title__span Индивидуальные экскурсии] (можно забронировать онлайн)
+            .dm-tab__title(data-show="groups") #[span.dm-tab__title__span Групповые экскурсии] (можно приобрести у&nbsp;наших гидов в&nbsp;ОАЭ) 
+            .dm-tab__title(data-show="groups-and-tickets") #[span.dm-tab__title__span Групповые экскурсии и&nbsp;билеты] (можно забронировать онлайн)
+
+        .dm-tab__items
+            .dm-tab__body(data-content-for="individual")
+                .dm-tab__text Практически каждый турист, выбравший ОАЭ для путешествия, ищет интересные экскурсии.#[br]Отдыхающим хочется открыть для себя новые и&nbsp;интересные места, получить незабываемые впечатления&nbsp;и&nbsp;сделать&nbsp;яркие&nbsp;фотографии.#[br]#[br]#[b Мы подготовили для вас самые увлекательные&nbsp;экскурсии&nbsp;в&nbsp;ОАЭ!]
+                
+                .dm-list
+                    +block-img-text({
+                        title: 'Яхта, рыбалка или&nbsp;морская&nbsp;прогулка',
+                        text: '',
+                        link: '/boat-trip.html',
+                        link: '//www.sunmar.ru/uae-excursion/yacht/',
+                        class_suffix: '--tab',
+                        class_wrap: 'dm-list__item',
+                        class_img: 'dm-list__img',
+                        class_desc: 'dm-list__desc',
+                        class_title: 'dm-list__title',
+                        class_text: '',
+                        class_link: 'dm-list__link',
+                        img_lg: './img/content/sunmar/trip/boat-lg.jpg',
+                        img_sm: './img/content/sunmar/trip/boat-sm.jpg',
+                    })
+
+                    +block-img-text({
+                        title: 'Вертолет&nbsp;или воздушный&nbsp;шар',
+                        text: '',
+                        link: '/air-trip.html',
+                        link: '//www.sunmar.ru/uae-excursion/chopper/',
+                        class_suffix: '--tab',
+                        class_wrap: 'dm-list__item',
+                        class_img: 'dm-list__img',
+                        class_desc: 'dm-list__desc',
+                        class_title: 'dm-list__title',
+                        class_text: '',
+                        class_link: 'dm-list__link',
+                        img_lg: './img/content/sunmar/trip/air-lg.jpg',
+                        img_sm: './img/content/sunmar/trip/air-sm.jpg',
+                    })
+
+                    +block-img-text({
+                        title: 'Городские экскурсии и&nbsp;сафари',
+                        text: '',
+                        link: '/safari-trip.html',
+                        link: '//www.sunmar.ru/uae-excursion/safari/',
+                        class_suffix: '--tab',
+                        class_wrap: 'dm-list__item',
+                        class_img: 'dm-list__img',
+                        class_desc: 'dm-list__desc',
+                        class_title: 'dm-list__title',
+                        class_text: '',
+                        class_link: 'dm-list__link',
+                        img_lg: './img/content/sunmar/trip/safari-lg.jpg',
+                        img_sm: './img/content/sunmar/trip/safari-sm.jpg',
+                    })
+
+                    +block-img-text({
+                        title: 'Индивидуальный транспорт',
+                        link: '/transport-trip.html',
+                        link: '//www.sunmar.ru/uae-excursion/personal-transport/',
+                        class_suffix: '--tab',
+                        class_wrap: 'dm-list__item',
+                        class_img: 'dm-list__img',
+                        class_desc: 'dm-list__desc',
+                        class_title: 'dm-list__title',
+                        class_link: 'dm-list__link',
+                        img_lg: './img/content/sunmar/trip/transport-lg.jpg',
+                        img_sm: './img/content/sunmar/trip/transport-sm.jpg',
+                    })
+
+                .dm-block.dm-block--tab
+                    .dm-block__title Предлагаем Вашему вниманию пошаговую инструкцию выбора&nbsp;варианта пакетных&nbsp;услуг
+
+                .dm-steps
+                    .dm-step__item
+                        .dm-step__title Шаг&nbsp;1. Выбор даты услуги
+                        .dm-step__body Выберите дату услуги в&nbsp;разделе дополнительных услуг&nbsp;при&nbsp;бронировании&nbsp;тура.
+                        +block-img-text({
+                            class_suffix: '--step',
+                            class_wrap: 'dm-step__img-wrap',
+                            class_img: 'dm-step__img',
+                            img_lg: './img/content/sunmar/instruction/instruction-1-lg.jpg',
+                            img_sm: './img/content/sunmar/instruction/instruction-1-sm.jpg',
+                        })
+
+                    .dm-step__item
+                        .dm-step__title Шаг&nbsp;2. Выбор дополнительной услуги
+                        .dm-step__body Выберите необходимый вариант пакета услуг. Затем&nbsp;нажмите&nbsp;на&nbsp;кнопку &laquo;Добавить&raquo;.
+                        +block-img-text({
+                            class_suffix: '--step',
+                            class_wrap: 'dm-step__img-wrap',
+                            class_img: 'dm-step__img',
+                            img_lg: './img/content/sunmar/instruction/instruction-2-lg.jpg',
+                            img_sm: './img/content/sunmar/instruction/instruction-2-sm.jpg',
+                        })
+            .dm-tab__body(data-content-for="groups" style="display: none;")
+                //- 1
+                +block-img-text2({
+                    title: 'Мир Ferrari & Аквапарк<br />Yas Waterworld в Абу-Даби',
+                    alt: 'Мир Ferrari & Аквапарк Yas Waterworld в Абу-Даби',
+                    text: `
+                        <p>
+                            Мир Ferrari в&nbsp;Абу-Даби&nbsp;&ndash; тематический парк Феррари с&nbsp;самыми разными аттракционами, пропитанный потрясающей атмосферой драйва и&nbsp;экстрима.
+                        </p>
+                        <p>
+                            Аквапарк Yas Water World&nbsp;&ndash; крупнейший парк аттракционов, расположенный на&nbsp;острове Яс.&nbsp;40&nbsp;водных горок, захватывающих дух, скоростные спуски, некоторые из&nbsp;которых не&nbsp;встретишь больше нигде. Здесь есть, чем заняться, чтобы пощекотать себе нервы и&nbsp;наполниться настоящим адреналином!
+                        </p>
+                    `,
+                    class_suffix: 'tab',
+                    images: [
+                        {
+                            img_lg: './img/content/sunmar/group/group-1-lg.jpg',
+                            img_sm: './img/content/sunmar/group/group-1-sm.jpg',
+                        },
+                        {
+                            img_lg: './img/content/sunmar/group/group-2-lg.jpg',
+                            img_sm: './img/content/sunmar/group/group-2-sm.jpg',
+                        },
+                    ],
+                })
+
+                //- 2
+                +block-img-text2({
+                    title: 'Приключения в&nbsp;столице Абу-Даби',
+                    alt: 'Приключения в&nbsp;столице Абу-Даби',
+                    text: `
+                        <p>
+                            Абу-Даби&nbsp;&ndash; потрясающий город, выросший посреди пустыни и&nbsp;поражающий гостей своей архитектурой. Отправившись на&nbsp;экскурсию, вначале туристы побывают в&nbsp;этнографической деревне, где увидят бамбуковые хижины, шатры из&nbsp;козьей шерсти, стоянки бедуинов, а&nbsp;затем посетят отель Emirates Palace и&nbsp;дворец президента, прогуляются вдоль набережной города, украшенной фонтанами, увидят мечеть шейха Заеда, отправятся за&nbsp;вкуснейшими финиками на&nbsp;Восточный рынок.
+                        </p>
+                        <p>
+                            Есть несколько правил, касающихся одежды, которая должна соответствовать требованиям местной культуры: одежда не&nbsp;должна просвечивать, обувь должна быть закрытой, у&nbsp;женщин должны быть покрыты руки до&nbsp;запястья, ноги по&nbsp;щиколотку, голова и&nbsp;шея. Мужчинам следует прикрыть колени, руки ниже локтя. Несоответствие указанным нормам может оказаться плачевным&nbsp;&ndash; туристы не&nbsp;попадут в&nbsp;мечеть.
+                        </p>
+                    `,
+                    class_suffix: 'tab2',
+                    images: [
+                        {
+                            img_lg: './img/content/sunmar/group/group-3-lg.jpg',
+                            img_sm: './img/content/sunmar/group/group-3-sm.jpg',
+                        },
+                    ],
+                })
+
+                //- 3
+                +block-img-text2({
+                    title: 'Новый Дубай',
+                    alt: 'Новый Дубай',
+                    text: `
+                        <p>
+                            Ультрасовременный, изящный, почти фантастический&nbsp;&ndash; всё это можно сказать о&nbsp;Дубае! Отправившись в&nbsp;ОАЭ, невозможно пропустить путешествие по&nbsp;этому потрясающему городу.
+                        </p>
+                        <p>
+                            В&nbsp;рамках экскурсии туристов ждут: район Дубай Марина&nbsp;&ndash; настоящее архитектурного достояния города; знаменитый Пальмовый остров; отель &laquo;Atlantis&raquo;; легендарный отель в&nbsp;форме паруса Burj&nbsp;Al&nbsp;Arab; торговый центр Dubai Mall; огромный океанариум&nbsp;и, конечно&nbsp;же, башня Burj&nbsp;Khalifa, с&nbsp;высоты которой отдыхающие смогут увидеть Дубай во&nbsp;всей красе, после чего отправиться на&nbsp;шоу танцующих фонтанов!
+                        </p>
+                    `,
+                    class_suffix: 'tab',
+                    images: [
+                        {
+                            img_lg: './img/content/sunmar/group/group-4-lg.jpg',
+                            img_sm: './img/content/sunmar/group/group-4-sm.jpg',
+                        },
+                    ],
+                })
+
+                //- 4
+                +block-img-text2({
+                    title: 'Фантастический Дубай',
+                    alt: 'Фантастический Дубай',
+                    text: `
+                        <p>
+                            Экскурсия Фантастический Дубай познакомит туристов с&nbsp;действительно фантастическим городом, который способен поразить воображение даже самых искушенных путешественников.
+                        </p>
+                        <p>
+                            Отдыхающие проплывут на&nbsp;арабской лодке по&nbsp;району Дубай Марина, полюбуются архитектурой Дубая и&nbsp;отелем Burj Al&nbsp;Arab, насладятся изысканной кухней в&nbsp;отеле &laquo;Armani&raquo; и&nbsp;потрясающим шоу фонтанов. Кроме того, туристов ждет грандиозный аквариум и&nbsp;зоопарк морских обитателей, а&nbsp;также смотровая площадка легендарного здания Burj Khalifa, откуда открывается невероятный вид на&nbsp;Дубай.
+                        </p>
+                    `,
+                    class_suffix: 'tab',
+                    images: [
+                        {
+                            img_lg: './img/content/sunmar/group/group-5-lg.jpg',
+                            img_sm: './img/content/sunmar/group/group-5-sm.jpg',
+                        },
+                    ],
+                })
+
+                //- 5
+                +block-img-text2({
+                    title: 'Пустынное Сафари',
+                    alt: 'Пустынное Сафари',
+                    text: `
+                        <p>
+                            Экскурсия придется по&nbsp;душе туристам, желающим отправиться в&nbsp;увлекательное путешествие по&nbsp;крутым барханам пустыни, полюбоваться красивым закатом, насытиться позитивными эмоциями и&nbsp;сделать яркие фотографии!
+                        </p>
+                        <p>
+                            Кроме того, пустынное сафари предоставит возможность поближе узнать культуру и&nbsp;наследие Арабских Эмиратов, а&nbsp;еще насладиться национальной кухней в&nbsp;чудесном ресторане прямо под открытым небом.
+                        </p>
+                    `,
+                    class_suffix: 'tab',
+                    images: [
+                        {
+                            img_lg: './img/content/sunmar/group/group-6-lg.jpg',
+                            img_sm: './img/content/sunmar/group/group-6-sm.jpg',
+                        },
+                    ],
+                })
+
+                //- 6
+                +block-img-text2({
+                    title: 'Парк IMG Worlds of Adventure',
+                    alt: 'Парк IMG Worlds of Adventure',
+                    text: `
+                        <p>
+                            Парк IMG Worlds of&nbsp;Adventure&nbsp;&ndash; потрясающий мир разнообразных развлечений, расположившийся на&nbsp;огромной территории. Экскурсия в&nbsp;парк будет интересна и&nbsp;взрослым, и&nbsp;детям. Туристы повстречают здесь и&nbsp;легендарного Человека-паука, и&nbsp;Халка, и&nbsp;Тора, и&nbsp;Капитана Америка, а&nbsp;еще&nbsp;&ndash; огромных динозавров и&nbsp;многих других героев.
+                        </p>
+                        <p>
+                            Парк разбит на&nbsp;несколько тематических зон, в&nbsp;каждой из&nbsp;которых отдыхающих ждет большой спектр развлечений, магазины, рестораны и&nbsp;невероятные аттракционы.
+                        </p>
+                    `,
+                    class_suffix: 'tab',
+                    images: [
+                        {
+                            img_lg: './img/content/sunmar/group/group-7-lg.jpg',
+                            img_sm: './img/content/sunmar/group/group-7-sm.jpg',
+                        },
+                    ],
+                })
+
+                //- 7
+                +block-img-text2({
+                    title: 'Крупнейший комплекс<br />Dubai Parks & Resorts',
+                    alt: 'Крупнейший комплекс Dubai Parks & Resorts',
+                    text: `
+                        <p>
+                            Dubai Parks and Resorts – крупнейший комплекс парков развлечений, в состав которого входят: <b>MOTIONGATE™ Dubai</b> – тематический парк, посвященный любимым персонажам ведущих голливудских киностудий DreamWorks Animation, Columbia Pictures, включая Smurfs, и Lionsgate. <b>Bollywood Parks™ Dubai</b> – первый семейный тематический парк, аттракционы которого посвящены миру Болливуда.<br /><b>LEGOLAND® Dubai</b> – уникальный интерактивный парк для семей, в котором оживают конструкции из кирпичиков LEGO®.<br /><b>LEGOLAND® Water Park</b> – первый в регионе водный парк, предназначенный для семей с детьми от 2 до 12 лет.
+                        </p>
+                        <p>
+                            Все тематические парки объединены торгово-ресторанной зоной Riverland&trade; Dubai с&nbsp;бесплатным доступом.
+                        </p>
+                    `,
+                    class_suffix: 'tab2',
+                    images: [
+                        {
+                            img_lg: './img/content/sunmar/group/group-8-lg.jpg',
+                            img_sm: './img/content/sunmar/group/group-8-sm.jpg',
+                        },
+                        {
+                            img_lg: './img/content/sunmar/group/group-9-lg.jpg',
+                            img_sm: './img/content/sunmar/group/group-9-sm.jpg',
+                        },
+                    ],
+                })
+
+                
+            .dm-tab__body(data-content-for="groups-and-tickets" style="display: none;")
+                .dm-tab__text Лучший вариант запомнить путешествие в&nbsp;ОАЭ&nbsp;&ndash; это посетить самое яркое шоу Le&nbsp;Perle, прокатиться на&nbsp;всех аттракционах в&nbsp;парке развлечений Dubai Parks and Resorts, а&nbsp;также сделать фотографии на&nbsp;смотровой площадке Бурдж-Халифа. В&nbsp;этом разделе вы&nbsp;сможете забронировать билеты на&nbsp;эти развлечения. Не&nbsp;пропустите!
+
+                .dm-list.dm-list--ticket
+                    +block-img-text({
+                        title: 'Билеты',
+                        text: '',
+                        link: '//www.sunmar.ru/uae-excursion/tickets/',
+                        class_suffix: '--ticket',
+                        class_wrap: 'dm-list__item',
+                        class_img: 'dm-list__img',
+                        class_desc: 'dm-list__desc',
+                        class_title: 'dm-list__title',
+                        class_text: '',
+                        class_link: 'dm-list__link',
+                        img_lg: './img/content/sunmar/ticket/ticket-lg.jpg',
+                    })

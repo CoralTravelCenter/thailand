@@ -1,0 +1,143 @@
+include components/block-img-text/block-img-text
+include components/benefits4/benefits4-temp
+include components/benefits/benefits-temp
+include components/banner/banner-temp
+//- добавляем нужные блоки
+//- include components/intro/intro-sunmar
+.dm-site-wrap
+	.dm-site-wrap__inner
+		section.dm-section--benefits
+			.dm-benefits
+				.dm-benefits__desc
+					.dm-text.dm-text--benefits Каникулы&nbsp;&mdash; это прекрасная возможность отдохнуть и&nbsp;провести время с&nbsp;семьей. Вы&nbsp;можете устроить себе ленивый пляжный отдых на&nbsp;берегу теплого океана, побывать в&nbsp;самом лучше парке развлечений в&nbsp;ОАЭ, изучить подводный мир Египта, посчитать всех хомлинов в&nbsp;Калининграде или отлично повеселиться во&nbsp;время вечернего шоу в&nbsp;одном из&nbsp;отелей Турции. Такие каникулы подарят море эмоций и&nbsp;взрослым и&nbsp;детям!
+					h2.dm-benefits__header Путешествие на&nbsp;осенние каникулы&nbsp;&mdash; это...
+
+				.dm-benefits__items
+					.dm-benefits__item
+						.dm-benefits__img-wrap
+							.dm-benefits__img.dm-benefits__img--1
+						.dm-benefits__title Время с&nbsp;семьей
+					.dm-benefits__item
+						.dm-benefits__img-wrap
+							.dm-benefits__img.dm-benefits__img--2
+						.dm-benefits__title Знакомство с культурой#[br]других стран
+					.dm-benefits__item
+						.dm-benefits__img-wrap
+							.dm-benefits__img.dm-benefits__img--3
+						.dm-benefits__title Сбежать в&nbsp;лето
+
+.dm-site-wrap
+	.dm-site-wrap__inner
+		section.dm-section--benefits4
+			+benefits4({
+						'title': '',
+						'text': '',
+						'items':[
+							{
+								'title': 'Почему стоит выбрать <span class="dm-color-red">Турцию</span> для&nbsp;осенних&nbsp;каникул?',
+								'text': `
+								<div class="dm-text__item">Широкий выбор семейных отелей;</div>
+								<div class="dm-text__item">Система питания «все включено»;</div>
+								<div class="dm-text__item">Насыщенная развлекательная программа для детей;</div>
+								<div class="dm-text__item">Теплое море и яркое солнце.</div>
+								`,
+								'img': './img/content/sunmar/city-1.jpg',
+								'link': '#turkie',
+							},
+							{
+								'title': 'Почему стоит выбрать <span class="dm-color-red">ОАЭ</span> для&nbsp;осенних&nbsp;каникул?',
+								'text': `
+								<div class="dm-text__item">Лучшие во всем мире парки развлечений;</div>
+								<div class="dm-text__item">Возможность продлить лето;</div>
+								<div class="dm-text__item">Чистейшие пляжи;</div>
+								<div class="dm-text__item">Долгожданный шопинг;</div>
+								<div class="dm-text__item">Море развлечений.</div>
+								`,
+								'img': './img/content/sunmar/city-2.jpg',
+								'link': '#uae',
+							},
+							{
+								'title': 'Почему стоит выбрать <span class="dm-color-red">Египет</span> для&nbsp;осенних&nbsp;каникул?',
+								'text': `
+								<div class="dm-text__item">Пляжный отдых круглый год;</div>
+								<div class="dm-text__item">Удивительное красное море;</div>
+								<div class="dm-text__item">Разнообразие экскурсионных программ;</div>
+								<div class="dm-text__item">Отличные условия для занятия дайвингом и снорклингом.</div>
+								`,
+								'img': './img/content/sunmar/city-3.jpg',
+								'link': '#egypt',
+							},
+							{
+								'title': 'Почему стоит выбрать <span class="dm-color-red">Мальдивы</span> для&nbsp;осенних&nbsp;каникул?',
+								'text': `
+								<div class="dm-text__item">Белоснежные пляжи;</div>
+								<div class="dm-text__item">Экзотические фрукты;</div>
+								<div class="dm-text__item">Самобытная культура;</div>
+								<div class="dm-text__item">Теплый Индийский океан;</div>
+								<div class="dm-text__item">Уникальная природа.</div>
+								`,
+								'img': './img/content/sunmar/city-4.jpg',
+								'link': '#maldives',
+							},
+							{
+								'title': 'Почему стоит выбрать <span class="dm-color-red">Шри-Ланку</span> для&nbsp;осенних&nbsp;каникул?',
+								'text': `
+								<div class="dm-text__item">Широкие белоснежные пляжи;</div>
+								<div class="dm-text__item">Превосходные спа-центры для всей семьи;</div>
+								<div class="dm-text__item">Древнейшая культура;</div>
+								<div class="dm-text__item">Высокий уровень обслуживания;</div>
+								<div class="dm-text__item">Цейлонский чай.</div>
+								`,
+								'img': './img/content/sunmar/city-5.jpg',
+								'link': '#shrilanka',
+							},
+							{
+								'title': 'Почему стоит выбрать <span class="dm-color-red">Россию</span> для&nbsp;осенних&nbsp;каникул?',
+								'text': `
+								<div class="dm-text__item">Прекрасная возможность лучше узнать страну;</div>
+								<div class="dm-text__item">Познакомится с культурными традициями своей страны;</div>
+								<div class="dm-text__item">Увидеть чудеса природы;</div>
+								<div class="dm-text__item">Изучить наследие предков.</div>
+								`,'img': './img/content/sunmar/city-6.jpg',
+								'link': '#russia',
+							},
+						],
+					})
+
+.dm-site-wrap.dm-font-size-unset
+	.dm-site-wrap__inner.dm-font-size-unset
+		section.dm-section--benefits4
+			//- include components/temp/sunmar.html
+//- .dm-site-wrap
+	.dm-site-wrap__inner
+		section.dm-section--banner
+			+banner({
+				'title':'Разнообразьте свой<br />отдых в ОАЭ',
+				'text':' Самые лучшие экскурсии<br />и парки развлечений!',
+				'img_lg':'./img/content/sunmar/banner-lg.jpg',
+				'img_sm':'./img/content/sunmar/banner-sm.jpg',
+				'alt':'Разнообразьте свой отдых в ОАЭ',
+				'link':'https://www.sunmar.ru/uae-excursion/',
+				'btn_title':'Подробнее',
+			})
+
+//- .dm-site-wrap
+	.dm-site-wrap__inner
+		section.dm-section--banner2
+			+banner({
+				'title':'Пакеты услуг в ОАЭ<br />сделают ваш отдых<br />безопаснее',
+				'text':'Это удобно и просто!',
+				'img_lg':'./img/content/sunmar/banner-2-lg.jpg',
+				'img_sm':'./img/content/sunmar/banner-2-sm.jpg',
+				'alt':'Пакеты услуг в ОАЭ сделают ваш отдых безопаснее',
+				'link':'https://www.sunmar.ru/hotels-service-packages/',
+				'btn_title':'Подробнее',
+			})
+
+.dm-site-wrap
+	.dm-site-wrap__inner
+		include components/share/share-sunmar
+
+link(rel="stylesheet" href='./styles/sunmar.reset.css')
+link(rel="stylesheet" href='./styles/main_sunmar.css')
+script(src="./js/main_sunmar.js")

@@ -1,0 +1,112 @@
+.dm-benefits4
+    margin-bottom em(60)
+
+    @media screen and (min-width: 769px)
+        margin-bottom em(40)
+        max-width em(1336)
+        margin-left auto
+        margin-right auto
+
+    &__items
+        padding 0 em(50)
+
+        @media screen and (min-width: 769px)
+            padding 0
+            // display flex
+            // flex-wrap wrap
+
+    &__item
+        margin-bottom em(60)
+
+        @media screen and (min-width: 769px)
+            display flex
+            margin-bottom em(60)
+
+            .dm-benefits4__item-desc
+                width (580/16em)
+            
+            &:nth-child(even)
+                flex-direction row-reverse
+
+                .dm-benefits4__item-desc
+                    width (580/16em)
+                
+    &__img-wrap
+
+    &__img
+        display block
+        height auto
+        border-radius em(50)
+        width em(620)
+        margin-bottom em(40)
+
+        @media screen and (min-width: 769px)
+            width em(656)
+            margin-bottom 0
+
+
+    &__item-desc
+        display flex
+        flex-direction column
+        justify-content center
+        // align-items center
+
+        @media screen and (min-width: 769px)
+            margin-left auto
+            margin-right auto
+            text-align left
+            align-items flex-start
+
+    &__item-text
+        font-weight 400
+        font-size 1em
+        line-height (19/16em)
+        
+        a
+            color #0093D0!important
+
+            &:hover
+                text-decoration underline
+
+    &__notes
+        display flex
+        justify-content space-between
+        width 100%
+
+    &__note
+        text-align center
+
+    &__note-img-wrap
+        margin-bottom em(24)
+    
+    &__note-text
+        font-size em(14)
+        line-height (17/14em)
+        font-weight 600
+        margin-bottom (40/14em)
+        text-transform uppercase
+
+.dm-text__item
+    color #102856
+    font-size (24/20em)
+    line-height (32/20em)
+    margin-bottom 0.5em
+    position relative
+    padding 0 0 0 (36/20em)
+
+    @media screen and (min-width: 769px)
+        font-size 1em
+        line-height (28/20em)
+
+    &:before
+        position absolute
+        content ''
+        width: (6/20em)
+        height: (6/20em)
+        background-color #102856
+        border-radius: 50%
+        left (16/20em)
+        top: (12/20em)
+
+.dm-benefits4__item-btn
+    margin-top em(30)

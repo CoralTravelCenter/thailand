@@ -1,0 +1,60 @@
+.dm-benefits3
+    margin-bottom em(60)
+
+    &__items
+        padding 0 em(30)
+
+    &__row-wrap
+        @media screen and (min-width: 769px)
+            display flex
+            flex-wrap wrap
+            justify-content space-between
+
+    &__row
+        @media screen and (min-width: 769px)
+            display flex
+            justify-content space-between
+            flex-wrap wrap
+
+            &--2
+            &--3
+                flex-direction column
+                width 48%
+                min-width 48%
+                max-width 48%
+                flex-grow 1
+
+                .dm-benefits3__item
+                    width 100%
+            
+            &--3
+                .dm-benefits3__item
+                    height 100%
+
+    &__item
+        margin-bottom em(40)
+        position relative
+
+        @media screen and (min-width: 769px)
+            margin 0 0 em(40)
+            width 48%
+
+    &__item__title
+        position absolute
+        text-shadow (2/50em) (2/50em) (2/50em) rgba(0, 0, 0, 0.25)
+        color #fff
+        font-weight 700
+        font-size em(50)
+        line-height (60/50em)
+        position absolute
+        left (64/50em)
+        top (190/50em)
+
+        @media screen and (min-width: 769px)
+            left (58/50em)
+            top (164/50em)
+
+    &__img
+        max-width 100%
+        height auto
+        border-radius em(40)

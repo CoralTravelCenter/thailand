@@ -1,0 +1,53 @@
+.dm-social-2
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+
+    &--bottom
+        margin-left auto
+        margin-right auto
+        padding-bottom 1em
+
+    &-wrap
+        padding em(20) em(40) em(80)
+
+        @media screen and (min-width: 769px)
+            max-width em(740)
+            margin-left auto
+            margin-right auto
+
+    &__item
+        margin em(16)
+        width em(76)
+        height em(76)
+
+        &:hover
+            & > *
+                transform scale(1.2)
+
+    &__link
+        display block
+        width em(76)
+        height em(76)
+        background-repeat no-repeat
+        background-size 100% 100%
+        background-position 50% 50%
+        transform scale(1)
+        transition: all 0.3s
+
+        &--wa
+            background-image embedurl('../img/content/sunmar/wa-icon.svg')
+        &--vk
+            background-image embedurl('../img/content/sunmar/vk-icon.svg')
+        &--tg
+            background-image embedurl('../img/content/sunmar/tg-icon.svg')
+        &--chat
+            background-image embedurl('../img/content/sunmar/chat-icon.svg')
+
+    &__title
+        font-size: em(42);
+        line-height: (50/42em);
+        text-align: center;
+        font-weight: 900;
+        color: #102856;
+        margin-bottom (60/50em)

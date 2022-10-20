@@ -1,0 +1,39 @@
+include timer2-circle
+section.section.serction--timer
+    .timer
+        h3.timer__title Принимайте участие в акции уже сейчас! 
+        .timer__subtitle До окончания действия каталога осталось:
+        .timer__wrap
+            ul.timer__list.timer__circle
+                li.timer__list-item
+                    div.timer__circle-unit.timer__circle-day
+                        +timer2-circle()
+
+                li.timer__list-item
+                    div.timer__circle-unit.timer__circle-hour
+                        +timer2-circle()
+                    
+                li.timer__list-item
+                    div.timer__circle-unit.timer__circle-minut
+                        +timer2-circle()
+                    
+                li.timer__list-item
+                    div.timer__circle-unit.timer__circle-second
+                        +timer2-circle()
+
+            ul.timer__list.timer__counter(data-end-date="January 16, 2022 23:59:59")
+                li.timer__list-item
+                    div.timer__num %days%
+                    div.timer__unit %DAYS%
+
+                li.timer__list-item
+                    div.timer__num %hours%
+                    div.timer__unit %HOURS%
+
+                li.timer__list-item
+                    div.timer__num %minuts%
+                    div.timer__unit %MINUTS%
+                
+                li.timer__list-item
+                    div.timer__num %seconds%
+                    div.timer__unit %SECONDS%

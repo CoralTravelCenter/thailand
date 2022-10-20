@@ -1,0 +1,71 @@
+.md-visible
+	display: none
+
+	+md-block()
+		display: block
+
+.nowrap
+	white-space nowrap
+
+.md-nowrap	
+	+md-block()
+		white-space nowrap
+
+.only-sm-visible
+	+md-block()
+		display: none
+
+.only-sm-hidden
+	display none
+
+	+md-block()
+		display block
+
+.only-md-visible
+	display none
+
+	+md-block()
+		display block
+	
+	+lg-block()
+		display none
+
+.only-lg-visible
+	
+	display none
+
+	+lg-block()
+		display block
+
+.only-sm-md-visible
+.only-lg-hidden
+	+lg-block()
+		display none
+
+.only-md-hidden
+	+md-block()
+		display none
+	
+	+lg-block()
+		display block
+
+
+.span-only-lg-visible
+	display none
+	line-height 0
+	font-size 0
+	
+	+lg-block()
+		display block
+
+
+.span-only-md-visible
+	display none
+	line-height 0
+	font-size 0
+	
+	+md-block()
+		display block
+	
+	+lg-block()
+		display none

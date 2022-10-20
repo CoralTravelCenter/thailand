@@ -1,0 +1,99 @@
+.dm-benefits2
+    margin-bottom em(60)
+
+    &__items
+        padding 0 em(30)
+
+    // &__row-wrap
+    //     @media screen and (min-width: 769px)
+    //         display flex
+    //         flex-wrap wrap
+    //         justify-content space-between
+
+    // &__row
+    //     @media screen and (min-width: 769px)
+    //         display flex
+    //         justify-content space-between
+    //         flex-wrap wrap
+
+    //         &--2
+    //         &--3
+    //             flex-direction column
+    //             width 48%
+    //             min-width 48%
+    //             max-width 48%
+    //             flex-grow 1
+
+    //             .dm-benefits2__item
+    //                 width 100%
+            
+    //         &--3
+    //             .dm-benefits2__item
+    //                 height 100%
+
+    &__item
+        border em(9) solid #FBB200
+        border-radius em(40)
+        padding em(22)
+        margin-bottom em(40)
+
+        @media screen and (min-width: 769px)
+            padding-top em(36)
+            padding-bottom em(36)
+
+    &__title
+        display flex
+        font-size em(35)
+        line-height (40/35em)
+        color #000
+        font-weight 500
+        margin-bottom (40/35em)
+
+        @media screen and (min-width: 769px)
+            br
+                display none
+
+        &-img
+            width (80/35em)
+            margin-right (16/35em)
+            height auto
+
+            @media screen and (min-width: 769px)
+                width (119/35em)
+                margin-right (38/35em)
+    
+    &__text
+        font-size em(30)
+        line-height (34/30em)
+        font-weight normal
+
+        @media screen and (min-width: 769px)
+            margin-left (157/30em)
+            margin-top -3em
+
+        p:last-child
+            margin-bottom 0
+
+    &__btn-wrap
+        display none
+
+        @media screen and (min-width: 769px)
+            display block
+            margin-left em(157)
+            padding-top em(20)
+
+    &__btn
+        display inline-flex
+        border-radius (3/20em)
+        background-color #ffae00
+        transition all 0.3s
+        color #fff !important
+        font-size em(20) !important
+        font-weight normal
+        min-width (260/20em)
+        line-height (48/20em) !important
+        justify-content center
+        min-height (50/20em)
+
+        &:hover
+            background-color: #d18f00;

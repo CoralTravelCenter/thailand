@@ -1,0 +1,2462 @@
+<style type="text/css">
+    .reset {
+        position: static;
+        left: auto;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+        background: none;
+    }
+    .bbox,
+    .bbox * {
+        box-sizing: border-box;
+    }
+    .interactive {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .interactive:active {
+        -webkit-transform: translateY(2px);
+        -moz-transform: translateY(2px);
+        -ms-transform: translateY(2px);
+        -o-transform: translateY(2px);
+        transform: translateY(2px);
+    }
+    .abs100x100 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .centering {
+        display: table !important;
+        width: 100%;
+        height: 100%;
+    }
+    .centering > *:first-child {
+        width: 100%;
+        height: 100%;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .centering > *:first-child > *:first-child {
+        display: inline-block;
+    }
+    @media screen and (max-width: 768px) {
+        .hidden-on-mobile {
+            display: none !important;
+        }
+    }
+    @media screen and (min-width: 769px) {
+        .hidden-on-desktop {
+            display: none !important;
+        }
+    }
+    .rur:not(:empty):after {
+        content: ' \20BD ';
+    }
+    .rur.per-person:not(:empty):after {
+        content: ' \20BD / чел.';
+    }
+    .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #hotels-set {
+        opacity: 0;
+        transform: translateY(10vh);
+        -webkit-transition: opacity 0.5s, transform 0.5s;
+        -moz-transition: opacity 0.5s, transform 0.5s;
+        -ms-transition: opacity 0.5s, transform 0.5s;
+        -o-transition: opacity 0.5s, transform 0.5s;
+        transition: opacity 0.5s, transform 0.5s;
+        overflow: hidden;
+    }
+    #hotels-set,
+    #hotels-set * {
+        box-sizing: border-box;
+    }
+    #hotels-set .buttonlike {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        outline: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        line-height: 1;
+        font-size: inherit;
+        height: 2.6em;
+        padding: 0 2em;
+        border: 0;
+        text-decoration: none;
+        border-radius: 0.25em;
+    }
+    #hotels-set .buttonlike:active {
+        -webkit-transform: translateY(2px);
+        -moz-transform: translateY(2px);
+        -ms-transform: translateY(2px);
+        -o-transform: translateY(2px);
+        transform: translateY(2px);
+    }
+    #hotels-set .buttonlike.transparent {
+        color: inherit;
+        border: 1px solid currentColor;
+    }
+    #hotels-set .buttonlike.yellow {
+        color: white;
+        background-color: #F0AB00;
+    }
+    #hotels-set .buttonlike.white {
+        color: inherit;
+        background-color: white;
+    }
+    #hotels-set .buttonlike.blue {
+        color: white;
+        background-color: #0093D0;
+    }
+    #hotels-set .buttonlike.deepblue {
+        color: white;
+        background-color: #0F2855;
+    }
+    #hotels-set .buttonlike.red {
+        color: white;
+        background-color: #D7232A;
+    }
+    #hotels-set.shown {
+        opacity: 1;
+        transform: none;
+    }
+    #hotels-set .group-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #hotels-set .group-filters > * {
+        flex: 0 1 auto;
+        margin: 0.5em 1em;
+        -webkit-transition: color 0.5s, bacgground 0.5s;
+        -moz-transition: color 0.5s, bacgground 0.5s;
+        -ms-transition: color 0.5s, bacgground 0.5s;
+        -o-transition: color 0.5s, bacgground 0.5s;
+        transition: color 0.5s, bacgground 0.5s;
+        cursor: pointer;
+    }
+    #hotels-set .group-filters > *[data-group='*'] {
+        flex-grow: 1;
+    }
+    #hotels-set .group-filters > *.selected {
+        pointer-events: none;
+        color: white;
+        background-color: #0E2855;
+    }
+    #hotels-set .cards-grid .card-cell {
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+        padding: 1em;
+        min-height: 0;
+    }
+    @media screen and (max-width: 1280px) {
+        #hotels-set .cards-grid .card-cell {
+            width: 33.33333333%;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        #hotels-set .cards-grid .card-cell {
+            width: 50%;
+        }
+    }
+    @media screen and (max-width: 576px) {
+        #hotels-set .cards-grid .card-cell {
+            width: 100%;
+        }
+    }
+    #hotels-set .cards-grid .card-cell > .pad {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        border-radius: 1em;
+        overflow: hidden;
+    }
+    #hotels-set .cards-grid .card-cell > .pad > * {
+        max-width: 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual {
+        width: 100%;
+        position: relative;
+        background: center no-repeat;
+        background-size: cover;
+        border-radius: 1em;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual:before {
+        content: '';
+        display: block;
+        padding-top: 56.25%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual > * {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual [is="hotel-stars"] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        filter: drop-shadow(0px -2px 2px #0E2855);
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual [is="hotel-stars"] .star {
+        width: 1.5em;
+        height: 100%;
+        margin: 0 2px;
+        background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjkiIGhlaWdodD0iMjkiIHZpZXdCb3g9IjAgMCAyOSAyOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTkuNjEwMiA4LjIyMDIxTDI3LjUwMTEgOS4zNzk0NUMyNy44MjMzIDkuNDI2NDIgMjguMTI2IDkuNTYxOCAyOC4zNzUyIDkuNzcwNDFDMjguNjI0NSA5Ljk3OTAyIDI4LjgxMDUgMTAuMjUyNiAyOC45MTI0IDEwLjU2MDZDMjkuMDE0MiAxMC44NzAyIDI5LjAyNzUgMTEuMjAxOSAyOC45NTA5IDExLjUxODZDMjguODc0MyAxMS44MzUzIDI4LjcxMDggMTIuMTI0NiAyOC40Nzg2IDEyLjM1NDFMMjIuNzU2NyAxNy45NDI1TDI0LjEwNzUgMjUuOTU4N0MyNC4xNjI2IDI2LjI4MTUgMjQuMTI1NCAyNi42MTMxIDI0LjAwMDIgMjYuOTE1OEMyMy44NzQ5IDI3LjIxODUgMjMuNjY2NiAyNy40Nzk5IDIzLjM5OTIgMjcuNjcwM0MyMy4xMzMgMjcuODYwNyAyMi44MTg4IDI3Ljk3MzMgMjIuNDkxOCAyNy45OTU1QzIyLjE2NDkgMjguMDE3NyAyMS44MzgyIDI3Ljk0ODYgMjEuNTQ4NiAyNy43OTZMMTQuNDk3OCAyNC4wNTMxTDcuNDUyNDYgMjcuNzk4OEM3LjE2MTg3IDI3Ljk1MTUgNi44MzQzMiAyOC4wMjA2IDYuNTA2NDkgMjcuOTk4NEM2LjE3ODY3IDI3Ljk3NjIgNS44NjM1NCAyNy44NjM1IDUuNTk2NDEgMjcuNjczQzUuMzI5NjUgMjcuNDgyMiA1LjEyMjI0IDI3LjIyMDUgNC45OTc5MyAyNi45MTc4QzQuODczNjIgMjYuNjE1MSA0LjgzNzQ0IDI2LjI4MzcgNC44OTM1MiAyNS45NjE1TDYuMjQ0MzggMTcuOTQ1MkwwLjUyMDgxNCAxMi4zNTQxQzAuMjg4ODI0IDEyLjEyNDUgMC4xMjU0NjcgMTEuODM1MiAwLjA0ODk2MzggMTEuNTE4NUMtMC4wMjc1Mzk3IDExLjIwMTggLTAuMDE0MTgyMSAxMC44NzAxIDAuMDg3NTUxIDEwLjU2MDZDMC4xODg5MDggMTAuMjUyIDAuMzc0OTU4IDkuOTc3ODYgMC42MjQ2NTQgOS43NjkxM0MwLjg3NDM1IDkuNTYwNCAxLjE3NzczIDkuNDI1NDEgMS41MDA0NiA5LjM3OTQ1TDkuMzg0ODUgOC4yMjAyMUwxMi45MjEyIDAuOTg0MjY1QzEzLjA2NDQgMC42ODkyNjIgMTMuMjg4MyAwLjQ0MDQzNiAxMy41NjcgMC4yNjYzNDJDMTMuODQ1OCAwLjA5MjI0ODEgMTQuMTY4MiAtNi4wNjA4OWUtMDUgMTQuNDk3MiA1LjY2NzUzZS0wNkMxNC44MjcyIC0wLjAwMDgzMTUyMyAxNS4xNTA2IDAuMDkxMDk3NiAxNS40MzA0IDAuMjY1MjIxQzE1LjcxMDIgMC40MzkzNDQgMTUuOTM0OSAwLjY4ODU4NiAxNi4wNzg3IDAuOTg0MjY1TDE5LjYxMDIgOC4yMjAyMVoiIGZpbGw9IiNEODI0MkEiLz48L3N2Zz4K") center no-repeat;
+        background-size: contain;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual [is="hotel-stars"]:not([data-category*='*']) {
+        filter: none;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual [is="hotel-stars"]:not([data-category*='*']):after {
+        content: attr(data-category);
+        font-size: 1.2em;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        color: #D7232A;
+        padding: 0 0.5em;
+        border-radius: 3px;
+        background: white;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual .trait {
+        height: 1.5em;
+        top: 100%;
+        transform: translateY(-60%);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info {
+        width: 100%;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2em;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info > * {
+        max-width: 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info > *:nth-child(n+2) {
+        margin-top: 1em;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+        line-height: 1.1;
+        height: 2.2em;
+        text-align: inherit;
+        margin: 0;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info h4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 1.2;
+        text-align: inherit;
+        margin: 0;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .benefits {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        font-weight: normal;
+        margin-bottom: auto;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .benefits > * {
+        max-width: 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .benefits > * {
+        display: flex;
+        font-size: 13px;
+        line-height: 1.1;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .benefits > *:nth-child(n+2) {
+        margin-top: 0.25em;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .benefits > *:before {
+        content: '\25CF';
+        margin-right: 0.5em;
+        color: #D7232A;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms {
+        font-weight: normal;
+        line-height: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge {
+        flex: 0 1 auto;
+        display: inline-flex;
+        align-items: center;
+        font-size: 11px;
+        line-height: 1;
+        margin: 2px;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge .icon {
+        position: relative;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.2em;
+        height: 2.2em;
+        background-color: #eaf2ff;
+        color: #0E2855;
+        font-weight: bold;
+        border-radius: 3px;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge .icon:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge .label {
+        display: inline-flex;
+        align-items: center;
+        text-align: left;
+        height: 2.2em;
+        padding: 0 0.5em;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge.depart-from .icon:before {
+        content: '';
+        background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM1IiBoZWlnaHQ9Ijg3IiB2aWV3Qm94PSIwIDAgMTM1IDg3IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMzQuNDUxIDEzLjE2OTJDMTM0IDEyLjA5MzQgMTMzLjI5IDExLjEzOTEgMTMyLjMxOSAxMC4zMDYzQzEzMS4zNDkgOS40NzM0NyAxMzAuMjA1IDguODE0MTUgMTI4Ljg4OCA4LjMyODMzQzEyNy41NzEgNy44MDc4MSAxMjYuMTY3IDcuNTEyODUgMTI0LjY3NiA3LjQ0MzQ0QzEyMy4yMjEgNy4zNzQwNCAxMjEuNzk5IDcuNTEyODQgMTIwLjQxMyA3Ljg1OTg2TDg5LjU4MTkgMTUuNjE1NkwzNC40NzA2IDBMMjAuNjkyNyA1LjIwNTJMNjIuMDI2MiAyNi4wMjZMMzQuNDcwNiAzNi40MzY0TDYuOTE0OTEgMjYuMDI2TDAgMzEuMjMxMkwyNy41NTU3IDUyTDEyNy43OTYgMjMuNjMxNkMxMjkuMTEzIDIzLjI4NDYgMTMwLjMwOSAyMi43NDY3IDEzMS4zODMgMjIuMDE4QzEzMi40NTggMjEuMjU0NiAxMzMuMzA3IDIwLjM4NzEgMTMzLjkzMSAxOS40MTU0QzEzNC41NTUgMTguNDQzOCAxMzQuOTAxIDE3LjQyMDEgMTM0Ljk3MSAxNi4zNDQzQzEzNS4wNzUgMTUuMjMzOSAxMzQuOTAxIDE0LjE3NTUgMTM0LjQ1MSAxMy4xNjkyWiIgZmlsbD0iIzBFMjg1NSIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTM1IDg3SDBWODNIMTM1Vjg3WiIgZmlsbD0iIzBFMjg1NSIvPjwvc3ZnPgo=") center no-repeat;
+        background-size: 62%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge.depart-date .icon:before {
+        content: '';
+        background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjciIGhlaWdodD0iNzUiIHZpZXdCb3g9IjAgMCA2NyA3NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUuNTkyMSAwSDEzLjcwODdDMTMuNDY4MyAwIDEzLjI0MDQgMC4wNTA0OTk4IDEzLjAxOTYgMC4xMjIyNTZDMTEuOTE2NCAwLjQ4MDA1NSAxMS4xMDA5IDEuNjU3ODkgMTEuMTAwOSAzLjA3MDc4VjQuMzY3MzFWNy42ODU5MlY5LjQxMjQ5QzExLjEwMDkgOS43MzMzMSAxMS4xNTQzIDEwLjAzNjQgMTEuMjMxOCAxMC4zMjY2QzExLjU2MzggMTEuNTczMyAxMi41NDA4IDEyLjQ4MzMgMTMuNzA4NyAxMi40ODMzSDE1LjU5MjFDMTcuMDMyNyAxMi40ODMzIDE4LjE5OTkgMTEuMTA4NiAxOC4xOTk5IDkuNDEyNDlWNy42ODU5MlY0LjM2NzMxVjMuMDcwNzhDMTguMTk5OSAxLjM3NDY3IDE3LjAzMjcgMCAxNS41OTIxIDBaIiBmaWxsPSIjMEUyODU1Ii8+PHBhdGggZD0iTTUyLjY2NDcgMEg1MC43ODEzQzQ5LjM0MDcgMCA0OC4xNzM0IDEuMzc0NjcgNDguMTczNCAzLjA3MDc4VjQuMzY3MzFWNy42ODU5MlY5LjQxMjQ5QzQ4LjE3MzQgMTEuMTA4NiA0OS4zNDA3IDEyLjQ4MzMgNTAuNzgxMyAxMi40ODMzSDUyLjY2NDdDNTQuMTA1MyAxMi40ODMzIDU1LjI3MjUgMTEuMTA4NiA1NS4yNzI1IDkuNDEyNDlWNy42ODU5MlY0LjM2NzMxVjMuMDcwNzhDNTUuMjcxOSAxLjM3NDY3IDU0LjEwNDcgMCA1Mi42NjQ3IDBaIiBmaWxsPSIjMEUyODU1Ii8+PHBhdGggZD0iTTYyLjI4NTIgNy42ODU5MUg1Ny42MjE4VjkuNDEyNDlDNTcuNjIxOCAxMi40MDE2IDU1LjM5NzYgMTQuODMzMiA1Mi42NjQxIDE0LjgzMzJINTAuNzgwNkM0OC4wNDcxIDE0LjgzMzIgNDUuODIyOSAxMi40MDE2IDQ1LjgyMjkgOS40MTI0OVY3LjY4NTkxSDIwLjU0OThWOS40MTI0OUMyMC41NDk4IDEyLjQwMTYgMTguMzI1NiAxNC44MzMyIDE1LjU5MjEgMTQuODMzMkgxMy43MDg3QzEwLjk3NSAxNC44MzMyIDguNzUwOTYgMTIuNDAxNiA4Ljc1MDk2IDkuNDEyNDlWNy42ODU5MUg0LjY4NzUxQzIuMDk5MTIgNy42ODU5MSAwIDkuNjUzOTMgMCAxMi4wODAzVjcwLjYwNTdDMCA3My4wMzY1IDIuMDk5IDc1IDQuNjg3NTEgNzVINjIuMjg0NkM2NC44NzU0IDc1IDY2Ljk3MiA3My4wMzYgNjYuOTcyIDcwLjYwNTdWMTIuMDgwOUM2Ni45NzI2IDkuNjU0NTQgNjQuODc2IDcuNjg1OTEgNjIuMjg1MiA3LjY4NTkxWk02MC44MzE4IDY4LjU0OTRMNS45Njk5MSA2OC41MjgzVjIxLjM0NDdINjAuODMxOFY2OC41NDk0WiIgZmlsbD0iIzBFMjg1NSIvPjxwYXRoIGQ9Ik0zOS4zNjE0IDMyLjcxNTNINTMuNzg5OUM1NS4wNDIzIDMyLjcxNTMgNTYuMDU1MiAzMS40NjQ2IDU2LjA1NTIgMjkuOTE4OEM1Ni4wNTUyIDI4LjM3MzEgNTUuMDQxOCAyNy4xMjI0IDUzLjc4OTkgMjcuMTIyNEgzOS4zNjE0QzM4LjEwOSAyNy4xMjI0IDM3LjA5NjEgMjguMzczMSAzNy4wOTYxIDI5LjkxODhDMzcuMDk2MSAzMS40NjM5IDM4LjEwODkgMzIuNzE1MyAzOS4zNjE0IDMyLjcxNTNaIiBmaWxsPSIjMEUyODU1Ii8+PHBhdGggZD0iTTM5LjM2MTQgNDIuODE2M0g1My43ODk5QzU1LjA0MjMgNDIuODE2MyA1Ni4wNTUyIDQxLjU2NTYgNTYuMDU1MiA0MC4wMTk5QzU2LjA1NTIgMzguNDc0MyA1NS4wNDE4IDM3LjIyMzYgNTMuNzg5OSAzNy4yMjM2SDM5LjM2MTRDMzguMTA5IDM3LjIyMzYgMzcuMDk2MSAzOC40NzQzIDM3LjA5NjEgNDAuMDE5OUMzNy4wOTYxIDQxLjU2NTYgMzguMTA4OSA0Mi44MTYzIDM5LjM2MTQgNDIuODE2M1oiIGZpbGw9IiMwRTI4NTUiLz48cGF0aCBkPSJNMzkuMzYxNCA1Mi45MTczSDUzLjc4OTlDNTUuMDQyMyA1Mi45MTczIDU2LjA1NTIgNTEuNjY2NSA1Ni4wNTUyIDUwLjEyMDlDNTYuMDU1MiA0OC41NzUzIDU1LjA0MTggNDcuMzI0NSA1My43ODk5IDQ3LjMyNDVIMzkuMzYxNEMzOC4xMDkgNDcuMzI0NSAzNy4wOTYxIDQ4LjU3NTMgMzcuMDk2MSA1MC4xMjA5QzM3LjA5NjEgNTEuNjY2NSAzOC4xMDg5IDUyLjkxNzMgMzkuMzYxNCA1Mi45MTczWiIgZmlsbD0iIzBFMjg1NSIvPjxwYXRoIGQ9Ik0zOS4zNjE0IDYzLjAxOUg1My43ODk5QzU1LjA0MjMgNjMuMDE5IDU2LjA1NTIgNjEuNzY4MiA1Ni4wNTUyIDYwLjIyMjZDNTYuMDU1MiA1OC42NzY5IDU1LjA0MTggNTcuNDI2MiA1My43ODk5IDU3LjQyNjJIMzkuMzYxNEMzOC4xMDkgNTcuNDI2MiAzNy4wOTYxIDU4LjY3NjkgMzcuMDk2MSA2MC4yMjI2QzM3LjA5NjEgNjEuNzY4MiAzOC4xMDg5IDYzLjAxOSAzOS4zNjE0IDYzLjAxOVoiIGZpbGw9IiMwRTI4NTUiLz48cGF0aCBkPSJNMTMuODA2MiAzMi43MTUzSDI4LjIzNDZDMjkuNDg3MSAzMi43MTUzIDMwLjQ5OTkgMzEuNDY0NiAzMC40OTk5IDI5LjkxODhDMzAuNDk5OSAyOC4zNzMxIDI5LjQ4NjQgMjcuMTIyNCAyOC4yMzQ2IDI3LjEyMjRIMTMuODA2MkMxMi41NTM3IDI3LjEyMjQgMTEuNTQwOCAyOC4zNzMxIDExLjU0MDggMjkuOTE4OEMxMS41NDEgMzEuNDYzOSAxMi41NTM3IDMyLjcxNTMgMTMuODA2MiAzMi43MTUzWiIgZmlsbD0iIzBFMjg1NSIvPjxwYXRoIGQ9Ik0xMy44MDYyIDQyLjgxNjNIMjguMjM0NkMyOS40ODcxIDQyLjgxNjMgMzAuNDk5OSA0MS41NjU2IDMwLjQ5OTkgNDAuMDE5OUMzMC40OTk5IDM4LjQ3NDMgMjkuNDg2NCAzNy4yMjM2IDI4LjIzNDYgMzcuMjIzNkgxMy44MDYyQzEyLjU1MzcgMzcuMjIzNiAxMS41NDA4IDM4LjQ3NDMgMTEuNTQwOCA0MC4wMTk5QzExLjU0MSA0MS41NjU2IDEyLjU1MzcgNDIuODE2MyAxMy44MDYyIDQyLjgxNjNaIiBmaWxsPSIjMEUyODU1Ii8+PHBhdGggZD0iTTEzLjgwNjIgNTIuOTE3M0gyOC4yMzQ2QzI5LjQ4NzEgNTIuOTE3MyAzMC40OTk5IDUxLjY2NjUgMzAuNDk5OSA1MC4xMjA5QzMwLjQ5OTkgNDguNTc1MyAyOS40ODY0IDQ3LjMyNDUgMjguMjM0NiA0Ny4zMjQ1SDEzLjgwNjJDMTIuNTUzNyA0Ny4zMjQ1IDExLjU0MDggNDguNTc1MyAxMS41NDA4IDUwLjEyMDlDMTEuNTQwOCA1MS42NjY1IDEyLjU1MzcgNTIuOTE3MyAxMy44MDYyIDUyLjkxNzNaIiBmaWxsPSIjMEUyODU1Ii8+PHBhdGggZD0iTTEzLjgwNjIgNjMuMDE5SDI4LjIzNDZDMjkuNDg3MSA2My4wMTkgMzAuNDk5OSA2MS43NjgyIDMwLjQ5OTkgNjAuMjIyNkMzMC40OTk5IDU4LjY3NjkgMjkuNDg2NCA1Ny40MjYyIDI4LjIzNDYgNTcuNDI2MkgxMy44MDYyQzEyLjU1MzcgNTcuNDI2MiAxMS41NDA4IDU4LjY3NjkgMTEuNTQwOCA2MC4yMjI2QzExLjU0MSA2MS43NjgyIDEyLjU1MzcgNjMuMDE5IDEzLjgwNjIgNjMuMDE5WiIgZmlsbD0iIzBFMjg1NSIvPjwvc3ZnPgo=") center no-repeat;
+        background-size: 50%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge.meal .icon:before {
+        content: '';
+        background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDUiIGhlaWdodD0iNDMiIHZpZXdCb3g9IjAgMCA0NSA0MyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNDMuNjkwMiAzLjczNDM3QzQzLjI1IDMuMjk0MSA0Mi42NjQ0IDMuMDEyNjkgNDIuMDQ3MSAyLjk1MzY5QzQwLjg5ODggMi44NDAyMSAzNy43NTM0IDQuNjc4NDYgMzUuOTgzMiA1Ljc4NTk1QzMzLjQ0NiA3LjM3MDAyIDI5LjYyNDIgMTAuMDU3IDI1LjgyOTcgMTMuODUxNkwxNy41MjM1IDIyLjE1MzJDMTYuNDY2IDIzLjIxMDggMTYuNDY2IDI0LjkzMSAxNy41MjM1IDI1Ljk4ODZMMTcuNTY0NCAyNi4wMjQ5TDYuMTY3MjIgMzcuNDIyQzUuMTA5NjYgMzguNDc5NiA1LjEwOTY2IDQwLjE5OTggNi4xNjcyMiA0MS4yNTc0QzcuMjI0NzkgNDIuMzE0OSA4Ljk0NTAzIDQyLjMxNDkgMTAuMDAyNiA0MS4yNTc0TDQzLjY5MDIgNy41Njk3NEM0NC40MjU1IDYuODM0NDQgNDQuNjc1MiA1LjcyMjQxIDQ0LjMyNTcgNC43NDIwMUM0NC4xOTg2IDQuMzY1MjggNDMuOTc2MiA0LjAxNTc5IDQzLjY5MDIgMy43MzQzN1oiIGZpbGw9IiMwRTI4NTUiLz48cGF0aCBkPSJNMjguNzk4MSAyNS4yMzA1TDI0Ljk2MjggMjkuMDY1OUwzNi44NzI4IDQwLjk3NTlDMzcuOTMwNCA0Mi4wMzM1IDM5LjY1MDYgNDIuMDMzNSA0MC43MDM2IDQwLjk3NTlDNDEuNzYxMiAzOS45MTg0IDQxLjc2MTIgMzguMTk4MSA0MC43MDM2IDM3LjE0MDZMMjguNzk4MSAyNS4yMzA1WiIgZmlsbD0iIzBFMjg1NSIvPjxwYXRoIGQ9Ik0xMy40MjQ5IDE3LjQ0NjRMMTYuNDAyNCAyMC40MjM5TDIwLjE4MzMgMTYuNjQzTDE3LjM1MSAxMy44MTA3QzE3Ljg3MyAxMi4wMzYgMTcuNDM3MyAxMC4wMzQzIDE2LjAzOTMgOC42MzYzN0MxNi4wMjU3IDguNjIyNzYgMTYuMDA3NSA4LjYxMzY4IDE1Ljk5MzkgOC42MDAwNkMxNS45ODAzIDguNTg2NDQgMTUuOTcxMiA4LjU2ODI5IDE1Ljk1NzYgOC41NTQ2N0w3LjY2NTA1IDAuMjYyMTIxQzcuMzE1NTYgLTAuMDg3MzczNiA2Ljc1MjczIC0wLjA4NzM3MzYgNi40MDMyNCAwLjI2MjEyMUM2LjA1Mzc0IDAuNjExNjE1IDYuMDUzNzQgMS4xNzQ0NCA2LjQwMzI0IDEuNTIzOTNMMTQuMTA1NyA5LjIyMTg5QzE0LjEwNTcgOS4yMjE4OSAxNC4xMTAzIDkuMjI2NDMgMTQuMTE0OCA5LjIyNjQzQzE0LjMzMjcgOS40NDQyOSAxNC4zMzI3IDkuNzkzNzkgMTQuMTE0OCAxMC4wMTE3QzEzLjg5NjkgMTAuMjI5NSAxMy41NDc1IDEwLjIyOTUgMTMuMzI5NiAxMC4wMTE3TDEzLjMyNSAxMC4wMDcxTDUuNjE4MDEgMi4zMDQ2MkM1LjI2ODUyIDEuOTU1MTMgNC43MDU2OSAxLjk1NTEzIDQuMzU2MiAyLjMwNDYyQzQuMDA2NyAyLjY1NDEyIDQuMDA2NyAzLjIxNjk0IDQuMzU2MiAzLjU2NjQzTDEyLjA1ODcgMTEuMjczNUMxMi4wNTg3IDExLjI3MzUgMTIuMDYzMiAxMS4yNzM1IDEyLjA2MzIgMTEuMjc4QzEyLjI4MTEgMTEuNDk1OSAxMi4yODExIDExLjg0NTQgMTIuMDYzMiAxMi4wNjMyQzExLjg0NTQgMTIuMjgxMSAxMS40OTU5IDEyLjI4MTEgMTEuMjc4IDEyLjA2MzJDMTEuMjc4IDEyLjA2MzIgMTEuMjc4IDEyLjA1ODcgMTEuMjczNSAxMi4wNTg3TDMuNTcwOTcgNC4zNTE2NkMzLjIyMTQ4IDQuMDAyMTcgMi42NTg2NSA0LjAwMjE3IDIuMzA5MTYgNC4zNTE2NkMxLjk1OTY3IDQuNzAxMTUgMS45NTk2NyA1LjI2Mzk4IDIuMzA5MTYgNS42MTM0N0wxMC4wMTE3IDEzLjMxNkwxMC4wMTYyIDEzLjMyMDVDMTAuMjM0MSAxMy41Mzg0IDEwLjIzNDEgMTMuODg3OSAxMC4wMTYyIDE0LjEwNTdDOS43OTgzMyAxNC4zMjM2IDkuNDQ4ODMgMTQuMzIzNiA5LjIzMDk3IDE0LjEwNTdDOS4yMzA5NyAxNC4xMDU3IDkuMjMwOTcgMTQuMTAxMiA5LjIyNjQzIDE0LjEwMTJWMTQuMTA1N0wxLjUyMzkzIDYuMzk4N0MxLjE3ODk4IDYuMDQ5MiAwLjYxMTYxNSA2LjA0OTIgMC4yNjIxMjEgNi4zOTg3Qy0wLjA4NzM3MzYgNi43NDgxOSAtMC4wODczNzM2IDcuMzExMDIgMC4yNjIxMjEgNy42NjA1MUw4LjU1OTIxIDE1Ljk1NzZDOC41NzI4MyAxNS45NzEyIDguNTkwOTggMTUuOTgwMyA4LjYwNDYgMTUuOTkzOUM4LjYxODIyIDE2LjAwNzUgOC42MjcyOSAxNi4wMjU3IDguNjQwOTEgMTYuMDM5M0M5LjkzOTAzIDE3LjMzMjkgMTEuNzU0NiAxNy44MDA0IDEzLjQyNDkgMTcuNDQ2NFoiIGZpbGw9IiMwRTI4NTUiLz48cGF0aCBkPSJNNDAuMjA0NCAzNi42Njg2TDI5LjMyMDEgMjUuNzc5OEwyNS41MzkyIDI5LjU1NjFMMzYuNDI4IDQwLjQ0NDlDMzcuNDcyIDQxLjQ4ODkgMzkuMTY1IDQxLjQ4ODkgNDAuMjA4OSA0MC40NDQ5QzQxLjI0ODMgMzkuNDA1NSA0MS4yNDgzIDM3LjcwOCA0MC4yMDQ0IDM2LjY2ODZaIiBmaWxsPSIjMEUyODU1Ii8+PC9zdmc+Cg==") center no-repeat;
+        background-size: 62%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .price-info {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.5em;
+        padding-top: 0.66em;
+        margin-top: auto;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .price-info.from:before {
+        content: 'от ';
+        font-weight: normal;
+        font-size: 66%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .price-info:after {
+        font-weight: normal;
+        font-size: 66%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .actions .buttonlike {
+        font-size: 13px;
+        text-transform: uppercase;
+    }
+    @media screen and (max-width: 576px) {
+        #hotels-set .cards-grid .card-cell > .pad .info .actions .buttonlike {
+            font-size: 12px;
+        }
+    }
+</style>
+
+
+<div id="hotels-set" data-component-instance="2b815364-a506-424b-9f2d-f73359630b02">
+
+    <div class="group-filters">
+        <button class="buttonlike white selected" data-group="*">Все отели</button>
+        <button class="buttonlike white " data-group="Турция">Турция</button>
+        <button class="buttonlike white " data-group="ОАЭ">ОАЭ</button>
+        <button class="buttonlike white " data-group="Египет">Египет</button>
+        <button class="buttonlike white " data-group="Мальдивы">Мальдивы</button>
+        <button class="buttonlike white " data-group="Шри-Ланка">Шри-Ланка</button>
+        <button class="buttonlike white " data-group="Россия">Россия</button>
+    </div>
+
+    <div class="cards-grid">
+        <div class="card-cell" data-group="Турция">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/1/27902/637750781345012189.JPG);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">LONG BEACH CLUB NATURE</h3>
+                    <h4 class="location">Дидим</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Ультра Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">42 082</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/turkey/long-beach-club-nature-didim/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22UKfWb7EqgNCkQAUpm2pbNcOaLD1iBRft2pHt45eU8aActrlSU5z7cN3F15xMXGEjpJ%2fIFTtaWBe0zqKAlquRntV9xsERsYFXmZz7Z454%2f3C4eYhM2XmHb5GqKXV4coI%2bC2%2bblKfx2nQ7wLcVoSNKRt2j%2fYWiVY4Z2wdTScvWrqM%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Турция">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/1/5174/637812125512090742.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">PINE BAY HOLIDAY RESORT</h3>
+                    <h4 class="location">Кушадасы</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Ультра Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">40 774</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/turkey/pine-bay-holiday-resort-kusadasi/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%226%2bywtAU%2bj18wFre%2ftWb%2br%2fgPhC0H8VLV6iyntHcgZqO1GHE8QDp8rZIhCfh4Q6Dsmq5Gu0XUTlyiy9VA5FNof0fhVLeD4zzyDTqLIiz6PXlnN%2bwcb4ipCvrCUD3HLhuzn4QkXGbwo5bzy8WKCWRFvH2oFBuxpUY4wgQspUTx5os%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Турция">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/1/29836/637391460135124259.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">GOLMAR BEACH HOTEL</h3>
+                    <h4 class="location">Мармарис</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">31 970</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/turkey/golmar-beach-hotel-marmaris/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22yLKDSEllNChfPKeML9ktpPwVmCqCY%2fMvff2SrNx5dhtEfIa8I0RKX%2bdSEeZ%2f1e%2f6gZpmndFqaSvjAbMC0utfhyy6Sx592ZY4qw1wso1CnULWD7%2bZmjjd6aWS7mUC3LUeBw%2f3tUfP6l8Z%2bw9zGCSpzv4ZxW2SUX8YSWhwqd8C4gw%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Турция">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/1/30730/637812128069454396.jpeg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">PREMIER NERGIS BEACH HOTEL &amp; SPA</h3>
+                    <h4 class="location">Мармарис</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">37 281</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/turkey/premier-nergis-beach-hotel-spa-marmaris/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22Iz90CxjpT7%2bjw7DWoYwo9FbILPfaND5RtWebjigzttpaQyTp3ka0VDv3Zyl%2bPo955vuCcm14N0DJQOO5ddiY0ROWk5m%2b1J5rffmLP8zpsteT%2bZlx3GvvB9Vt7TgcbNFxlqmGDQ6bjsifLwuBuE7dREmAc6eMvnQ%2fYa%2bx3bp1LiEZQsDI22c%2b6kUC2WzaTUkO%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Турция">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/1/21213/636458327585432560.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">LABRANDA MARES MARMARIS</h3>
+                    <h4 class="location">Мармарис</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">42 457</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/turkey/labranda-mares-marmaris-marmaris/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22Rdl2OQzKo1fLlq3YtqDO72vwiSDmBbYFCSJjRyn1%2b1%2b6jyXf2jhEsPDpSZCs4QuMV83dSpNV1Zia4BDurl%2fmVjrXgkUYWF2eDOe4FYjuAb5yDfyM4wLhDDHVEvHtQCUBswDLdT%2fqn%2fHi4tZMpfpLFxR1w8OleRVEzmCbD%2fuly2w%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Турция">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/1/9408/636702026232763866.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">OTIUM SEALIGHT BEACH RESORT</h3>
+                    <h4 class="location">Кушадасы</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Ультра Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">37 999</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/turkey/otium-sealight-beach-resort-kusadasi/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22Fxp1Hzzplj9rd0nM0LHWfH5isCEsvEBLyM95STP2lB7t5ylwHkU3Mdc7xWOWBErwl6cE6lmUR6pn3ExFP0lZyG7mrA5jwu8%2f4tXH8EopvvfjJtLm7DcZzKyt4Lh%2fM3w5N12AuRCjCIWA1CkeKI5qc8gRQhUoqKHZK4bRlA43AKk%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Турция">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/1/528/636869481270535233.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">M.C. BEACH RESORT</h3>
+                    <h4 class="location">Аланья</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">25.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Ультра Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">36 614</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/turkey/m-c-beach-resort-alanya/?q=%7b%22Bgn%22%3a%2225.10.2022%22%2c%22End%22%3a%2225.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22wrfpcbUJYskj63Aw5O4eKxNb9ATZDf1rvOg%2bExa01ypo%2fmKqAdJUi0kapx64Z1RDm1XXnh89ObWB10ODeMxhokbA8g3s3qwEVrS%2bmVzfdJLOBm4wbdH5GP8%2b85GZJNgWgeqqYlYIcQ7Dl3SktHogrmYscWAJYHbo6g5V3NrozLw%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Турция">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/1/25065/637800297145163649.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">OTIUM FAMILY STONE PALACE</h3>
+                    <h4 class="location">Сиде</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">25.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Ультра Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">35 599</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/turkey/otium-family-stone-palace-side/?q=%7b%22Bgn%22%3a%2225.10.2022%22%2c%22End%22%3a%2225.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%222y1FmuUQqhXb94QZrXVmjhRpbwVJqwnnYaINtexxofefxqfH%2bcHao1HnHcrEadqPLjlR53VgDKX2ZnA7ASnkqJsUSspVktES9XxOcc%2buvlMmp2BcWdGpaq7FblizQJ3UlGfqYbblxlUPWyZCX4WwjyZFiWTnPc5wln7gQHHArSk%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="ОАЭ">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/31/1982/636613981464610828.jpeg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">AJMAN HOTEL</h3>
+                    <h4 class="location">Аджман</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">103 046</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/united-arab-emirates/ajman-hotel-ajman/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2205.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%227qEZQlZxdM%2bcIF3pw0n6ms2Ai6LQwTx%2f8NpwpYqxqRI6mMgroPD6McevY2HuD620ZbrQ8FB8b3eJxlNQAPangOZJ1hKgKLP5UXiLW%2bTlZsoxyIk2d%2bie3oUk1jpmMfPXetuGqG3F9RFPbCjc8ZRISw%3d%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="ОАЭ">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/31/25153/636627733774839663.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">ALOFT PALM JUMEIRAH</h3>
+                    <h4 class="location">Джумейра</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">74 167</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/united-arab-emirates/aloft-palm-jumeirah-jumeira/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22cAITOvhbhzj69Dx5NNLl0ABVwVUHVm829Iej1XPhPNkwGcj3eFLR9Tkf1ZAzcqMQow0MdOQxhoWxax8r6wDte%2bAbpndYEZmRmI0dhjiWkFOA5y49yJl1MnoIFeW1WeioGUWrOzavWsioc%2fiWft8%2b7a0f60wOQ5pO%2fCTmXIKPmsA%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="ОАЭ">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/31/2009/636637857585903627.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">BM BEACH HOTEL</h3>
+                    <h4 class="location">Рас-Аль-Хайма</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Полупансион</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">53 288</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/united-arab-emirates/bm-beach-hotel-ras-al-khaimah/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22d%2bBhvvZedyxtHonMAajs8Frap9IKDAjLVNACAd9ZX1BGTtl4HobxPD9w9mj6p2HwEOWuMwpGWrI0F0pOB5aR0yPD5vrp2o9qCsZxKdLa8SGsaGyKaDRsUZML3bFUztPIR5Ou18qvOAQAZN2jMhdTgpdi6JwYBQSRnOA6RGbdEtw%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="ОАЭ">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/31/13480/636523244256076496.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">FAIRMONT AJMAN</h3>
+                    <h4 class="location">Аджман</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">78 412</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/united-arab-emirates/fairmont-ajman-ajman/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%225w87bQ2T%2bAQoISWtYpjAS9RYqAEWuOJ7bmL7%2fXjQlAzdICOlnE50RQsdMr9t5LOnjovpecfiSsylGx7PFCIDrr8n0mPXVjvbedrtC2m6a53kHM8SQ23vKtFVRdxJWNzh2brFavOy5eIFTxiKOtRrrvyofc5K45mlbPzBo4NfPaA%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="ОАЭ">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/31/35893/637959110264032704.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">HAMPTON BY HILTON MARJAN ISLAND</h3>
+                    <h4 class="location">Рас-Аль-Хайма</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">55 582</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/united-arab-emirates/hampton-by-hilton-marjan-island-ras-al-khaimah/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22o0PnQpImVZa%2fD%2bUH94s8cRT%2be0qExg6fhQ66FU5W5kUez1f%2f2VvFwfSTxAb%2b6Fwk5Ek15ImVCk%2b%2f10o1mIrJr0%2fuot99akVTFxIM%2f9vr84ZAcyb7o5EgubJ06UWvjvD05RCfEjXsLvaxYK2wehpUdXO0PRqdPKmH3V7uudmBP6fqjoMsj8WUO7zlipMWetUY%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="ОАЭ">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/31/2078/637080324219547086.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">LE MERIDIEN AL AQAH</h3>
+                    <h4 class="location">Фуджейра</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">68 936</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/united-arab-emirates/le-meridien-al-aqah-fujairah/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22zlEzjfbyBBiI4%2fRqLFyNJ4pSYOpxck99E5rnUUsTCJJz0IXjhziEWpMUch1v77CTwyxAsFz%2f%2fvT6qQFWC1jE7rVVx%2fYCtQdhi5erj1JtVEfKCUHRgdVKuoEZ1pPo%2fLma18csv4ooHZHLdXO1TVg7aYCdDU1nAaqhTE6sze8ci48%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="ОАЭ">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/31/1045/637769943549015866.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">MOVENPICK HOTEL JUMEIRAH BEACH</h3>
+                    <h4 class="location">Дубай</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Без питания</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">92 570</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/united-arab-emirates/movenpick-hotel-jumeirah-beach-dubai/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22rfk4vfSOpYITvYRJYg6v7C13pRFdtcmKO1%2bzukqJb3K0LgsmwF7BMLKiOVnX%2fHvvXPAbVwh0g4zJHy7hfX%2foEYojfQeLU5aZaIbTkI6bqzbVL9Ab%2b3SsjcDfxc75Zu7V24ZqlSIqp7jVXOHVevYxWjKyXpHXIHkQflM2U8c3NlX%2b77z7s7G1EXRQQNKNeAOl%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="ОАЭ">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/31/9710/637322513889398852.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">RAMADA BEACH HOTEL AJMAN</h3>
+                    <h4 class="location">Аджман</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Полупансион</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">60 999</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/united-arab-emirates/ramada-beach-hotel-ajman-ajman/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2222.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22fejRsEoLzxfix8YuI%2fxwdtqywFzn6uMZ7bSxXGGuxjdp5GttaKCTANmve27idncIQNe8KgC3slKoyJxA3uKq%2bbzUPt6xHjzWCMXKVYubR%2b9e%2f2PCFpQpGs7s6HCzNwaDSx7FoZoqOTHyJB089TOYHEa7vHvkzOpGCL%2bUw6j7tpk%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Египет">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/12/13320/636669175326766514.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">OTIUM INN AMPHORAS AQUA RESORT</h3>
+                    <h4 class="location">Шарм-эш-Шейх</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">23.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">62 294</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/egypt/otium-inn-amphoras-aqua-resort-sharm-el-sheikh/?q=%7b%22Bgn%22%3a%2223.10.2022%22%2c%22End%22%3a%2223.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22kWWBldggiUuS6dYQ1jtQRZskF8gqL6C7QcR6ZnMWJFC56cvDbGZKHALA8%2bU3XRVRpW5fy%2fiNCEnthFa7NK8eOhtzXAS5QlEj23TfVsNiJ0JayNdpkX5Q7TeywD%2bTZrK8ZZ8QMV4EAL99cxMKysFpthVbUx%2bl%2fp6J5CLiw91R95A%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Египет">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/12/13318/637177306932094862.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">OTIUM FAMILY AMPHORAS BEACH RESORT</h3>
+                    <h4 class="location">Шарм-эш-Шейх</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">23.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">68 776</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/egypt/otium-family-amphoras-beach-resort-sharm-el-sheikh/?q=%7b%22Bgn%22%3a%2223.10.2022%22%2c%22End%22%3a%2223.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22HUM5niVyXvhVjPH2WNuuFsWEpYHUdAQC1VdnWWqixeznG000Q22fTcVfIxBqP2g4w%2flIYhvrsu4TfcGtzMv%2fANUg11Z%2fnpNuW7h3VdJm2tioIlWSAm2KGAd6r4MNjj0fwCOOi%2bN6wXvxIhlc8BdJnbZDAuw5Y5ivQ90mTOkrGcEbvXAuhlaQ1t9EimDuHuyJ%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Египет">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/12/13319/636625960504707077.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">OTIUM PARK AMPHORAS BLU RESORT</h3>
+                    <h4 class="location">Шарм-эш-Шейх</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">23.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">66 408</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/egypt/otium-park-amphoras-blu-resort-sharm-el-sheikh/?q=%7b%22Bgn%22%3a%2223.10.2022%22%2c%22End%22%3a%2223.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22SrdywkI4JZo5rx16GKe5ezkz9TDd4X2XPuC8LWBxO7GZXFN3jlrRpSsq6pXBAxr4R7VU6dPSvcM%2bc%2fJ3fBUBnLo6AQlPSBxNJrqeYY4N7WC77r5j5RctzEedjC8lsYtv%2bAY6sTmVMDsa6BelnSI1DyP6SFb0UQHvMi1D9LLk0Xg%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Египет">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/12/3743/637892523933219733.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">ALBATROS ROYAL GRAND SHARM RESORT ADULTS ONLY</h3>
+                    <h4 class="location">Шарм-эш-Шейх</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">23.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">77 254</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/egypt/albatros-royal-grand-sharm-resort-sharm-el-sheikh/?q=%7b%22Bgn%22%3a%2223.10.2022%22%2c%22End%22%3a%2223.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22OQAiaoveWdd0yE1enXKoSUhwcczcILCQb7HOpxIKb00W1ndslZlTD%2bkSS2o3%2fkVpt9TBnjhLZ6mhyf2U%2fpVmN2GJbm%2fEDkm5zeLuhcnjaGhUJiLYjEl7wrDRID9xp5w0JuPq1Oa%2bTY6%2biuaVKrvFZewrPJzTxm7Rmi%2bHIYx7IlN%2bc2U3ulyAnUVX04YON5P1%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Египет">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/12/9965/637302435625858808.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">CONCORDE EL SALAM FRONT AREA</h3>
+                    <h4 class="location">Шарм-эш-Шейх</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">23.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">72 267</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/egypt/concorde-el-salam-front-area-sharm-el-sheikh/?q=%7b%22Bgn%22%3a%2223.10.2022%22%2c%22End%22%3a%2223.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22gTelnNwJogDh3qb5iaFLewwW0MmvCGHPUFOmORITzn%2f9kcX%2fRhlpqJ8ZsihkeRnlY%2fFTPZ2XyljRJevFsVMnfxj7r%2f%2fe%2bD%2f7FSggzNuH%2fXcic6UpvgTgku%2fGhkJznpnuQUyleal%2f3gg%2b2h51iXUcFiDm%2bcK7anF7n8RTf9DVTjE%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Египет">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/12/126/637577197966176119.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">NUBIAN ISLAND</h3>
+                    <h4 class="location">Шарм-эш-Шейх</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">23.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">72 267</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/egypt/nubian-island-sharm-el-sheikh/?q=%7b%22Bgn%22%3a%2223.10.2022%22%2c%22End%22%3a%2223.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22xh7cLx3gfpP%2b5S0pt9H4wtaHOslFjEWaInsW65FWVrJoB5RDL0S0E8omqvc%2b4evfA3JzTvl5acVmhBZ33iBgDvu6fLziRcYFFpvsT%2bdiD1rImTmFHGD5735pUgOues%2fEUNcSMIjBvZebkgVYFMlLzw%3d%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Египет">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/12/118/636500715158247403.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">JOLIE VILLE GOLF &amp; RESORT</h3>
+                    <h4 class="location">Шарм-эш-Шейх</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">23.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">69 774</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/egypt/jolie-ville-golf-resort-sharm-el-sheikh/?q=%7b%22Bgn%22%3a%2223.10.2022%22%2c%22End%22%3a%2223.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22myU6bro6DT%2bop0OjL9cuAGbQLSdOinVjY3LvmVmdnoj9jP19kmM9mYVvN6To4iMuZsSoxHNQ%2bKHTHgcVWOxO%2fZY1XOTsNDDDIQBQgu1X%2f7%2buB6N8za34P8XVA2FebWWgcCG%2bwzmGpLwtXCU6ONvYDhHcf%2fjbEaVCs%2bJDsM0lBfU%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Египет">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/12/7601/636640697251185574.JPG);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">ISLAND VIEW</h3>
+                    <h4 class="location">Шарм-эш-Шейх</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">23.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">82 989</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/egypt/island-view-sharm-el-sheikh/?q=%7b%22Bgn%22%3a%2223.10.2022%22%2c%22End%22%3a%2223.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22Wy%2fvoFzVVs9DiGhvLfCKQvb3quyE2ziiKa2VnNXTD3SqgbXmOJ%2fvEe6kvWeUzdgcWf2nZKal7BwHXEUeh6%2bwAmLumL730%2br9Ni%2bZec6zy2RKap15yj6SUh3qDOxOKiFXeawAQmeoisgMnUdPu888eg%3d%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Египет">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/12/195/637712072047630622.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">TITANIC BEACH SPA &amp; AQUA PARK</h3>
+                    <h4 class="location">Хургада</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">03.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Ультра Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">54 979</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/egypt/titanic-beach-spa-aqua-park-hurghada/?q=%7b%22Bgn%22%3a%2203.11.2022%22%2c%22End%22%3a%2203.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22Zfy0vnudGXvgFr4gtIugswomJwQdMeqnxkFsl8srlR%2fRz9IkjPTeojYKH%2f13OLQuEhRoyACuL0Ihozfg9Zhh6oXg%2f5o6UCegx0ej4FwmXNaHiugXLNPRj3po1R5ATBI9sOCq7bUcXtkxrn8XdQmyfn2kO5A5%2fkl58GXl2DnNYRM%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Египет">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/12/49757/637889882138234484.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">XANADU MAKADI BAY</h3>
+                    <h4 class="location">Хургада</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">03.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Ультра Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">74 486</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/egypt/xanadu-makadi-bay-hurghada/?q=%7b%22Bgn%22%3a%2203.11.2022%22%2c%22End%22%3a%2203.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22V2r%2bM1o70niixqWVFJAfXHN8qlEboF8Gayf6mZtk6rO0TcuJ7I9jnSdkBJwUzw7fAUyKb1Lfaxo8V9xsyeQmqedWoVK0qnN4lPQSpVaaTH4zwMKNuQx8eQZRQYGIY3SLRYHB0Q1vDqvTbCJtpxXCTgrsqCCi4Y7rRMMvOeKNnlw%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Мальдивы">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/35/35492/637585718637790325.jpeg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">BRENNIA KOTTEFARU MALDIVES</h3>
+                    <h4 class="location">Раа Атолл</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">01.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Все Включено</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">166 041</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/maldives/brennia-kottefaru-maldives-raa-atoll/?q=%7b%22Bgn%22%3a%2201.11.2022%22%2c%22End%22%3a%2201.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22ufClkY1N77pUvN9rD%2fJRJx4IkQzvcPQ8TyU49yZ1gQZSyGEaLhI5TS3TyOES5b47Z9Z%2fYjmSmy9N7DbJ6%2b7oFG2ymhya5bTBaXUZcTJt0dvjTu%2bL4ESOWDPeWymqnLi6n1ULwLujjjleUlFGmM0aVH4RzmxzsJivkC07dhN3uZA%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Мальдивы">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/35/24710/637249591230321047.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">FURAVERI MALDIVES</h3>
+                    <h4 class="location">Раа Атолл</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">01.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">153 240</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/maldives/furaveri-maldives-raa-atoll/?q=%7b%22Bgn%22%3a%2201.11.2022%22%2c%22End%22%3a%2201.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%2218oD1SmUBMFqp4pP7B%2fMllrAqpnyMb4p%2bMbGVej0y1EluO10z6Dz%2b4gLVPLfaI6DGKCIG%2frRMYwGjEZM3JpHOS%2bXquevc8Z8uYfnKiTTF9Ob9%2bdXvUJCwaV7KsHADaVRtU%2blQd0YIRvqTOrnEixy35not7kmaoKF5j1i5fb2e0o%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Мальдивы">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/35/20185/637250505265745270.jpeg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">KANDIMA MALDIVES</h3>
+                    <h4 class="location">Даалу Атолл</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">01.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">136 985</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/maldives/kandima-maldives-dhaalu-atoll/?q=%7b%22Bgn%22%3a%2201.11.2022%22%2c%22End%22%3a%2201.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22MY3JxMFBQSAJtUjxm5uqz6nxtO0W7FUMuVeCF4jDks%2f6ZyYaA%2fzmtyGK0yoZJ7jQAOAO8SvvPyfhn6sSfwbEw7JICieOKjpqjHVJdEFPhoFTdC8dFJKCW6XFD7fqXShQ8VAsb2a14PyC9tNplzgiyFkYBypXj%2bWSuDWBneAUXuQ%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Мальдивы">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/35/1681/636547944912511512.JPG);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">PARADISE ISLAND RESORT &amp; SPA</h3>
+                    <h4 class="location">North Male Atoll</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">28.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Полупансион</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">174 551</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/maldives/paradise-island-resort-spa-north-male-atoll/?q=%7b%22Bgn%22%3a%2228.10.2022%22%2c%22End%22%3a%2228.10.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22Qt5TWoiRitDT7xCVbcvo%2fE9K%2fkQIvoqBRXVmzKT0NyiZ%2bI%2bYQ1r08%2fP9PRL3NGRHddqlbPUFFDmWRT%2bNxdKnqc%2bMfkyGCtdDTaykjl1Y%2fPirFMyJ6OOfcdv9uJYL%2fLcHFSlBFaKzLR7dYCOZQXll0aJd%2fcnvyr5paLivqd4cDdM%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Мальдивы">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/35/1682/636539495138337794.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">ROYAL ISLAND RESORT &amp; SPA</h3>
+                    <h4 class="location">Баа Атолл</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">01.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Полупансион</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">140 596</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/maldives/royal-island-resort-spa-baa-atoll/?q=%7b%22Bgn%22%3a%2201.11.2022%22%2c%22End%22%3a%2201.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22Za2sGI521%2byrjh%2bd695aJAAXUM%2b%2fOlrDz0C%2fm28DjmTWtGGVY4X%2bnhAtgAUBpqX9%2bS68uovSSAG%2b%2fMbBVE%2fRlrf%2f7gdGdyVE73sxeUxD64Z91fhUJU1dQeR2Ypb9j9bxQ43Xh2yIj36rEeX%2b%2bLUvkpamAkye3gLN0bTek7zlHVc%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Мальдивы">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/35/1225/637032016558004218.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">BANDOS MALDIVES</h3>
+                    <h4 class="location">North Male Atoll</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">01.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">129 972</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/maldives/bandos-maldives-north-male-atoll/?q=%7b%22Bgn%22%3a%2201.11.2022%22%2c%22End%22%3a%2201.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22kHusE9pPfAFg9GHbEjNlAjre73Jt%2foGzGZ3UtL%2bgWYmI%2bAyAUUgvjLaDCaM0Vce%2bvZKG4wh4syMafpP5bhWfxEK%2fCmK9ybPTspdGifYft4g8jAAKd2LKzqDg6NHAGAq2qxAP%2bII28v4jn4y49jckKTXa8OTYcfOqDO2woNGjZAE%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Мальдивы">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/35/1680/636545539784865851.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">SUN ISLAND RESORT &amp; SPA</h3>
+                    <h4 class="location">Южный Ари Атолл</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">01.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Полупансион</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">142 780</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/maldives/sun-island-resort-spa-south-ari-atoll/?q=%7b%22Bgn%22%3a%2201.11.2022%22%2c%22End%22%3a%2201.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%221hZBySXFdb0HBxGMj4REThcEayeklDgdqeFu6Grh5syJIQt7C6XErzo3xjHaMuwkXWhOsJ7HV8R%2fM61EBjliwTLtyA7e0T492XPcdUzA8OVzQXXFTRNVNZg84PWAZKJwZARgYxt0M1PwY19eucS5qHmSdMD70SCJm8YKNYg8A8U%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Мальдивы">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/35/35420/637769902028265437.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">RAHAA RESORT</h3>
+                    <h4 class="location">Laamu Atoll</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">01.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">126 292</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/maldives/rahaa-resort-laamu-atoll/?q=%7b%22Bgn%22%3a%2201.11.2022%22%2c%22End%22%3a%2201.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%229NZlcKt2DJy1qcymkatpU%2bd1rZ%2bDLL6IFjQfHuHEjoB3Ag1vNyofAn8LwnzcWCFFwlEFkJ%2bbQTZ0tNwlmO8OgJIaD%2fKQVVOhOK6wszOc296q6JDFgV117UyF22%2brMfDS0Ww%2biRPFImf0iLZn7YKvRQ%3d%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Шри-Ланка">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/40/29495/637759550826040556.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">SRI GEMUNU BEACH RESORT</h3>
+                    <h4 class="location">Унаватуна</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">96 632</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/sri-lanka/sri-gemunu-beach-resort-unawatuna/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2205.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22vz5vOrvyAVESvYW6BtmTZOeNxpSXdTfmeOH7cRqEMsTW7hlyj2wPKqCm%2fhLbfHuwirVapZfGFTRuSkeRJxPecQxQxJWjlldBre193KTgF5yMfnQfYth6AAOQ7NXSknfYTDX%2bnsfP6iJTLv%2fxo%2f50foEVlEiGs5OyRq0tg77cmxA%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Шри-Ланка">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/40/2607/636627682541537389.png);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">HERITANCE AHUNGALLA</h3>
+                    <h4 class="location">Ахунгала</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Полупансион</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">104 184</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/sri-lanka/heritance-ahungalla-ahungalla/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2205.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%223HRLaYo9bpiWj94cezgtDvfZ3SItmfc3EYWKrOcdOCC1RQzNvXVTF0PMZ54YLURMau6qBJm6wF%2fpGzJ%2beK%2f9ymHOh7IdU1jFyQN3l87vLU17R1YF6Imt48qscjLLdfvJJjkCE%2bKT1uAhj4dPo1tqz0vWSR2it0rU9cPfQp7IFFw%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Шри-Ланка">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/40/1060/636572121076888524.png);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">TURYAA KALUTARA</h3>
+                    <h4 class="location">Калутара</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Полупансион</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">102 872</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/sri-lanka/turyaa-kalutara-ex-the-sands-kalutara/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2205.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22jGVmKd3BYizhPVQ2Gqx%2bqLO8mUrP8CaGd8K5%2fdvnkL113LK%2bUgNFDZU9F1o0dwlus09Zo45cSpVIw5UrZhtfHy3IEHj98%2b64%2fucrfIz4cWXgqzEpZ1oQC8d1NG6ZjHlglLWDY08fkLoLr8o3wZ%2bFANybVpSKGl27JiCK37MXF2YSyY3pLftfUDlsFHXHv58v%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Шри-Ланка">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/40/14343/636619748424709468.png);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">CITRUS WASKADUWA</h3>
+                    <h4 class="location">Калутара</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">97 447</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/sri-lanka/citrus-waskaduwa-kalutara/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2205.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22aORv076SmYQY2KYWRiOvag6UdaN6%2fgNAWGelVoZ8s%2fN08JsyD1sxVU380LJhNpw2FCDX1nK9gb1uuBrEC8A%2f17Xc%2b2FhYZ4PYhzrvujxUBuCCCjT3T00zKycZgFnylE5ZXz44UdXm44cSdR8TfrzH4MAjeCD0VuOAPs5WpWwuQ0%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Шри-Ланка">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/40/31673/637720714917187164.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">SHERATON KOSGODA TURTLE BEACH RESORT</h3>
+                    <h4 class="location">Kosgoda</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">101 596</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/sri-lanka/sheraton-kosgoda-turtle-beach-resort-kosgoda/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2205.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22O1j%2bO4xFpUCqGgLPXtXUkXZGR%2fr%2fpaMec1V92zQG9BgLSiMOcPfTlHfdJFTMv9FDwzGfiW5QLUZp14qbI9W9g8quXnnDAySQY9FNoyl8dBevfxxJuTWAzu%2baNd5O9Yfle4mZ%2fHPddVsb1sXw%2fQ3H9%2fIJBx%2fsAgYxmkzsAkHoxTbQc4%2b1qJNrDoYA8pDZtME9%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Шри-Ланка">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/40/1067/636621489942319323.png);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">CLUB PALM BAY</h3>
+                    <h4 class="location">Маравила</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Полупансион</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">99 185</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/sri-lanka/club-palm-bay-marawila/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2205.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22KJG%2fTt8%2f7rTvgNTokrVsqhQPJI5feKyak%2fRBGmdPZ5JFvaFnMjrZ%2bDXqi8UlJiCWwxFOLvNq8ldydXCkgqF3a5q7IhKgLBIzAhsosTA6CD2TNz1yNA4wQDN1OI9H5sgJsujWZzjkHK194byvwis0qw%3d%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Шри-Ланка">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/40/2621/637722304872577204.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">AVANI BENTOTA RESORT &amp; SPA</h3>
+                    <h4 class="location">Бентота</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">100 181</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/sri-lanka/avani-bentota-resort-bentota/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2205.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22SlYWrrb6h0GBTBdg0Waay65DWPbOt6vEmj1BXYISWhMz4hFRsAyFCyUSXKWXSLrlotTNd%2f5UEoiX5220jn%2fkM5f3X1ImgGznq53ujIaql1d8V1y6msGW4kVZflfbcahP8Qs%2bEG0kHmU5N%2fxqFabmyT%2bhIWrdcnw%2bmRzCJHKI9KE%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Шри-Ланка">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/40/8227/637067242805119796.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">CINNAMON BEY BERUWELA</h3>
+                    <h4 class="location">Берувела</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">107 095</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/sri-lanka/cinnamon-bey-beruwela-beruwela/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2205.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22X3PHcbywLFxFJQWTB2%2bkPQPXv1lzqp2Vx8vhchI2i91L4SDlrWh22O7GdVOOycISyTRc8qKdYHd5BL9QDWLc8TOPwdhYqR9ntLxnHANi95ozgUI3xy9tSUUnGODNbSeJbYLniWKnRsij%2fMtahuovtF8kF64z%2bBnNPPP917rxxmo%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/11417/637536604583639123.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">СВИСCОТЕЛЬ РЕЗОРТ СОЧИ КАМЕЛИЯ</h3>
+                    <h4 class="location">Сочи</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Без питания</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">42 336</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/swissotel-sochi-sochi/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2212.11.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22m%2ffUPfXuqPXIt9ezE4Vt5%2fW9mktzvmnDZs3ENqsJvtvUz9bnlT9rwYnhx6XRMMDuAxMZfxOBiGoIQnCMHWVroPCznqL0OFl2D%2b7ZOMrgQsC6riBb4JP84fLuErZR%2bgnu3FI8ptn8BVV78tc%2fszgs%2bBNsjVc68qcN9FGvbYkK4Sk%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/11034/636982818186991407.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">САНАТОРНО-КУРОРТНЫЙ КОМПЛЕКС BRIDGE RESORT</h3>
+                    <h4 class="location">Сочи</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Без питания</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">28 795</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/hotel-complex-bridge-resort-sochi/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2212.11.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22bpoCvT95nL5SIPlfS%2f%2fIdrQ3AE90D5nMderBL7VbgOH1EwV1lWTVMyGbmydncDn7ymWa5TZ8oHKb4RCk%2fKg7rdhxD8m%2fkWnIH2fHKxM7K7vH7aknoF91324XgVvsIg570oZl2DP0sKEGQSQ0JqTsY%2fWvjqgrCLy8Vkv4hp4kOQyv7ScRO1AmDHZd%2bpk%2bAdGZ3rJJfBptqcKoxYCpVOhMXM66epLUA4AV%2fPNtaK5Agow%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/21897/637862381673010230.JPG);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">САНАТОРИЙ МИНЕРАЛЬНЫЕ ВОДЫ ЖЕЛЕЗНОВОДСК</h3>
+                    <h4 class="location">Минеральные Воды</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Питание по программе тура</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">36 233</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/sanatorium-mineralnye-vody-mineralnye-vodi/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2229.10.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%223Oer0Lj13VFEzSBZgsK0evrRsdwcT60ZsaIeoDJqtTeMKWLozOIwcJLC1iFGJeBjJ2W6FMonRqiZAIInHWjDomIQiN6tSerqlLG9LAe8gZ3QdSDhP%2bqI49JybCP9FNOQq%2fC77vvr2cGQEnCEN3rMSc9RQLMIJLns3HQ2paHzA7MNYVNOOhrVY5%2flFghLAMfZ5%2bvYlPk2DGo1UO84I67XHQ%3d%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/11485/637057025188368561.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">САНАТОРИЙ ПЛАЗА КИСЛОВОДСК</h3>
+                    <h4 class="location">Минеральные Воды</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">79 551</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/sanatorium-plaza-kislovodsk-mineralnye-vodi/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2212.11.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%223VfC5693r3CO8WylfoLb60v8bx05hT0%2bN6NbS5L3doDdMxiQwUlVbiNM2POwbf1dKjxqbWA8vvPZYchMtLyyFx88ljKT38GLTFTkG%2fP3xeVwSTAgyiyEnYKL1H%2f23egLF8n3Mywp7FA5oLss1RTj3HF21AL%2fzOLbQpg7fsqWUIs%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/50875/637939954575458101.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">САНАТОРИЙ ДВОРЕЦ НАРЗАНОВ КИСЛОВОДСК</h3>
+                    <h4 class="location">Минеральные Воды</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">24.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">30 888</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/sanatoriy-dvorets-narzanov-kislovodsk-mineralnye-vodi/?q=%7b%22Bgn%22%3a%2224.10.2022%22%2c%22End%22%3a%2231.10.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22vtgH9PC0zj9kA7g%2bBdeHiX%2fUcx5JvrPvIJIb40%2b%2bhI0ApYZae%2fv6sd%2fm4D78ErHYtiCXllXsCR6c9QsOPmnCjvxcF5FpRDjiIT1iWMSwkV5OjdCL6%2foRDr7gnLnTEdrHrHVdCK%2b8epoIRAzQK4oJyiXtlu%2fp%2fndhhNj%2fFY0iYLuFSbDzjMtfI8ncIqtyh8F1%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/11520/637056181501532091.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">САНАТОРИЙ РУСЬ ЕССЕНТУКИ</h3>
+                    <h4 class="location">Минеральные Воды</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">05.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Полный Пансион</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">50 401</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/sanatorium-rus-essentuki-mineralnye-vodi/?q=%7b%22Bgn%22%3a%2205.11.2022%22%2c%22End%22%3a%2212.11.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22vj83voyeRCVTXS1vZpGjvcNMktlskUEPk3bYwGBWPz9L35lGUO1AFTwI0bHQgkXbozwOm5JMaUL%2fjqCerw751ou4VjuUt1YYcBTVLF65tSFSpePERVhWtZFFahHLXGs%2bni4MwJ7KzE%2biY1NNCwdhrQQqcmUMKJpJ2uIXAZ4OgT0%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/34577/637505476701026291.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">СПА-ОТЕЛЬ ГРЕЙС ГОРИЗОНТ</h3>
+                    <h4 class="location">Сочи</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">03.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Без питания</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">13 212</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/spa-hotel-grace-gorizont-sochi/?q=%7b%22Bgn%22%3a%2203.11.2022%22%2c%22End%22%3a%2210.11.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22NAXZ8RsRZ40rgupmtDKyYalLkC6ajR2k0sHz0iBcm2lWSannZuZF3WC7bJZ8LD4XBlpvD7ANOSehE0uQHKeCvfirA7IeKS22RYKlGf%2fo30k9eoquktgPjvYVd5BYUSHEsW79CopV79ED%2b7A73baAFLopuhfzitYAJIChw%2f6a0WQ%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/36573/637788830050570746.JPG);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">ГРЕЙС КРУИЗ ОТЕЛЬ</h3>
+                    <h4 class="location">Сочи</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">03.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Без питания</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">14 575</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/graice-kruiz-hotel-sochi/?q=%7b%22Bgn%22%3a%2203.11.2022%22%2c%22End%22%3a%2210.11.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22G%2flMZVi%2fr%2b2AIatoTSEWU91iwo3UTJ5FOC84keoyFlB3%2fW2ekBA%2fDHTCq9YmNIRe%2fkGmA16yZexoMHSV4InbbL5F07z3U4SxqS%2bdEHgmeuKYQhO1jwd8zmEKhP3k2qtZ07Smo3OH8CQEckESP7iyDQ%3d%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/20081/636950003549041856.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">РОЗА СПРИНГС САНАТОРИЙ</h3>
+                    <h4 class="location">Сочи</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">30 375</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/sanatorium-roza-springs-sochi/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2229.10.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22bMLC356ME3XBx6PIH3PkWlEvlD1OQt6GFnxBjN6Wj40EkUvhugzdyNhKxPnCgzkIAxw31%2fy4EGt1qQCscafER8jBU%2fyUowejRV7535nDBkITsvhGW5mVcj6mZO9OWDxYr1lzJMY77LlW668xwAP3Rv0vuHLrohGjOykEyx2lG58%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/12134/637045764004860408.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="2 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">РОЗА СКИ ИНН ОТЕЛЬ</h3>
+                    <h4 class="location">Сочи</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Без питания</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">6 238</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/roza-ski-inn-hotel-sochi/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2229.10.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22ND9Pa8K%2bDFpX0%2bVfMvg5iuRQoA56jUJWnfPEAY4gK8pINIhYpUI6S%2fbhmu%2fC3dcTDQz7ZviEhFXvc7wgVd%2f2kc7XbP72grWek0tJ5apDwg9Rt4LE75BIBepgEz1uJiZIKo9sjBo4bR7X1cK%2fcE%2fg1g%3d%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/11551/636959469620504189.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">AZIMUT ПАРК ОТЕЛЬ ФРИСТАЙЛ РОЗА ХУТОР</h3>
+                    <h4 class="location">Сочи</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Без питания</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">12 203</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/azimut-hotel-freestyle-rosa-khutor-sochi/?q=%7b%22Bgn%22%3a%2222.10.2022%22%2c%22End%22%3a%2229.10.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22cTCm%2fQTdoFx8k4TzWCmq6OGC8jM3rkYZmDj%2f%2fHER1DKoLDI9c3Z9FoQV8rXhBBPs1gyb0OsPK%2fQXzUrxvXV84GmoafXDvnD2MNuoFNE81dpAg%2bQQZC%2fxdmuohHFFifZN3qV9Zb5laJes%2ftPWMNwJ0cQ5TGcMn%2bb7xkZeI5y1VSpAYXZsmcygX%2bxDVGYPTcQ2%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/50327/637873480803050409.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="Without Stars">
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">ГОСТИНИЦА АКВА СИТИ</h3>
+                    <h4 class="location">Сочи</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">01.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Без питания</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">6 997</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/gostinitsa-loo-city-sochi/?q=%7b%22Bgn%22%3a%2201.11.2022%22%2c%22End%22%3a%2208.11.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22B5%2fvJqH9nIjvxAZzvgIpmgO0Tfj%2f%2b6vIqh9xNSFYDfO3%2bYoL55wKBWq%2fmyBnqPGOjuNmhkLhp0m3iaE%2fFdNY9U%2bsVwSyQR9Y89CwPww2%2fINwHuMf3jM27eFuB4OwWe1L6x8Ppx4xR9358VP7jRZtFIZffKZ7mYHrjXL2hUKbLtQ%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/34289/637447720484408805.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="2 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">САНАТОРИЙ КАВКАЗ</h3>
+                    <h4 class="location">Сочи</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">31.10.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Без питания</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">8 681</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/sanatorium-kavkaz-sochi/?q=%7b%22Bgn%22%3a%2231.10.2022%22%2c%22End%22%3a%2207.11.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22JT4dRw2myCsnpGBz%2bCumHpHaR5KwvPMAeZlS39fZ6gWT%2f6G%2bkItoLa74VItITCTQ0sAT4AmmAo5Ml3n127Lyl5ADZMjIjUXKoO2xbige2zaGz0tgZbX1CjPs%2bwlP4IdghlbrVOi%2bXFM2IXfMjZ3gSg%3d%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Россия">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/3/21820/637854494502718843.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">ОТЕЛЬ ФЕСТИВАЛЬ</h3>
+                    <h4 class="location">Сочи</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">01.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Без питания</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">4 986</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/russia/hotel-festival-adler-sochi/?q=%7b%22Bgn%22%3a%2201.11.2022%22%2c%22End%22%3a%2208.11.2022%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22GkzwG2OjSRCtixiAKJGDlwEPysMvMGniHE5y%2bx3iqNcLi8Pta14MLxAu7XI5SUhelhH7FFxdg7RA%2flN44x7mRfAi8Rkc2%2bv3JdSek3fq6aHpeBHz5%2fWvqRE5JC6P6LDkmRKvVr%2bZL6PCxB8TuQm2ug%3d%3d%22%2c%22Ref%22%3afalse%2c%22Srt%22%3a2%7d&o=1" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    window.ASAP || (window.ASAP = (function() {
+        var callall, fns;
+        fns = [];
+        callall = function() {
+            var f, results;
+            results = [];
+            while (f = fns.shift()) {
+                results.push(f());
+            }
+            return results;
+        };
+        if (document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', callall, false);
+            window.addEventListener('load', callall, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('onreadystatechange', callall);
+            window.attachEvent('onload', callall);
+        }
+        return function(fn) {
+            fns.push(fn);
+            if (document.readyState === 'complete') {
+                return callall();
+            }
+        };
+    })());
+
+    window.log || (window.log = function() {
+        if (window.console && window.DEBUG) {
+            if (typeof console.group === "function") {
+                console.group(window.DEBUG);
+            }
+            if (arguments.length === 1 && Array.isArray(arguments[0]) && console.table) {
+                console.table.apply(window, arguments);
+            } else {
+                console.log.apply(window, arguments);
+            }
+            return typeof console.groupEnd === "function" ? console.groupEnd() : void 0;
+        }
+    });
+
+    window.trouble || (window.trouble = function() {
+        var ref;
+        if (window.console) {
+            if (window.DEBUG) {
+                if (typeof console.group === "function") {
+                    console.group(window.DEBUG);
+                }
+            }
+            if ((ref = console.warn) != null) {
+                ref.apply(window, arguments);
+            }
+            if (window.DEBUG) {
+                return typeof console.groupEnd === "function" ? console.groupEnd() : void 0;
+            }
+        }
+    });
+
+    window.preload || (window.preload = function(what, fn) {
+        var lib;
+        if (!Array.isArray(what)) {
+            what = [what];
+        }
+        return $.when.apply($, (function() {
+            var j, len, results;
+            results = [];
+            for (j = 0, len = what.length; j < len; j++) {
+                lib = what[j];
+                results.push($.ajax(lib, {
+                    dataType: 'script',
+                    cache: true
+                }));
+            }
+            return results;
+        })()).done(function() {
+            return typeof fn === "function" ? fn() : void 0;
+        });
+    });
+
+    window.queryParam || (window.queryParam = function(p, nocase) {
+        var k, params, params_kv;
+        params_kv = location.search.substr(1).split('&');
+        params = {};
+        params_kv.forEach(function(kv) {
+            var k_v;
+            k_v = kv.split('=');
+            return params[k_v[0]] = k_v[1] || '';
+        });
+        if (p) {
+            if (nocase) {
+                for (k in params) {
+                    if (k.toUpperCase() === p.toUpperCase()) {
+                        return decodeURIComponent(params[k]);
+                    }
+                }
+                return void 0;
+            } else {
+                return decodeURIComponent(params[p]);
+            }
+        }
+        return params;
+    });
+
+    ASAP(function() {
+        var $ctx, libs;
+        libs = ['https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js'];
+        $ctx = $('#hotels-set');
+        $ctx = $('[data-component-instance="2b815364-a506-424b-9f2d-f73359630b02"]');
+
+        preload(libs, function() {
+            var $grid, group2select, initial_selector;
+            initial_selector = '*';
+            if (group2select = $('.group-filters > *.selected', $ctx).attr('data-group')) {
+                initial_selector = group2select !== '*' ? "[data-group*='" + group2select + "']" : '*';
+            }
+            $grid = $('.cards-grid', $ctx).on('layoutComplete', function(e, items) {
+                var by_top, els, max_height, results, row, t, tallest_item;
+                els = items.map(function(i) {
+                    return i.element;
+                });
+                by_top = _.groupBy(els, function(el) {
+                    return $(el).css('top');
+                });
+                results = [];
+                for (t in by_top) {
+                    row = by_top[t];
+                    tallest_item = _.maxBy(row, function(el) {
+                        return $(el).outerHeight();
+                    });
+                    max_height = $(tallest_item).outerHeight();
+                    results.push($(row).css({
+                        minHeight: max_height
+                    }));
+                }
+                return results;
+            }).isotope({
+                itemSelector: '.card-cell',
+                layoutMode: 'fitRows',
+                stagger: 30,
+                filter: initial_selector
+            });
+            $('.group-filters > [data-group]', $ctx).on('click', function() {
+                var $this, group, selector;
+                $this = $(this);
+                group = $this.attr('data-group');
+                selector = group !== '*' ? "[data-group*='" + group + "']" : '*';
+                $grid.find('.card-cell').css({
+                    minHeight: 0
+                });
+                $grid.isotope({
+                    filter: selector
+                });
+                return $this.addClass('selected').siblings('.selected').removeClass('selected');
+            });
+            return setTimeout(function() {
+                return $ctx.addClass('shown');
+            }, 0);
+        });
+    });
+</script>

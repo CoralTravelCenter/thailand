@@ -1,0 +1,6 @@
+mixin benefits(data)
+    each item, index in data.items
+        .dm-benefits__item
+            .dm-benefits__img-wrap
+                img.dm-benefits__img(src=item.img, alt=item.alt)
+            .dm-benefits__title!=item.title

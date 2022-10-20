@@ -1,0 +1,573 @@
+include ../block-img-text/block-img-text
+include ../block-img-text2/block-img-text2
+include ../trip/trip-temp
+
+
+section.dm-section--tabs
+    .dm-tabs
+        .dm-tab__headers.dm-tab__headers--tickets
+            .dm-tab__title.selected(data-show="la-perle") #[span.dm-tab__title__span LA PERLE]
+            .dm-tab__title(data-show="khalifa") #[span.dm-tab__title__span Бурдж-Халифа]
+            .dm-tab__title(data-show="dubai") #[span.dm-tab__title__span Dubai Parks and Resorts]
+            .dm-tab__title(data-show="atlantis") #[span.dm-tab__title__span Atlantis Aquaventure]
+            .dm-tab__title(data-show="img-worlds") #[span.dm-tab__title__span IMG Worlds of Adventure!]
+
+        .dm-tab__items
+            .dm-tab__body(data-content-for="la-perle")
+                .dm-trip__item.dm-trip__item--tickets
+                    //- 1
+                    +trip({
+                        block_img_text : {
+                            title: '',
+                            text: 'ШОУ LA PERLE',
+                            class_suffix: '--tickets2',
+                            class_wrap: 'dm-intro',
+                            class_img: 'dm-intro__img',
+                            class_desc: 'dm-intro__desc',
+                            class_title: 'dm-intro__title',
+                            class_text: 'dm-intro__text',
+                            img_lg: './img/content/sunmar/tickets/la-perle-lg.jpg',
+                            img_sm: './img/content/sunmar/tickets/la-perle-sm.jpg',
+                        },
+                        class_suffix: '--tickets',
+                        text: ``,
+                        class_text: 'dm-block__text',
+                        info:[
+                                {
+                                    title: '',
+                                    text: `
+                                        <p>
+                                            Приглашаем вас на&nbsp;фантастическое шоу La&nbsp;Perle! Это одно из&nbsp;самых масштабных и&nbsp;невероятных шоу в&nbsp;Дубае. Акробатика, водные и&nbsp;воздушные трюки, передовые театральные технологии никого не&nbsp;оставят равнодушными. Шоу La&nbsp;Perle подарит яркие эмоции и&nbsp;незабываемые впечатления!
+                                        </p>
+                                        <p>
+                                            <b>Шоу проходит несколько раз в неделю:</b>
+                                            <br />
+                                            ВТ-ПТ в 18:30 и 21:00
+                                            <br />
+                                            СБ в 16:00 и 19:00
+                                        </p>
+                                        <p>
+                                            Желаемая дата и время посещения
+                                            <br />
+                                            обсуждается с гидом индивидуально.
+                                        </p>
+                                    `,
+                                    class_suffix: '--tickets',
+                                    class_wrap: 'dm-info',
+                                    class_left: 'dm-info__left',
+                                    class_right: 'dm-info__right',
+                                    class_title: 'dm-info__title',
+                                    class_text: 'dm-info__text',
+                                    class_right_inner: 'dm-info__inner',
+                                    class_right_left: 'dm-info__left2',
+                                    class_right_title: 'dm-info__title2',
+                                    class_right_note: 'dm-info__note',
+                                    class_right_text: 'dm-info__text2',
+                                    class_right_right: 'dm-info__right2',
+                                    class_right_item: 'dm-info__item',
+                                    class_right_price: 'dm-info__price',
+                                    items: [
+                                                [
+                                                    {
+                                                        title: 'Билет на шоу La Perle <b>"Бронза"</b>',
+                                                        note: '',
+                                                        price: '84&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: 'Билет на шоу La Perle <b>"Серебро"</b>',
+                                                        note: '',
+                                                        price: '97&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: 'Билет на шоу La Perle <b>"Золото"</b>',
+                                                        note: '',
+                                                        price: '110&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: 'Билет на шоу La Perle <b>"Платина"</b>',
+                                                        note: '',
+                                                        price: '138&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: 'Билет на шоу La Perle <b>"VIP"</b>',
+                                                        note: '',
+                                                        price: '244&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: '',
+                                                        note: `
+                                                        * Включен только входной билет на шоу<br />
+                                                        (в соответствии с выбранной категорией),<br />
+                                                        трансфер бронируется и оплачивается<br />дополнительно
+                                                        `,
+                                                        price: '',
+                                                    },            
+                                                ],
+                                            ],
+                                },
+                        ],
+
+                        block_img_text2: {
+                            title: '',
+                            alt: 'La Perle',
+                            text: `
+                                <p>
+                                    <b>La&nbsp;Perle&nbsp;&ndash;</b> шоу, созданное режиссером Франко Драгоне, сочетает в&nbsp;себе хореографию, эффектные трюки и&nbsp;современные технологии.
+                                </p>
+                                <p>
+                                    Шоу посвящено традициям добычи жемчуга. Представления проходят в&nbsp;театре с&nbsp;уникальной аквасценой. Прыжки в&nbsp;воду с&nbsp;высоты и&nbsp;невероятные трюки на&nbsp;мотоциклах, воздушная акробатика в&nbsp;исполнении артистов мирового уровня подарят вам незабываемые эмоции!
+                                </p>
+                            `,
+                            class_suffix: 'la-perle',
+                            images: [
+                                {
+                                    img_lg: './img/content/sunmar/tickets/la-perle-img-1-lg.jpg',
+                                },
+                            ],
+                        },
+                    })
+                
+            .dm-tab__body(data-content-for="khalifa" style="display: none;")
+                .dm-trip__item.dm-trip__item--tickets
+                    //- 2
+                    +trip({
+                        block_img_text : {
+                            title: '',
+                            text: 'Бурдж-Халифа',
+                            class_suffix: '--tickets2',
+                            class_wrap: 'dm-intro',
+                            class_img: 'dm-intro__img',
+                            class_desc: 'dm-intro__desc',
+                            class_title: 'dm-intro__title',
+                            class_text: 'dm-intro__text',
+                            img_lg: './img/content/sunmar/tickets/khalifa-lg.jpg',
+                            img_sm: './img/content/sunmar/tickets/khalifa-sm.jpg',
+                        },
+                        class_suffix: '--tickets',
+                        text: `
+                            <p>
+                                <b>Бурдж-Халифа&nbsp;&ndash;</b> небоскреб в&nbsp;центре Дубая высотой более 825&nbsp;метров. Это здание обладает сразу несколькими мировыми рекордами, например, за&nbsp;самую высокую открытую смотровую площадку и&nbsp;самый высокий в&nbsp;мире ресторан.
+                            </p>                            
+                            <p>
+                                Хотите подняться на&nbsp;самое высокое здание в&nbsp;мире? Тогда ждем вас на&nbsp;смотровой площадке Бурдж-Халифа. Высота небоскреба составляет 825&nbsp;метров. Здесь туристы смогут не&nbsp;только увидеть весь Дубай, но&nbsp;и&nbsp;поужинать в&nbsp;самом высоком ресторане в&nbsp;мире!
+                            </p>
+                        `,
+                        class_text: 'dm-block__text',
+                        info:[
+                                {
+                                    title: '',
+                                    text: `
+                                        <p>
+                                            Приобретая данный билет, вы&nbsp;сможете посетить сразу несколько этажей (124, 125 и&nbsp;148)<br />и&nbsp;насладиться напитками в&nbsp;SKY лаундже.
+                                        </p>
+                                        <p>
+                                            Желаемая дата и&nbsp;время посещения обсуждается с&nbsp;гидом индивидуально.
+                                        </p>
+                                        <p>
+                                            <b>При себе необходимо иметь паспорт и&nbsp;билет.</b>
+                                        </p>
+                                    `,
+                                    class_suffix: '--tickets',
+                                    class_wrap: 'dm-info',
+                                    class_left: 'dm-info__left',
+                                    class_right: 'dm-info__right',
+                                    class_title: 'dm-info__title',
+                                    class_text: 'dm-info__text',
+                                    class_right_inner: 'dm-info__inner',
+                                    class_right_left: 'dm-info__left2',
+                                    class_right_title: 'dm-info__title2',
+                                    class_right_note: 'dm-info__note',
+                                    class_right_text: 'dm-info__text2',
+                                    class_right_right: 'dm-info__right2',
+                                    class_right_item: 'dm-info__item',
+                                    class_right_price: 'dm-info__price',
+                                    items: [
+                                                [
+                                                    {
+                                                        title: 'Билет на смотровую площадку<br />в Бурдж-Халифа <b>- 148 этаж</b><br />(пиковые часы)',
+                                                        note: '',
+                                                        price: '145&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: 'Дети до 3 лет (0-2,99)',
+                                                        note: '',
+                                                        price: 'бесплатно',
+                                                    },
+                                                    {
+                                                        title: 'Дети младше 15 лет (0-14,99) должны<br />быть в сопровождении взрослого<br />(который старше 15 лет).',
+                                                        note: '* Включен только входной билет в пиковые часы<br />(19:00-21:00), трансфер бронируется<br />и оплачивается дополнительно.',
+                                                        price: '',
+                                                    },
+                                                ],
+                                            ],
+                                },
+                                {
+                                    title: '',
+                                    text: `
+                                        <p>
+                                            Приобретая данный билет, вы&nbsp;сможете посетить несколько этажей (124, 125, 148 и&nbsp;152).<br />Здесь вы&nbsp;сможете насладиться великолепным видом, отличной музыкой и&nbsp;бокалом шампанского (также на&nbsp;выбор возможно вино или пиво).
+                                        </p>
+                                        <p>
+                                            Желаемая дата и&nbsp;время посещения обсуждается с&nbsp;гидом индивидуально.
+                                        </p>
+                                        <p>
+                                            <b>При себе необходимо иметь</b> паспорт и&nbsp;билет.
+                                        </p>
+                                        <p>
+                                            <b>Время посещения по&nbsp;данному билету&nbsp;&ndash;</b> 16:30.
+                                        </p>                                        
+                                    `,
+                                    class_suffix: '--tickets',
+                                    class_wrap: 'dm-info',
+                                    class_left: 'dm-info__left',
+                                    class_right: 'dm-info__right',
+                                    class_title: 'dm-info__title',
+                                    class_text: 'dm-info__text',
+                                    class_right_inner: 'dm-info__inner',
+                                    class_right_left: 'dm-info__left2',
+                                    class_right_title: 'dm-info__title2',
+                                    class_right_note: 'dm-info__note',
+                                    class_right_text: 'dm-info__text2',
+                                    class_right_right: 'dm-info__right2',
+                                    class_right_item: 'dm-info__item',
+                                    class_right_price: 'dm-info__price',
+                                    items: [
+                                                [
+                                                    {
+                                                        title: 'Билет на&nbsp;смотровую площадку<br /> в&nbsp;Бурдж-Халифа&nbsp;<b>&ndash; 152 этаж</b>',
+                                                        note: '',
+                                                        price: '240&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: 'Дети до 3 лет (0-2,99)',
+                                                        note: 'кроме 152 этажа,<br />вход на 152 этаж - платно',
+                                                        price: 'бесплатно',
+                                                    },
+                                                    {
+                                                        title: 'Дети младше 15 лет (0-14,99) должны<br />быть в сопровождении взрослого<br />(который старше 15 лет).',
+                                                        note: '* Включен только входной билет, трансфер <br />бронируется и оплачивается дополнительно.',
+                                                        price: '',
+                                                    },
+                                                ],
+                                            ],
+                                },
+                        ],
+                    })
+                
+
+                
+            .dm-tab__body(data-content-for="dubai" style="display: none;")
+                .dm-trip__item.dm-trip__item--tickets
+                    //- 3
+                    +trip({
+                        block_img_text : {
+                            title: '',
+                            text: 'Dubai Parks and Resorts',
+                            class_suffix: '--tickets2',
+                            class_wrap: 'dm-intro',
+                            class_img: 'dm-intro__img',
+                            class_desc: 'dm-intro__desc',
+                            class_title: 'dm-intro__title',
+                            class_text: 'dm-intro__text',
+                            img_lg: './img/content/sunmar/tickets/dubai-lg.jpg',
+                            img_sm: './img/content/sunmar/tickets/dubai-sm.jpg',
+                        },
+                        class_suffix: '--tickets',
+                        text: `
+                            <p>
+                                Dubai Parks and Resorts&nbsp;&ndash; крупнейший комплекс парков развлечений, в&nbsp;состав которого входят:
+                            </p>
+                            <ul class="dm-ul">
+                                <li>
+                                    <b>MOTIONGATE™ Dubai&nbsp;&ndash;</b> тематический парк, посвященный любимым персонажам ведущих голливудских киностудий DreamWorks Animation, Columbia Pictures, включая Smurfs, и&nbsp;Lionsgate.
+                                </li>
+                                <li>
+                                    <b>Bollywood Parks™ Dubai&nbsp;&ndash;</b> первый семейный тематический парк, аттракционы которого посвящены миру Болливуда.
+                                </li>
+                                <li>
+                                    <b>LEGOLAND® Dubai –</b> уникальный интерактивный парк для семей, в котором оживают конструкции из кирпичиков LEGO®.
+                                </li>
+                                <li>
+                                    <b>LEGOLAND® Water Park –</b> первый в регионе водный парк, предназначенный для семей с детьми от 2 до 12 лет.
+                                </li>
+                            </ul>
+                            <p>
+                                Все тематические парки объединены торгово-ресторанной зоной Riverland™ Dubai с бесплатным доступом.
+                            </p>
+                        `,
+                        class_text: 'dm-block__text',
+                        info:[
+                                {
+                                    title: '',
+                                    text: `
+                                        <p>
+                                            Огромный комплекс развлечений Dubai Parks and Resorts порадует взрослых и маленьких гостей. В состав комплекс входят несколько развлекательных парков: MOTIONGATE™ Dubai, на территории которого созданы фантастические миры знаменитых киношедевров Голливуда, Bollywood Parks™ Dubai, первый тематический парк посвященный Болливуду, LEGOLAND® Dubai, парк в котором оживают конструкции из кирпичиков LEGO®, и семейный аквапарк LEGOLAND® Water Park. Подарите себе и своим детям яркие эмоции!
+                                        </p>
+                                    `,
+                                    class_suffix: '--tickets',
+                                    class_wrap: 'dm-info',
+                                    class_left: 'dm-info__left',
+                                    class_right: 'dm-info__right',
+                                    class_title: 'dm-info__title',
+                                    class_text: 'dm-info__text',
+                                    class_right_inner: 'dm-info__inner',
+                                    class_right_left: 'dm-info__left2',
+                                    class_right_title: 'dm-info__title2',
+                                    class_right_note: 'dm-info__note',
+                                    class_right_text: 'dm-info__text2',
+                                    class_right_right: 'dm-info__right2',
+                                    class_right_item: 'dm-info__item',
+                                    class_right_price: 'dm-info__price',
+                                    items: [
+                                                [
+                                                    {
+                                                        title: '<b>Билет в тематический парк Dubai<br />Parks & Resorts (1 день - 1 парк)</b>',
+                                                        note: 'Вы можете выбрать 1 любой<br />парк для посещения',
+                                                        price: '80&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: '<b>Билет в тематический парк Dubai<br />Parks & Resorts (1 день - 2 парка)</b>',
+                                                        note: 'Вы можете выбрать 2 парка для посещения <br />(в один день)',
+                                                        price: '95&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: '',
+                                                        note: '* Включен только входной билет, трансфер <br />бронируется и оплачивается дополнительно.',
+                                                        price: '',
+                                                    },
+                                                ],
+                                            ],
+                                },
+                        ],
+                    })
+
+            .dm-tab__body(data-content-for="atlantis" style="display: none;")
+                .dm-trip__item.dm-trip__item--tickets
+                    //- 4
+                    +trip({
+                        block_img_text : {
+                            title: '',
+                            text: 'Atlantis Aquaventure',
+                            class_suffix: '--tickets2',
+                            class_wrap: 'dm-intro',
+                            class_img: 'dm-intro__img',
+                            class_desc: 'dm-intro__desc',
+                            class_title: 'dm-intro__title',
+                            class_text: 'dm-intro__text',
+                            img_lg: './img/content/sunmar/tickets/atlantis-lg.jpg',
+                            img_sm: './img/content/sunmar/tickets/atlantis-sm.jpg',
+                        },
+                        class_suffix: '--tickets',
+                        text: `
+                            <p>
+                                Приглашаем вас в&nbsp;<b>Atlantis Aquaventure!</b> Это самый большой аквапарк в&nbsp;мире. Вас ждет 105 водных горок, невероятные аттракционы и&nbsp;знакомства с&nbsp;морскими обитателями. Возможности для отдыха в&nbsp;аквапарке Atlantis Aquaventure&nbsp;&ndash; безграничны. А&nbsp;яркие впечатления гарантированы.
+                            </p>
+                            <p>
+                                <b>Это отличный вариант для отдыха всей семьи!</b>
+                            </p>
+                            <p>
+                                Мы&nbsp;предлагаем различные варианты билетов. Например, можно приобрести не&nbsp;только вход в&nbsp;парк, но&nbsp;и&nbsp;билет, который включает плавание с&nbsp;дельфинами.
+                            </p>
+                        `,
+                        class_text: 'dm-block__text',
+                        info:[
+                                {
+                                    title: '',
+                                    text: `
+                                        <p>
+                                            <b>Билет в аквапарк Atlantis Aquaventure<br />(комбинированный)</b>
+                                        </p>
+                                        <p>
+                                            Билет включает в&nbsp;себя посещение парка Aquaventure и&nbsp;океанариума Lost Chamber.
+                                        </p>
+                                        <p>
+                                            Желаемая дата посещения обсуждается с&nbsp;гидом индивидуально.
+                                        </p>
+                                    `,
+                                    class_suffix: '--tickets',
+                                    class_wrap: 'dm-info',
+                                    class_left: 'dm-info__left',
+                                    class_right: 'dm-info__right',
+                                    class_title: 'dm-info__title',
+                                    class_text: 'dm-info__text',
+                                    class_right_inner: 'dm-info__inner',
+                                    class_right_left: 'dm-info__left2',
+                                    class_right_title: 'dm-info__title2',
+                                    class_right_note: 'dm-info__note',
+                                    class_right_text: 'dm-info__text2',
+                                    class_right_right: 'dm-info__right2',
+                                    class_right_item: 'dm-info__item',
+                                    class_right_price: 'dm-info__price',
+                                    items: [
+                                                [
+                                                    {
+                                                        title: '<b>Взрослый</b>',
+                                                        note: '',
+                                                        price: '95&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: '<b>Ребенок</b>',
+                                                        note: 'от 3 до 11,99 лет',
+                                                        price: '82&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: '<b>Ребенок</b>',
+                                                        note: 'от 0 до 2,99 лет',
+                                                        price: 'бесплатно',
+                                                    },
+                                                    {
+                                                        title: '',
+                                                        note: '* Включен только входной билет, трансфер <br />бронируется и оплачивается дополнительно.',
+                                                        price: '',
+                                                    },
+                                                ],
+                                            ],
+                                },
+                                {
+                                    title: '',
+                                    text: `
+                                        <p>
+                                            <b>Билет в аквапарк Atlantis Aquaventure,<br />знакомство и плавание с дельфинами</b>
+                                        </p>
+                                        <p>
+                                            Билет включает в&nbsp;себя посещение парка Aquaventure, а&nbsp;также 30-минутное плавание с&nbsp;дельфином.
+                                        </p>
+                                        <p>
+                                            <b>ВАЖНО!</b> Дети до&nbsp;3&nbsp;лет не&nbsp;допускаются до&nbsp;плавания с&nbsp;дельфинами. Дети 3-12 лет обязательно должны быть в&nbsp;сопровождении взрослого (минимальный рост ребенка 120&nbsp;см).
+                                        </p>
+                                        <p>
+                                            Желаемая дата посещения обсуждается с&nbsp;гидом индивидуально.
+                                        </p>
+                                    `,
+                                    class_suffix: '--tickets',
+                                    class_wrap: 'dm-info',
+                                    class_left: 'dm-info__left',
+                                    class_right: 'dm-info__right',
+                                    class_title: 'dm-info__title',
+                                    class_text: 'dm-info__text',
+                                    class_right_inner: 'dm-info__inner',
+                                    class_right_left: 'dm-info__left2',
+                                    class_right_title: 'dm-info__title2',
+                                    class_right_note: 'dm-info__note',
+                                    class_right_text: 'dm-info__text2',
+                                    class_right_right: 'dm-info__right2',
+                                    class_right_item: 'dm-info__item',
+                                    class_right_price: 'dm-info__price',
+                                    items: [
+                                                [
+                                                    {
+                                                        title: '<b>Взрослый</b>',
+                                                        note: '',
+                                                        price: '275&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: '<b>Ребенок</b>',
+                                                        note: 'от 3 до 11,99 лет',
+                                                        price: '275&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: '<b>Ребенок</b>',
+                                                        note: 'от 0 до 2,99 лет',
+                                                        price: 'бесплатно',
+                                                    },
+                                                    {
+                                                        title: '',
+                                                        note: '* Плавание проходит в небольших группах, не&nbsp;индивидуально.',
+                                                        price: '',
+                                                    },
+                                                    {
+                                                        title: '',
+                                                        note: '** Включен только входной билет, трансфер <br />бронируется и оплачивается дополнительно.',
+                                                        price: '',
+                                                    },
+                                                ],
+                                            ],
+                                },
+                        ],
+                    })
+
+            .dm-tab__body(data-content-for="img-worlds" style="display: none;")
+                .dm-trip__item.dm-trip__item--tickets
+                    //- 5
+                    +trip({
+                        block_img_text : {
+                            title: '',
+                            text: 'IMG Worlds of Adventure',
+                            class_suffix: '--tickets2',
+                            class_wrap: 'dm-intro',
+                            class_img: 'dm-intro__img',
+                            class_desc: 'dm-intro__desc',
+                            class_title: 'dm-intro__title',
+                            class_text: 'dm-intro__text',
+                            img_lg: './img/content/sunmar/tickets/img-worlds-lg.jpg',
+                            img_sm: './img/content/sunmar/tickets/img-worlds-sm.jpg',
+                        },
+                        class_suffix: '--tickets',
+                        text: `
+                            <p>
+                                <b>Добро пожаловать в IMG Worlds of Adventure! </b>
+                            </p>
+                            <p>
+                                Это крупнейший крытый тематический парк аттракционов в&nbsp;Дубае общей площадью около 140&nbsp;000 кв.м. В&nbsp;основе парка 4&nbsp;развлекательных зоны, созданные по&nbsp;мотивам таких известных фильмов, как:
+                            </p>
+                            <ul class="dm-ul">
+                                <li>
+                                    <b>MARVEL&nbsp;&ndash;</b> здесь вы&nbsp;перенесетесь во&nbsp;вселенную супергероев Marvel.Это самая популярная зона парка и&nbsp;обязательное место для посещения!
+                                </li>
+                                <li>
+                                    <b>LOST VALLEY&nbsp;&ndash;</b> будьте готовы отправиться в&nbsp;захватывающий мир, существовавший миллионы лет назад&nbsp;&ndash; в&nbsp;парк с&nbsp;динозаврами. Здесь проводится множество мероприятий, расположены аттракционы и&nbsp;рестораны, посвященные динозаврам.
+                                </li>
+                                <li>
+                                    <b>CARTOON NETWORK&nbsp;&ndash;</b> здесь вы&nbsp;можете встретить всех своих любимых героев мультфильмов (&laquo;Удивительный мир Гамбола&raquo;, &laquo;Время приключений&raquo;, &laquo;Крутые девчонки&raquo;, &laquo;Бен-10&raquo; и&nbsp;&laquo;Лентяево&raquo;) и&nbsp;отлично провести время всей семьей.
+                                </li>
+                                <li>
+                                    <b>THE HAUNTED HOTEL&nbsp;&ndash;</b> посетите отель с&nbsp;привидениями, но&nbsp;прежде чем войти, знайте, что покинуть его не&nbsp;так-то просто... Преодолевайте лабиринт коридоров и&nbsp;меняющихся пейзажей, сталкиваясь со&nbsp;всевозможными страшными персонажами. Сохраняйте самообладание, пока пытаетесь найти выход... Иммерсивное развлечение еще никогда не&nbsp;было таким пугающим!
+                                </li>
+                                <li>
+                                    <b>IMG BOULEVARD&nbsp;&ndash;</b> приветственная зона парка, предлагающая искателям приключений всех возрастов интерактивные аттракционы, различные торговые точки и&nbsp;широкий выбор ресторанов.
+                                </li>
+                            </ul>
+                        `,
+                        class_text: 'dm-block__text',
+                        info:[
+                                {
+                                    title: '',
+                                    text: `
+                                        <p>
+                                            Билет включает в&nbsp;себя посещение парка IMG Worlds of&nbsp;Adventure.
+                                        </p>
+                                        <p>
+                                            Желаемая дата посещения обсуждается с&nbsp;гидом индивидуально.
+                                        </p>
+                                    `,
+                                    class_suffix: '--tickets',
+                                    class_wrap: 'dm-info',
+                                    class_left: 'dm-info__left',
+                                    class_right: 'dm-info__right',
+                                    class_title: 'dm-info__title',
+                                    class_text: 'dm-info__text',
+                                    class_right_inner: 'dm-info__inner',
+                                    class_right_left: 'dm-info__left2',
+                                    class_right_title: 'dm-info__title2',
+                                    class_right_note: 'dm-info__note',
+                                    class_right_text: 'dm-info__text2',
+                                    class_right_right: 'dm-info__right2',
+                                    class_right_item: 'dm-info__item',
+                                    class_right_price: 'dm-info__price',
+                                    items: [
+                                                [
+                                                    {
+                                                        title: '<b>Билет в тематический парк<br />IMG Worlds of Adventure</b>',
+                                                        note: '',
+                                                        price: '90&nbsp;у.е.',
+                                                    },
+                                                    {
+                                                        title: '',
+                                                        note: '* Включен только входной билет, трансфер <br />бронируется и оплачивается дополнительно.',
+                                                        price: '',
+                                                    },
+                                                ],
+                                            ],
+                                },
+                        ],
+                    })

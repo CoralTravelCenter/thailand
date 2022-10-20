@@ -1,0 +1,1112 @@
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="ru")
+    head
+        title #{title}
+        meta(name='robots' content='noindex,nofollow')
+        link(rel='canonical' href='/tmp-toolchain-template/')
+        meta(charset='utf-8')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons&display=swap' rel='preload stylesheet' as='style' async='' crossorigin='')
+        meta(name='apple-mobile-web-app-capable' content='yes')
+        meta(name='apple-touch-fullscreen' content='yes')
+        meta(name='viewport' content='user-scalable=no, shrink-to-fit=no, width=device-width, initial-scale=1, maximum-scale=1')
+        meta(http-equiv='x-ua-compatible' content='ie=edge')
+        link(rel='shortcut icon' href='/favicon.ico')
+        link(rel='apple-touch-icon' href='/apple-touch-icon.png')
+        link(rel='apple-touch-icon-precomposed' href='/apple-touch-icon-precomposed.png')
+        link(rel='apple-touch-icon' sizes='57x57' href='/apple-touch-icon-57x57.png')
+        link(rel='apple-touch-icon' sizes='72x72' href='/apple-touch-icon-72x72.png')
+        link(rel='apple-touch-icon' sizes='76x76' href='/apple-touch-icon-76x76.png')
+        link(rel='apple-touch-icon' sizes='114x114' href='/apple-touch-icon-114x114.png')
+        link(rel='apple-touch-icon' sizes='120x120' href='/apple-touch-icon-120x120.png')
+        link(rel='apple-touch-icon' sizes='144x144' href='/apple-touch-icon-144x144.png')
+        link(rel='apple-touch-icon' sizes='152x152' href='/apple-touch-icon-152x152.png')
+        link(rel='apple-touch-icon' sizes='167x167' href='/apple-touch-icon-167x167.png')
+        link(rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon-180x180.png')
+        link(rel='apple-touch-icon-precomposed' sizes='57x57' href='/apple-touch-icon-57x57-precomposed.png')
+        link(rel='apple-touch-icon-precomposed' sizes='72x72' href='/apple-touch-icon-72x72-precomposed.png')
+        link(rel='apple-touch-icon-precomposed' sizes='76x76' href='/apple-touch-icon-76x76-precomposed.png')
+        link(rel='apple-touch-icon-precomposed' sizes='114x114' href='/apple-touch-icon-114x114-precomposed.png')
+        link(rel='apple-touch-icon-precomposed' sizes='120x120' href='/apple-touch-icon-120x120-precomposed.png')
+        link(rel='apple-touch-icon-precomposed' sizes='144x144' href='/apple-touch-icon-144x144-precomposed.png')
+        link(rel='apple-touch-icon-precomposed' sizes='152x152' href='/apple-touch-icon-152x152-precomposed.png')
+        link(rel='apple-touch-icon-precomposed' sizes='167x167' href='/apple-touch-icon-167x167-precomposed.png')
+        link(rel='apple-touch-icon-precomposed' sizes='180x180' href='/apple-touch-icon-180x180-precomposed.png')
+        link(rel='preconnect' href='//fonts.googleapis.com' crossorigin='')
+        link(rel='preconnect' href='//fonts.gstatic.com' crossorigin='')
+        link(rel='preconnect' href='//content.coral.ru')
+        link(rel='preconnect' href='//cdn.coral.ru')
+        link(rel='preconnect' href='//www.google.com')
+        link(rel='preconnect' href='//www.google-analytics.com')
+        link(rel='preconnect' href='//www.googletagmanager.com')
+        link(rel='preconnect' href='//stats.g.doubleclick.net')
+        link(rel='preconnect' href='//app2.salesmanago.pl')
+        link(rel='preconnect' href='//www.facebook.com')
+        link(rel='preconnect' href='//connect.facebook.net')
+        link(rel='preconnect' href='//top-fwz1.mail.ru')
+        link(rel='preconnect' href='//coraltravel.api.useinsider.com')
+        meta(name='facebook-domain-verification' content='5qfdp6miok9ih0gbhby30peqindd2c')
+        meta(name='yandex-verification' content='9f6473cb966f0015')
+        script(async='' src='//coraltravel.api.useinsider.com/ins.js?id=10005148')
+        script(type='text/javascript').
+            (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-K9JXSGZ');
+        script(type='text/javascript' src='https://api.flocktory.com/v2/loader.js?site_id=3181' async='async')
+
+
+        link(rel="stylesheet" href='./styles/coral.critical.css')
+        link(rel="stylesheet" href='./styles/coral.css')
+        link(rel="stylesheet" href='./styles/coral.dynamic.css')
+
+        
+    body(data-page-id='2e3f8bf3-d8ed-4ffb-bf2e-ae3600dfeb7b')        
+        noscript
+            iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-K9JXSGZ" height="0" width="0" style="display:none;visibility:hidden")
+        style(type="text/css").
+            .ui-dialog{
+                z-index: 99999 !important;
+            }
+        .pageloading
+        .travelloader.hide
+            .loader
+                .line-0
+                .line-1
+                .line-2
+                .line-3
+                .line-4
+                .line-5
+                .line-6
+            span
+        header.site-header(data-module='headerWidget')
+            .site-header-container.container.px-0
+                .d-flex.flex-sm-wrap-reverse.flex-md-nowrap
+                    .container-logo.d-none.d-sm-block.d-md-block.d-lg-block.d-xl-block
+                        a(href='/')
+                            img.img-fluid.lazy(data-src='https://cdn.coral.ru/content/corallogo-202901ed.svg' alt='Туроператор Coral Travel')
+                    .container-other.flex-grow-1.align-items-end
+                        .container-topside.d-flex.align-items-start.justify-content-end.clearfix
+                            .mobilecallus
+                                a.btnMobileCallUs(href='#')
+                                    i.material-icons 
+                            .mobileLogo.flex-fill.d-block.d-sm-none.d-md-none.d-lg-none.d-xl-none
+                                a(href='/')
+                                    img.img-fluid.lazy(data-src='https://cdn.coral.ru/content/corallogo-202901ed.svg' alt='Туроператор Coral Travel')
+                            .mobilemenutoggler
+                                span
+                                    i.material-icons 
+                                .mobileoffsetmenucontainer
+                                    .offsetmenuheader
+                                        .offsetmenulogo
+                                            img.img-fluid(alt='Logo' src='/img/content/coral/img/mobile-menu-logo.svg')
+                                        .offsetmenuclose
+                                            i.material-icons 
+                                    .departuresearchwrapper
+                                        .input-with-icon.icon-right
+                                            input.form-control.ghostInput(type='text' readonly='')
+                                            span.input-icon
+                                                i.material-icons search
+                                    .giftcardwrapper
+                                        .giftcardinner
+                                            a(href='/podarochnye-karty')
+                                                div
+                                                    | Подарочная карта 
+                                                    i.material-icons arrow_forward_ios
+                                                img.img-fluid(src='/img/content/coral/img/gift-card-banner.png' alt='')
+                                        a(href='/podarochnye-karty')
+                                    .profilemenuwrapper
+                                        span.loginRegister
+                                            i.material-icons 
+                                            |  Войти и зарегистрироваться
+                                    .mainmenuwrapper
+                                        ul
+                                            li
+                                                a(href='/hot-offers/') Акции
+                                            li
+                                                a(href='/concepts/') Типы отдыха
+                                            li
+                                                a(href='/where-to-buy/') Где купить
+                                    .currencymenuwrapper
+                                        .currency
+                                        .exchangerates
+                                    .phonemenuwrapper
+                                        div
+                                            .number
+                                                a(href='tel: +7 495 232 10 11') +7 (495) 232 10 11
+                                            .title Для частных лиц из Москвы
+                                        div
+                                            .number
+                                                a(href='tel: +7 495 232 08 09') +7 (495) 232 08 09
+                                            .title Горячая линия 24 часа
+                                        div
+                                            .number
+                                                a(href='tel: +7 800 250 10 11') +7 (800) 250 10 11
+                                            .title Для частных лиц из регионов
+                                .offsetDepartureMenu.mobileCoverLayout
+                                    .header
+                                        .title  Город вылета
+                                        .offsetmenuclose
+                                            i.material-icons 
+                                        .input-with-icon.icon-right
+                                            input.form-control.departureFilterInput(type='text')
+                                            span.input-icon
+                                                i.material-icons search
+                                    ul.mobilestylelist
+                            .topItem.d-none.d-sm-block.d-md-inline-block.d-lg-inline-block.d-xl-inline-block
+                                a.link(href='https://agency.coral.ru' target='_blank')  Для турагентств 
+                            .topItem.d-none.d-sm-block.d-md-inline-block.d-lg-inline-block.d-xl-inline-block
+                                a.link(href='/where-to-buy/')  Где купить 
+                            .topItem.headerCurrency.d-none.d-sm-block.d-md-inline-block.d-lg-inline-block.d-xl-inline-block
+                                .currency-current
+                                    i.currency-icon.icon-circle-rub
+                                    span.currency-name Курс валют
+                                    i.top-currency-arrow-down.material-icons 
+                                .currency-list
+                                    ul.p-0.m-0
+                                        li(data-currencyid='2')
+                                            i.currency-icon.icon-circle-usd
+                                            span.currency-name USD
+                                            i.top-currency-arrow-down.material-icons 
+                                            hr
+                                        li(data-currencyid='3')
+                                            i.currency-icon.icon-circle-eur
+                                            span.currency-name EUR
+                                            i.top-currency-arrow-down.material-icons 
+                                            hr
+                                        li.selected(data-currencyid='4')
+                                            i.currency-icon.icon-circle-rub
+                                            span.currency-name RUB
+                                            i.top-currency-arrow-down.material-icons 
+                            .topItem.loginRegister.d-none.d-sm-block.d-md-inline-block.d-lg-inline-block.d-xl-inline-block
+                                i.loginRegister-icon.material-icons 
+                                .loginRegister-btn.d-none.d-sm-none.d-md-inline-block.d-lg-inline-block.d-xl-inline-block
+                                    | Войти и зарегистрироваться
+                            .topItem.geolocation
+                                .geolocation-container
+                                    .geolocation-current(data-itemid='2671' data-itemname='Москва') Москва
+                                    .geolocation-list
+                                        ul
+                                            li.geolocation-item(data-departureid='2671') Москва
+                                            li.geolocation-item(data-departureid='2328') Абакан
+                                            li.geolocation-item(data-departureid='2349') Архангельск
+                                            li.geolocation-item(data-departureid='2358') Астрахань
+                                            li.geolocation-item(data-departureid='2370') Барнаул
+                                            li.geolocation-item(data-departureid='2373') Белгород
+                                            li.geolocation-item(data-departureid='2389') Благовещенск
+                                            li.geolocation-item(data-departureid='2984') Владивосток
+                                            li.geolocation-item(data-departureid='2989') Волгоград
+                                            li.geolocation-item(data-departureid='2999') Воронеж
+                                            li.geolocation-item(data-departureid='2449') Екатеринбург
+                                            li.geolocation-item(data-departureid='2504') Ижевск
+                                            li.geolocation-item(data-departureid='2498') Иркутск
+                                            li.geolocation-item(data-departureid='2529') Казань
+                                            li.geolocation-item(data-departureid='2512') Калининград
+                                            li.geolocation-item(data-departureid='2531') Кемерово
+                                            li.geolocation-item(data-departureid='2578') Краснодар
+                                            li.geolocation-item(data-departureid='2586') Красноярск
+                                            li.geolocation-item(data-departureid='2638') Магадан
+                                            li.geolocation-item(data-departureid='2639') Магнитогорск
+                                            li.geolocation-item(data-departureid='2662') Минеральные воды
+                                            li.geolocation-item(data-departureid='2677') Мурманск
+                                            li.geolocation-item(data-departureid='2679') Н. Новгород
+                                            li.geolocation-item(data-departureid='2707') Нижневартовск
+                                            li.geolocation-item(data-departureid='2705') Нижнекамск
+                                            li.geolocation-item(data-departureid='2718') Новокузнецк
+                                            li.geolocation-item(data-departureid='2724') Новосибирск
+                                            li.geolocation-item(data-departureid='2739') Омск
+                                            li.geolocation-item(data-departureid='2743') Оренбург
+                                            li.geolocation-item(data-departureid='2763') Пермь
+                                            li.geolocation-item(data-departureid='2808') Ростов-на-Дону
+                                            li.geolocation-item(data-departureid='2823') Самара
+                                            li.geolocation-item(data-departureid='2817') Санкт-Петербург
+                                            li.geolocation-item(data-departureid='2827') Саратов
+                                            li.geolocation-item(data-departureid='2873') Сочи
+                                            li.geolocation-item(data-departureid='2897') Сургут
+                                            li.geolocation-item(data-departureid='2861') Сыктывкар
+                                            li.geolocation-item(data-departureid='2915') Томск
+                                            li.geolocation-item(data-departureid='2927') Тюмень
+                                            li.geolocation-item(data-departureid='2941') Ульяновск
+                                            li.geolocation-item(data-departureid='2935') Уфа
+                                            li.geolocation-item(data-departureid='2533') Хабаровск
+                                            li.geolocation-item(data-departureid='2534') Ханты-Мансийск
+                                            li.geolocation-item(data-departureid='2416') Челябинск
+                                            li.geolocation-item(data-departureid='3021') Южно-Сахалинск
+                                            li.geolocation-item(data-departureid='3009') Якутск
+                        .container-tabs-main(data-activetab='')
+                            .container-tabs.d-flex.align-items-end.flex-fill
+                                .tabItem.tabTour.p-md-0.p-lg-2.p-xl-2.flex-fill.active(data-tabtype='packagetour')
+                                    i.icon-tabs-tour.icon-tour
+                                    span.tabTitle Туры
+                                .tabItem.tabHotel.p-md-0.p-lg-2.p-xl-2.flex-fill(data-tabtype='hotelsearch')
+                                    i.icon-tabs-hotel.icon-hotel
+                                    span.tabTitle Проживание
+                                .tabItem.tabFlight.p-md-0.p-lg-2.p-xl-2.flex-fill(data-tabtype='flightticket')
+                                    i.icon-tabs-flight.icon-flight
+                                    span.tabTitle Авиабилеты
+                                .extraTabItem.tabPromotions.p-md-0.p-lg-2.p-xl-2.flex-fill
+                                    a(href='/hot-offers/')
+                                        img(src='/img/content/coral/img/header/promotions.svg' alt='')
+                                        span.tabTitle Акции
+                                .extraTabItem.tabVacationIdeas.p-md-0.p-lg-2.p-xl-2.flex-fill
+                                    a(href='/concepts/')
+                                        img(src='/img/content/coral/img/header/vacation-ideas.svg' alt='')
+                                        span.tabTitle Типы отдыха
+                                .container-phone.p-md-0.p-lg-2.p-xl-2.flex-fill.d-none.d-sm-none.d-md-block.d-lg-block.d-xl-block
+                                    a.phone-header(href='tel:+7 495 232 10 11')
+                                        img.d-sm-none.d-md-inline-block.d-lg-inline-block.d-xl-inline-block(src='/img/content/coral/img/header/headset.svg' alt='')
+                                        span.phoneprefix-header +7 (495) 
+                                        span.phonenumber-header 232 10 11
+                                    span.phoneinfo-header Колл-центр 24/7
+                                .container-menu.flex-fill.d-none.d-sm-none.d-md-block.d-lg-block.d-xl-block
+                                    span.menuTitle Меню
+                                    img.menuIcon(src='/img/content/coral/img/header/menu.svg' alt='')
+                                    .menuList
+                                        ul
+                                            li
+                                                a.countrymenu(href='#') Страны
+                                            li
+                                                a(href='/hot-offers/' target='_self') Акции
+                                            li
+                                                a(href='https://www.coral.ru/where-to-buy/' target='_self') Где купить
+                                            li
+                                                a(href='/poleznaya-informatsiya/' target='_self') Полезная информация
+                                            li
+                                                a(href='/additional-services-coral/' target='_self') Доп. услуги
+                                            li
+                                                a(href='/hot-offers/coralbonus/' target='_self')
+                                                    | Программа лояльности
+                                                    | CoralBonus
+                                            li
+                                                a(href='/main/coral/about/' target='_self') О нас
+                                            li
+                                                a(href='/poleznaya-informatsiya/gid-po-otdyhu/' target='_self')
+                                                    | Гид по
+                                                    | отдыху
+                                            li
+                                                a(href='https://agency.coral.ru/' target='_blank') Агентствам
+                                            li
+                                                a.menuBtnReservationCheck(href='#') Просмотр заявок для туристов
+        #defaultModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='defaultModalLabel' aria-hidden='true' data-backdrop='static')
+            .modal-dialog.modal-dialog-centered(role='document')
+                .modal-content
+                    .modal-header
+                        h5#defaultModalLabel.modal-title
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') ×
+                    .modal-body
+        .commonModal.modal.fade(data-backdrop='static' tabindex='-1' role='dialog' aria-hidden='true')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-body
+        .contentLayout-BaseContainer(data-module='contentLayout')
+            .subpage-search-bg.container-fluid
+                .background
+                section.searchtabsmain(data-module='searchtabsmain' data-ishomepage='false')
+                    .container-tabItemWrap(data-searchparams='' data-enabledacc='[]' data-issticky='true')
+                        .packagetour.container.container-tabItem.activeTab
+                            .flexboxTabContainer.d-flex.flex-nowrap.flex-column.flex-md-row(data-module='packagesearchPartial')
+                                .stickyLogoContainer.flex-fill.pr-3.order-0.order-md-0.order-lg-0.order-xl-0
+                                    a.d-md-none.d-lg-block(href='/')
+                                span.d-flex.d-md-none.w-100.justify-content-end
+                                    a.btn.btn-sm.d-block.d-md-none.giftcardlink.w-50(href='/podarochnye-karty' target='_blank')
+                                        i.material-icons card_giftcard
+                                        |  Подарочная карта
+                                .d-flex.flex-fill.qs-form-container
+                                    .flexboxDeparture.col.order-2.order-sm-2.order-md-1.order-lg-1.order-xl-1
+                                        .departureContainer.input-group
+                                            .packageSearch__departureInputContainer
+                                                .header
+                                                    label.w-100.departureLabel  Откуда
+                                                    .mobileclose
+                                                        i.material-icons 
+                                                    input.packageSearch__departureInput.form-control(type='text' placeholder='Выберите город вылета' name='packageSearchdepartureInputc37cada14494406b9b7d6dc5d66b9f3e' autocomplete='c37cada14494406b9b7d6dc5d66b9f3e')
+                                                    i.packageSearch__addon-icon.material-icons 
+                                            .packageSearch__departureList
+                                                ul
+                                                    li.packageSearch__departureListItem(data-itemid='2671' data-itemname='Москва')
+                                                        | Москва
+                                                    li.packageSearch__departureListItem(data-itemid='2328' data-itemname='Абакан')
+                                                        | Абакан
+                                                    li.packageSearch__departureListItem(data-itemid='2349' data-itemname='Архангельск')
+                                                        | Архангельск
+                                                    li.packageSearch__departureListItem(data-itemid='2358' data-itemname='Астрахань')
+                                                        | Астрахань
+                                                    li.packageSearch__departureListItem(data-itemid='2370' data-itemname='Барнаул')
+                                                        | Барнаул
+                                                    li.packageSearch__departureListItem(data-itemid='2373' data-itemname='Белгород')
+                                                        | Белгород
+                                                    li.packageSearch__departureListItem(data-itemid='2389' data-itemname='Благовещенск')
+                                                        | Благовещенск
+                                                    li.packageSearch__departureListItem(data-itemid='2984' data-itemname='Владивосток')
+                                                        | Владивосток
+                                                    li.packageSearch__departureListItem(data-itemid='2989' data-itemname='Волгоград')
+                                                        | Волгоград
+                                                    li.packageSearch__departureListItem(data-itemid='2999' data-itemname='Воронеж')
+                                                        | Воронеж
+                                                    li.packageSearch__departureListItem(data-itemid='2449' data-itemname='Екатеринбург')
+                                                        | Екатеринбург
+                                                    li.packageSearch__departureListItem(data-itemid='2504' data-itemname='Ижевск')
+                                                        | Ижевск
+                                                    li.packageSearch__departureListItem(data-itemid='2498' data-itemname='Иркутск')
+                                                        | Иркутск
+                                                    li.packageSearch__departureListItem(data-itemid='2529' data-itemname='Казань')
+                                                        | Казань
+                                                    li.packageSearch__departureListItem(data-itemid='2512' data-itemname='Калининград')
+                                                        | Калининград
+                                                    li.packageSearch__departureListItem(data-itemid='2531' data-itemname='Кемерово')
+                                                        | Кемерово
+                                                    li.packageSearch__departureListItem(data-itemid='2578' data-itemname='Краснодар')
+                                                        | Краснодар
+                                                    li.packageSearch__departureListItem(data-itemid='2586' data-itemname='Красноярск')
+                                                        | Красноярск
+                                                    li.packageSearch__departureListItem(data-itemid='2638' data-itemname='Магадан')
+                                                        | Магадан
+                                                    li.packageSearch__departureListItem(data-itemid='2639' data-itemname='Магнитогорск')
+                                                        | Магнитогорск
+                                                    li.packageSearch__departureListItem(data-itemid='2662' data-itemname='Минеральные воды')
+                                                        | Минеральные воды
+                                                    li.packageSearch__departureListItem(data-itemid='2677' data-itemname='Мурманск')
+                                                        | Мурманск
+                                                    li.packageSearch__departureListItem(data-itemid='2679' data-itemname='Н. Новгород')
+                                                        | Н. Новгород
+                                                    li.packageSearch__departureListItem(data-itemid='2707' data-itemname='Нижневартовск')
+                                                        | Нижневартовск
+                                                    li.packageSearch__departureListItem(data-itemid='2705' data-itemname='Нижнекамск')
+                                                        | Нижнекамск
+                                                    li.packageSearch__departureListItem(data-itemid='2718' data-itemname='Новокузнецк')
+                                                        | Новокузнецк
+                                                    li.packageSearch__departureListItem(data-itemid='2724' data-itemname='Новосибирск')
+                                                        | Новосибирск
+                                                    li.packageSearch__departureListItem(data-itemid='2739' data-itemname='Омск')
+                                                        | Омск
+                                                    li.packageSearch__departureListItem(data-itemid='2743' data-itemname='Оренбург')
+                                                        | Оренбург
+                                                    li.packageSearch__departureListItem(data-itemid='2763' data-itemname='Пермь')
+                                                        | Пермь
+                                                    li.packageSearch__departureListItem(data-itemid='2808' data-itemname='Ростов-на-Дону')
+                                                        | Ростов-на-Дону
+                                                    li.packageSearch__departureListItem(data-itemid='2823' data-itemname='Самара')
+                                                        | Самара
+                                                    li.packageSearch__departureListItem(data-itemid='2817' data-itemname='Санкт-Петербург')
+                                                        | Санкт-Петербург
+                                                    li.packageSearch__departureListItem(data-itemid='2827' data-itemname='Саратов')
+                                                        | Саратов
+                                                    li.packageSearch__departureListItem(data-itemid='2873' data-itemname='Сочи')
+                                                        | Сочи
+                                                    li.packageSearch__departureListItem(data-itemid='2897' data-itemname='Сургут')
+                                                        | Сургут
+                                                    li.packageSearch__departureListItem(data-itemid='2861' data-itemname='Сыктывкар')
+                                                        | Сыктывкар
+                                                    li.packageSearch__departureListItem(data-itemid='2915' data-itemname='Томск')
+                                                        | Томск
+                                                    li.packageSearch__departureListItem(data-itemid='2927' data-itemname='Тюмень')
+                                                        | Тюмень
+                                                    li.packageSearch__departureListItem(data-itemid='2941' data-itemname='Ульяновск')
+                                                        | Ульяновск
+                                                    li.packageSearch__departureListItem(data-itemid='2935' data-itemname='Уфа')
+                                                        | Уфа
+                                                    li.packageSearch__departureListItem(data-itemid='2533' data-itemname='Хабаровск')
+                                                        | Хабаровск
+                                                    li.packageSearch__departureListItem(data-itemid='2534' data-itemname='Ханты-Мансийск')
+                                                        | Ханты-Мансийск
+                                                    li.packageSearch__departureListItem(data-itemid='2416' data-itemname='Челябинск')
+                                                        | Челябинск
+                                                    li.packageSearch__departureListItem(data-itemid='3021' data-itemname='Южно-Сахалинск')
+                                                        | Южно-Сахалинск
+                                                    li.packageSearch__departureListItem(data-itemid='3009' data-itemname='Якутск')
+                                                        | Якутск
+                                    .flexboxDestination.col.order-1.order-sm-1.order-md-2.order-lg-2.order-xl-2
+                                        .destinationContainer
+                                            button.addonButton.btn.btn-sm.btn-link(tabindex='-1' type='button')
+                                                span
+                                                    i.icon-plane
+                                                    |  Доступные направления
+                                            .packageSearch__destinationInput_mobile
+                                                .header
+                                                    label.w-100  Куда 
+                                                    .mobileclose
+                                                        i.material-icons 
+                                                    input.packageSearch__destinationInput.form-control(type='text' placeholder='Введите страну, город или отель' name='packageSearchdestinationInputc37cada14494406b9b7d6dc5d66b9f3e' autocomplete='c37cada14494406b9b7d6dc5d66b9f3e')
+                                    .flexboxDateRangePicker.col.order-3
+                                        .departureDateTimePickerContainer
+                                            label  Период вылета
+                                            span
+                                            input.packageSearch__departureDateTimePickerInput.form-control.text-center(type='text' name='packageSearchdepartureDateTimePickerInputc37cada14494406b9b7d6dc5d66b9f3e' autocomplete='c37cada14494406b9b7d6dc5d66b9f3e' readonly='')
+                                    .flexboxNight.col.bd-highlist.order-4
+                                        .nightsContainer.firstRender
+                                            .packageSearch__NightsInputContainer
+                                                label.w-100
+                                                    | Ночей
+                                                input.packageSearch__NightsInput.form-control(type='text' placeholder='Продолжительность' name='packageSearchNightsInputc37cada14494406b9b7d6dc5d66b9f3e' autocomplete='c37cada14494406b9b7d6dc5d66b9f3e' readonly='')
+                                                i.packageSearch__NightsInput_addon_icon.material-icons 
+                                            .packageSearch__NightsListContainer
+                                                .header
+                                                    .title Выберите количество ночей в туре
+                                                    .mobileclose
+                                                        i.material-icons 
+                                                .nightsListHeader
+                                                    .nightstext Выберите количество ночей в туре
+                                                .nightsListBody
+                                                    .packageSearch__NightsList
+                                                        .d-flex.flex-wrap
+                                                .nightsListFooter
+                                                    span.notAvaiableFlights Недоступные даты
+                                                    button.btnSelectNightsFooter.btn.btn-primary(type='button')
+                                                        | Выбрать
+                                    .flexboxPassenger.col.order-5
+                                        .passengersContainer
+                                            .packageSearch__passengerInputContainer
+                                                label.w-100
+                                                    | Туристы
+                                                input.packageSearch__passengersInput.form-control(type='text' placeholder='Туристы' autocomplete='c37cada14494406b9b7d6dc5d66b9f3e' disabled='')
+                                                span.iconPresentation
+                                                i.packageSearch__passenger-addon-icon.material-icons 
+                                            .packageSearch__passengerListContainer
+                                                .header
+                                                    .title Туристы
+                                                    .mobileclose
+                                                        i.material-icons 
+                                                .row.passengerContainerRow
+                                                    .passengerContainerCol.col-6
+                                                        label.adultLabel.mt-0 Взрослых
+                                                        .adultContainer.input-group
+                                                            span.adultDown.d-inline-block.input-group-prepend
+                                                                i.adultDownIcon.material-icons 
+                                                            input.adultInput.d-inline-block.form-control(type='text' autocomplete='c37cada14494406b9b7d6dc5d66b9f3e' value='1')
+                                                            span.adultUp.d-inline-block.input-group-prepend
+                                                                i.adultUpIcon.material-icons 
+                                                    .passengerContainerCol.col-6
+                                                        label.childLabel.mt-0 Детей
+                                                        .childContainer.input-group
+                                                            span.childDown.d-inline-block.input-group-prepend
+                                                                i.childDownIcon.material-icons 
+                                                            input.childInput.d-inline-block.form-control(type='text' autocomplete='c37cada14494406b9b7d6dc5d66b9f3e' value='0')
+                                                            span.childUp.d-inline-block.input-group-prepend
+                                                                i.childUpIcon.material-icons 
+                                                    .passengerContainerChildTitle.col-12(style='display:none;')
+                                                        | Возраст детей
+                                                button.btnSelectPassengers.btn.btn-primary(type='button')
+                                                    | Выбрать
+                                    .flexboxBtnSend.col.order-6
+                                        .btnSendContainer
+                                            a.btn.btn-sm.giftcardlink(href='/podarochnye-karty' target='_blank')
+                                                i.material-icons card_giftcard
+                                                |                                         Подарочная карта
+                                            button.btnSubmitPackageSearch.btn.btn-primary.btn-block(type='button')
+                                                | Поиск
+                                                i.material-icons 
+                                .btnShowlessWrapper.d-sm-none
+                                    button.btnShowLess.btn.btn-primary.btn-block.btn-sm(type='button')
+                                        i.material-icons.closeSearchIcon 
+                                        |  Скрыть
+                        .hotelsearch.container.container-tabItem
+                            .d-flex.flex-nowrap.flex-column.flex-md-row(data-module='hotelsearchPartial')
+                                .stickyLogoContainer.flex-fill.pr-3.order-0.order-md-0.order-lg-0.order-xl-0
+                                    a.d-md-none.d-lg-block(href='/')
+                                span.d-flex.d-md-none.w-100.justify-content-end
+                                    a.btn.btn-sm.d-block.d-md-none.giftcardlink.w-50(href='/podarochnye-karty' target='_blank')
+                                        i.material-icons card_giftcard
+                                        |  Подарочная карта
+                                .flex-fill
+                                    .row
+                                        .col-md-5
+                                            .hotelSearch__destinationInput_mobile
+                                                .header
+                                                    label.w-100.d-sm-block Куда
+                                                    .mobileclose
+                                                        i.material-icons 
+                                                    .location-input-wrapper
+                                                        input.location-input.required.location-destination.form-control(type='text' placeholder='Введите страну, курорт или отель' name='locationdestination1ba9449e8c2d43f7bc30dd06bd5767b3' autocomplete='1ba9449e8c2d43f7bc30dd06bd5767b3')
+                                        .col-md-7
+                                            .row
+                                                .col-sm-6
+                                                    .row.pt-3.pt-md-0
+                                                        .col-12
+                                                            .row
+                                                                label.w-100.d-block
+                                                                    | Даты
+                                                                    | проживания
+                                                            .input-with-icon.icon-right
+                                                                .datepicker-wrapper
+                                                                    input.datepicker-input.required.datepicker-range.form-control.text-center(type='text' readonly='' placeholder='дд.мм.гггг' name='datepickercheckin1ba9449e8c2d43f7bc30dd06bd5767b3' autocomplete='1ba9449e8c2d43f7bc30dd06bd5767b3')
+                                                                span.input-icon.datepicker-icon
+                                                                    i.material-icons 
+                                                .col-sm-6
+                                                    .row.pt-3.pt-md-0
+                                                        .col-6
+                                                            .hotel-pax-wrapper
+                                                                div
+                                                                    label.w-100.d-block Туристы
+                                                                    .search-dropdown-wrapper
+                                                                        .input-with-icon.icon-right.search-dropdown.pax-input-wrapper
+                                                                            input.pax-input.form-control(type='text' readonly='' value='2 взр.' name='paxinput1ba9449e8c2d43f7bc30dd06bd5767b3' autocomplete='1ba9449e8c2d43f7bc30dd06bd5767b3')
+                                                                            span.iconPresentation
+                                                                            span.input-icon.icon-dropdown
+                                                                                i.material-icons 
+                                                                        .search-dropdown-content.p-3.mt-3.rounded(style='width:300px')
+                                                                            .header
+                                                                                .title Туристы
+                                                                                .mobileclose
+                                                                                    i.material-icons 
+                                                                            .d-flex
+                                                                                .pr-3
+                                                                                    label.w-100.d-block Взрослых
+                                                                                    .input-group.pax-spinner(data-spinner-min='1' data-spinner-max='5')
+                                                                                        span.input-group-prepend.pax-spinner-down
+                                                                                            i.material-icons 
+                                                                                        input.form-control.pax-adult.pax-spinner-input(type='text' value='2' readonly='')
+                                                                                        span.input-group-append.pax-spinner-up
+                                                                                            i.material-icons 
+                                                                                div
+                                                                                    label.w-100.d-block Детей
+                                                                                    .input-group.pax-spinner(data-spinner-min='0' data-spinner-max='3')
+                                                                                        span.input-group-prepend.pax-spinner-down
+                                                                                            i.material-icons 
+                                                                                        input.form-control.pax-child.pax-spinner-input(type='text' value='0' data-max-age='18' readonly='')
+                                                                                        span.input-group-append.pax-spinner-up
+                                                                                            i.material-icons 
+                                                                            .pax-child-ages-wrapper.pt-3
+                                                                                label.w-100.d-block.pb-1
+                                                                                    | Возраст
+                                                                                    | детей
+                                                                                .pax-child-ages.d-flex
+                                                                            .btnSelectPaxWrapper
+                                                                                button.btnSelectPax.btn.btn-primary(type='button')
+                                                                                    | Выбрать
+                                                        .col-6
+                                                            a.btn.btn-sm.giftcardlink.hoteltab(href='/podarochnye-karty' target='_blank')
+                                                                i.material-icons card_giftcard
+                                                                |                                                         Подарочная карта
+                                                            button.btn.btn-search.btn-primary.btn-block(type='button')
+                                                                | Поиск 
+                                                                i.material-icons 
+                                .btnShowlessWrapper.d-sm-none
+                                    button.btnShowLess.btn.btn-default.btn-block.btn-sm(type='button')
+                                        i.material-icons.closeSearchIcon keyboard_arrow_up
+                                        |  Скрыть
+                        .flightticket.container.container-tabItem
+                            .flightsearch.d-flex.flex-nowrap.flex-column.flex-md-row(data-flight-type='OneWay' data-module='flightsearchPartial')
+                                .stickyLogoContainer.flex-fill.pr-3.order-0.order-md-0.order-lg-0.order-xl-0
+                                    a.d-md-none.d-lg-block(href='/')
+                                span.d-flex.d-md-none.w-100.justify-content-end
+                                    a.btn.btn-sm.d-block.d-md-none.giftcardlink.w-50(href='/podarochnye-karty' target='_blank')
+                                        i.material-icons card_giftcard
+                                        |  Подарочная карта
+                                .flex-fill
+                                    .flight-type
+                                        .row
+                                            .col-md-5
+                                                .btn-group.btn-group-toggle.btn-flight-type(data-toggle='buttons')
+                                                    label.btn.btn-sm.active
+                                                        input(type='radio' name='flight-type' value='OneWay' checked='')
+                                                        |                                                 В одну
+                                                        |                                                 сторону
+                                                    label.btn.btn-sm.roundTripLabel
+                                                        input(type='radio' name='flight-type' value='RoundTrip')
+                                                        |                                             Туда и
+                                                        |                                             обратно
+                                                    label.btn.btn-sm
+                                                        input(type='radio' name='flight-type' value='MultiDestination')
+                                                        |                                             Сложный маршрут
+                                            .col.text-right.is-three-days-wrapper.pt-3.pt-sm-0
+                                                label.search-checkbox
+                                                    input.is-three-days(type='checkbox')
+                                                    span
+                                                        i.checked-false
+                                                        i.material-icons.checked-true 
+                                                    | ±
+                                                    |                                             3 дня
+                                    .flight-not-multi
+                                        .row
+                                            .col-md-5.flightNotMultiDestinations
+                                                .location-inputs.d-flex.flex-column.flex-sm-row.flex-md-row.flex-lg-row.flex-xl-row.pt-3
+                                                    .flex-fill.location-mobile-layout
+                                                        .header
+                                                            label.w-100.d-none.d-sm-block Откуда
+                                                            .mobileclose
+                                                                i.material-icons 
+                                                            .location-input-wrapper.input-with-icon
+                                                                input.location-input.required.location-departure.form-control(type='text' placeholder='Введите город или аэропорт' name='locationdepartureb82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                                span.input-icon
+                                                                    i.material-icons 
+                                                    .flex-fill.location-mobile-layout
+                                                        .header
+                                                            label.w-100.d-none.d-sm-block Куда
+                                                            .mobileclose
+                                                                i.material-icons 
+                                                            .location-input-wrapper.input-with-icon
+                                                                input.location-input.required.location-arrival.form-control(type='text' placeholder='Введите город или аэропорт' name='locationarrivalb82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                                span.input-icon
+                                                                    i.material-icons 
+                                                                span.location-reverse
+                                                                    i.material-icons.rounded.d-none.d-sm-block 
+                                                                    i.material-icons.rounded.d-sm-none 
+                                            .col-md-7.flightNotMultiDates
+                                                .d-flex.flex-column.flex-sm-row.flex-md-row.flex-lg-row.flex-xl-row
+                                                    .flex-1.pt-3.pr-0.pr-md-3
+                                                        .d-flex.search-datepicker-group
+                                                            .flex-fill.search-datepicker-oneway
+                                                                label.w-100.d-block Дата отправления
+                                                                .input-with-icon.icon-right
+                                                                    .datepicker-wrapper
+                                                                        input.datepicker-input.required.datepicker-oneway-departure.form-control(type='text' readonly='' placeholder='дд.мм.гггг' name='datepickeronewaydepartureb82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                                    span.input-icon.datepicker-icon
+                                                                        i.material-icons 
+                                                            .flex-fill.search-datepicker-oneway.flight-add-roundtrip
+                                                                label.w-100.d-block  
+                                                                .btn-flight-add-roundtrip-wrapper
+                                                                    .btn-flight-add-roundtrip
+                                                                        | Дата возвращения
+                                                                        i.material-icons 
+                                                            .flex-fill.search-datepicker-roundtrip
+                                                                label.w-100.d-block Дата отправления
+                                                                .input-with-icon.icon-right
+                                                                    .datepicker-wrapper
+                                                                        input.datepicker-input.required.datepicker-roundtrip-departure.form-control(type='text' readonly='' placeholder='дд.мм.гггг' name='datepickerroundtripdepartureb82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                                    span.input-icon.datepicker-icon
+                                                                        i.material-icons 
+                                                            .flex-fill.search-datepicker-roundtrip.pl-3
+                                                            label.w-100.d-block Дата возвращения
+                                                            .input-with-icon.icon-right
+                                                                input.datepicker-input.required.datepicker-roundtrip-return.form-control(type='text' readonly='' placeholder='дд.мм.гггг' name='datepickerroundtripreturnb82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                                span.input-icon.datepicker-icon
+                                                                    i.material-icons 
+                                                .d-flex.flex-1.pt-3.d-sm-none.d-md-block
+                                                    .flex-fill.pr-3.flight-pax-container
+                                                        .flight-pax-wrapper.d-flex
+                                                            div
+                                                                label.w-100.d-block Туристы
+                                                                .search-dropdown-wrapper.pr-3
+                                                                    .input-with-icon.icon-right.search-dropdown
+                                                                        input.pax-input.form-control(type='text' readonly='' value='1 Взр.' name='paxinputb82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                                        span.input-icon.icon-dropdown
+                                                                            i.material-icons 
+                                                                    .search-dropdown-content.p-3.mt-3.rounded
+                                                                        .header
+                                                                            .title Туристы
+                                                                            .mobileclose
+                                                                                i.material-icons 
+                                                                        div
+                                                                            label Взрослых
+                                                                            .input-group.pax-spinner(data-spinner-min='1' data-spinner-max='9')
+                                                                                span.input-group-prepend.pax-spinner-down
+                                                                                    i.material-icons 
+                                                                                input.form-control.pax-adult.pax-spinner-input(type='text' value='1' readonly='')
+                                                                                span.input-group-append.pax-spinner-up
+                                                                                    i.material-icons 
+                                                                        .pt-3
+                                                                            label Детей
+                                                                            .input-group.pax-spinner(data-spinner-min='0' data-spinner-max='9')
+                                                                                span.input-group-prepend.pax-spinner-down
+                                                                                    i.material-icons 
+                                                                                input.form-control.pax-child.pax-spinner-input(type='text' value='0' readonly='')
+                                                                                span.input-group-append.pax-spinner-up
+                                                                                    i.material-icons 
+                                                                        .pt-3
+                                                                            label Младенцев
+                                                                            .input-group.pax-spinner(data-spinner-min='0' data-spinner-max='9')
+                                                                                span.input-group-prepend.pax-spinner-down
+                                                                                    i.material-icons 
+                                                                                input.form-control.pax-infant.pax-spinner-input(type='text' value='0' readonly='')
+                                                                                span.input-group-append.pax-spinner-up
+                                                                                    i.material-icons 
+                                                                        .pt-3
+                                                                            label Младенцев с местом
+                                                                            .input-group.pax-spinner(data-spinner-min='0' data-spinner-max='9')
+                                                                                span.input-group-prepend.pax-spinner-down
+                                                                                    i.material-icons 
+                                                                                input.form-control.pax-infantwithseat.pax-spinner-input(type='text' value='0' readonly='')
+                                                                                span.input-group-append.pax-spinner-up
+                                                                                    i.material-icons 
+                                                                        .pt-3
+                                                                            small
+                                                                                | * Ребенок 2-12, Младенец
+                                                                                | 0-2 лет
+                                                                        .btnSelectPaxWrapper
+                                                                            button.btnSelectPax.btn.btn-primary(type='button')
+                                                                                | Выбрать
+                                                            .flex-fill.d-sm-none.d-md-block.flightMultiMdSubmitBtn
+                                                                a.btn.btn-sm.giftcardlink.hoteltab(href='/podarochnye-karty' target='_blank')
+                                                                    i.material-icons card_giftcard
+                                                                    |                                                                 Подарочная карта
+                                                                button.btn.btn-search.btn-primary.btn-block(type='button')
+                                                                    | Поиск 
+                                                                    i.material-icons 
+                                                    .d-flex.d-none.d-md-none.flightNotMultiMobileSubmitBtn
+                                                        .flex-fill
+                                                            label.w-100.d-block  
+                                                            button.btn.btn-search.btn-primary.btn-block(type='button')
+                                                                | Поиск 
+                                                                i.material-icons 
+                                        .flight-options-wrapper.pt-3.flex-fill
+                                            .d-flex.flex-column.flex-sm-row.alignItemsFlexEnd
+                                                .d-flex.d-sm-inline-flex.alignItemsFlexEnd
+                                                    .d-sm-inline-flex.flex-fill.pr-3
+                                                        .search-mini-dropdown
+                                                            .search-mini-title.d-sm-inline-block
+                                                                | Класс
+                                                                | перелета:
+                                                            .search-dropdown-wrapper.d-sm-inline-block
+                                                                .search-dropdown
+                                                                    span.search-option-class-text Эконом
+                                                                    i.material-icons 
+                                                                .search-dropdown-content.no-covered-layout.p-3.mt-3.rounded
+                                                                    ul.search-option-class
+                                                                        li(data-value='First') Первый
+                                                                        li(data-value='Business') Бизнес
+                                                                        li(data-value='PremiumEconomy')
+                                                                            | Премиальный
+                                                                            | экономический
+                                                                        li.selected(data-value='Economy')
+                                                                            | Эконом
+                                                    .d-sm-inline-flex.flex-fill.pr-sm-3
+                                                        .search-mini-dropdown
+                                                            .search-mini-title.d-sm-inline-block
+                                                                | Авиакомпания:
+                                                            .search-dropdown-wrapper.d-sm-inline-block
+                                                                .search-dropdown.airline-filer-dropdown.no-text
+                                                                    span.airline-filter-text
+                                                                    i.material-icons 
+                                                                .search-dropdown-content.no-covered-layout.dropdown-airline-filter.no-covered-layout.p-3.mt-3.rounded
+                                                                    label Авиакомпания
+                                                                    .airline-filter-wrapper
+                                                                        input.search-input.airline-filter.form-control.form-control-sm.border(type='text' name='airlinefilterb82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                                    .selected-airlines.search-clear-item.my-2
+                                                                    div
+                                                                        small
+                                                                            | Mожно выбрать не более 3
+                                                                            | авиакомпаний
+                                                                    .airline-filter-selected
+                                                    .d-sm-inline-flex.searchCheckboxPaddingTop
+                                                        label.search-checkbox
+                                                            input.is-direct-flight(type='checkbox')
+                                                            span
+                                                                i.checked-false
+                                                                i.material-icons.checked-true 
+                                                            | Без
+                                                            |                                                         пересадок
+                                                    .d-none.d-sm-block.d-md-none.flex-fill.pr-sm-3
+                                                        label.w-100.d-block.searchDropdownLabelDisplayNone Туристы
+                                                        .search-dropdown-wrapper.flightNotMultiSearchDropdown
+                                                            .input-with-icon.icon-right.search-dropdown
+                                                                input.pax-input.form-control(type='text' readonly='' value='1 Взр.' name='paxinput2b82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                                span.input-icon.icon-dropdown
+                                                                    i.material-icons 
+                                                            .search-dropdown-content.p-3.mt-3.rounded
+                                                                div
+                                                                    label Взрослых
+                                                                    .input-group.pax-spinner(data-spinner-min='1' data-spinner-max='9')
+                                                                        span.input-group-prepend.pax-spinner-down
+                                                                            i.material-icons 
+                                                                        input.form-control.pax-adult.pax-spinner-input(type='text' value='1' readonly='')
+                                                                        span.input-group-append.pax-spinner-up
+                                                                            i.material-icons 
+                                                                .pt-3
+                                                                    label Детей
+                                                                    .input-group.pax-spinner(data-spinner-min='0' data-spinner-max='9')
+                                                                        span.input-group-prepend.pax-spinner-down
+                                                                            i.material-icons 
+                                                                        input.form-control.pax-child.pax-spinner-input(type='text' value='0' readonly='')
+                                                                        span.input-group-append.pax-spinner-up
+                                                                            i.material-icons 
+                                                                .pt-3
+                                                                    label Младенцев
+                                                                    .input-group.pax-spinner(data-spinner-min='0' data-spinner-max='9')
+                                                                        span.input-group-prepend.pax-spinner-down
+                                                                            i.material-icons 
+                                                                        input.form-control.pax-infant.pax-spinner-input(type='text' value='0' readonly='')
+                                                                        span.input-group-append.pax-spinner-up
+                                                                            i.material-icons 
+                                                                .pt-3
+                                                                    label Младенцев с местом
+                                                                    .input-group.pax-spinner(data-spinner-min='0' data-spinner-max='9')
+                                                                        span.input-group-prepend.pax-spinner-down
+                                                                            i.material-icons 
+                                                                        input.form-control.pax-infantwithseat.pax-spinner-input(type='text' value='0' readonly='')
+                                                                        span.input-group-append.pax-spinner-up
+                                                                            i.material-icons 
+                                                                .pt-3
+                                                                    small
+                                                                        | * Ребенок 2-12, Младенец 0-2
+                                                                        | лет
+                                                .d-none.d-sm-block.d-md-none.d-flex
+                                                    .flex-fill
+                                                        label.w-100.d-block  
+                                                        button.btn.btn-search.btn-primary.btn-block.flightNotMultiSubmitBtn(type='button')
+                                                            | Поиск 
+                                                            i.material-icons 
+                                .flight-multi.pl-5
+                                    .flight-multi-item.pl-5.pl-sm-0
+                                        .row
+                                            .col-md-9.multiFlightRow1Destinations
+                                                .location-inputs.d-flex.flex-column.flex-sm-row.flex-md-row.flex-lg-row.flex-xl-row.pt-3
+                                                    .btn-remove-flight
+                                                        i.material-icons 
+                                                    .flex-fill.location-mobile-layout
+                                                        .header
+                                                            label.w-100.d-block.d-sm-none.flight-multi-title.pt-3
+                                                                span.flight-multi-title-num 1
+                                                                | .
+                                                                |                                                             Рейс
+                                                            label.w-100.d-none.d-sm-block Откуда
+                                                            .mobileclose
+                                                                i.material-icons 
+                                                            .location-input-wrapper.input-with-icon
+                                                                input.location-input.required.location-departure.form-control(type='text' placeholder='Введите город или аэропорт' name='locationdeparture2b82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                                span.input-icon
+                                                                    i.material-icons 
+                                                    .flex-fill.location-mobile-layout
+                                                        .header
+                                                            label.w-100.d-none.d-sm-block Куда
+                                                            .mobileclose
+                                                                i.material-icons 
+                                                            .location-input-wrapper.input-with-icon
+                                                                input.location-input.required.location-arrival.form-control(type='text' placeholder='Введите город или аэропорт' name='locationarrival2b82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                                span.input-icon
+                                                                    i.material-icons 
+                                                                span.location-reverse
+                                                                    i.material-icons.rounded.d-none.d-sm-block 
+                                                                    i.material-icons.rounded.d-sm-none 
+                                            .col-md-3.multiFlightRow1DepatureDate
+                                                .pt-3
+                                                    label.w-100.d-block Дата отправления
+                                                    .input-with-icon.icon-right
+                                                        .datepicker-wrapper
+                                                            input.datepicker-input.required.datepicker-multi-departure.form-control(type='text' readonly='' placeholder='дд.мм.гггг' name='datepickermultidepartureb82af345f6984bb9aa5f21a09bc4d549' autocomplete='b82af345f6984bb9aa5f21a09bc4d549' role='presentation')
+                                                        span.input-icon.datepicker-icon
+                                                            i.material-icons 
+                                    .row.alignItemsFlexEnd
+                                        .col-md-2.addFlightButton
+                                            .pt-4
+                                                .btn-add-flight
+                                                    | Добавить перелет 
+                                                    i.material-icons 
+                                        .col-md-4.flightPaxWrapper.order-md-3.d-flex
+                                            .d-flex.pt-3.alignItemsFlexEnd
+                                                .flex-fill.pr-3
+                                                    .flight-pax-wrapper.d-flex
+                                                .flex-fill
+                                                    button.btn.btn-search.btn-primary.btn-block.flightMultiSmSubmitButton.d-md-none(type='button')
+                                                        | Поиск 
+                                                        i.material-icons 
+                                        .col-md-6
+                                            .flight-options-wrapper.pt-5
+                            .btnShowlessWrapper.d-sm-none
+                                button.btnShowLess.btn.btn-default.btn-block.btn-sm(type='button')
+                                    i.material-icons.closeSearchIcon 
+                                    |  Скрыть
+                    .excursionsearch.container.container-tabItem  excursion search
+                .showMoreTab.d-md-none.row
+                    button.btnShowMore.btn.btn-block.btn-sm.col-12(type='button')
+                        i.material-icons.searchCriteriaIcon 
+                        |  Изменить параметры поиска
+            .bcrumb.d-none.d-sm-none.d-md-block.d-lg-block.d-xl-block
+                .container
+                    .row
+                        .col-12
+                            nav(aria-label='breadcrumb')
+                                ol.breadcrumb
+                                    li.breadcrumb-item
+                                        a(href='/') Главная
+                                        span
+                                    li.breadcrumb-item.active
+                                        | tmp-toolchain-template 
+                                        span
+            .notcritical
+                .container
+                    .row
+                        .col-12
+                    .row
+                        .col-sm-12.order-2.col-md-3.order-md-1.leftcol
+                        .col-sm-12.order-1.col-md-9.rightcol
+                            h1 tmp-toolchain-template
+                            .widgetcontainer.oti-content-typography                            
+                                
+                                block content
+                                block scripts
+
+                    .row
+                        .col-12
+        section.footer-partial(data-module='footerPartial')
+            .footermaincontainer
+                .container-logo-menu.container
+                    .row
+                        .col-md-4
+                            .d-block.d-sm-block.d-md-block.d-lg-block.d-xl-flex.order-1
+                                .flexbox-logo.d-block.flex-lg-fill.flex-xl-fill
+                                    a(href='/')
+                                        img.img-fluid.lazy(data-src='https://cdn.coral.ru/content/corallogo-202901ed.svg' alt='Туроператор Coral Travel')
+                                .flexbox-phone.d-block.flex-lg-fill.flex-xl-fill.text-center.text-sm-center.text-md-left.text-lg-left.text-xl-right.mt-3.mt-lg-none.mt-xl-none
+                                    a.phone-footer.text-sm-center(href='tel: +7 495 232 10 11')
+                                        img.d-inline-block.d-sm-inline-block.d-md-inline-block.d-lg-inline-block.d-xl-inline-block(src='/img/content/coral/img/header/headset.svg' alt='')
+                                        span.phoneprefix-footer +7 (495) 
+                                        span.phonenumber-footer 232 10 11
+                                    .phone-sub-text.text-center.text-sm-center.text-md-left.text-lg-left.text-xl-right
+                                        | Контакт-центр 24/7
+                            .logo-sub-text.order-2
+                                .short-copyright © 1994 - 2022 Coral Travel Туроператор
+                                .text
+                                    | Туроператор по России, Турции, Австрии, Азербайджану, Андорре, Армении,
+                                    | Бахрейну, Беларуси, Болгарии, Вьетнаму, Греции, Доминиканской Республике, Египту, Израилю,
+                                    | Индии, Индонезии, Иордании, Испании, Италии, Катару, Кипру, Кубе, Маврикию, Мальдивам,
+                                    | Марокко, Мексике, ОАЭ, Сейшельским островам, Таиланду, Танзании, Тунису, Узбекистану,
+                                    | Хорватии, Черногории, Шри-Ланке.
+                            .newsletter-wrap.order-3
+                                .d-block.d-sm-block.d-md-flex.d-lg-flex.d-xl-flex
+                                    .flexbox-newsletter-wrap.flex-fill
+                                        .form-group
+                                            form.form-newsletter
+                                                label.title.material-label.noselect.w-100
+                                                    span E-mail
+                                                    input.footer-newsletter-input.form-control(type='email' autocomplete='off' placeholder='Подпишись на рассылку, будь в курсе!')
+                                                    button.footer-newsletter-btn-submit.btn.btn-primary(type='submit' required='')
+                                                        | Отправить
+                        .col-md-8
+                            #footermenu.footer-menu-wrap
+                                .d-block.d-sm-flex
+                                    #firstMenu.flex-fill.collapse(data-parent='#footermenu')
+                                        h5
+                                            a(href='/main/coral/about/') О нас
+                                        ul.footer-menu-list
+                                            li
+                                                a(href='/main/coral/about/') Компания
+                                            li
+                                                a(href='/main/coral/reviewsvotes/') Благодарности
+                                            li
+                                                a(href='/main/coral/press/') Пресса о нас
+                                            li
+                                                a(href='/main/coral/starwaybesthotels2019/') Наша премия Starway
+                                            li
+                                                a(href='/main/coral/awards/') Наши награды
+                                            li
+                                                a(href='/main/coral/osnovnie-rekviziti-kompanii/') Реквизиты компаний
+                                            li
+                                                a(href='/kontaktnaya-informatsiya-dlya-chastnih-lits/') Контакты
+                                    #secondMenu.flex-fill.collapse(data-parent='#footermenu')
+                                        h5
+                                            a(href='/poleznaya-informatsiya/') Информация
+                                        ul.footer-menu-list
+                                            li
+                                                a(href='/info-instruction/') Как забронировать онлайн
+                                            li
+                                                a(href='/main/inform/reminders/') Памятка туриста по отдыху
+                                            li
+                                                a(href='/main/inform/restininstallments/') Рассрочка и кредит
+                                            li
+                                                a(href='/podarochnye-karty/') Подарочные карты
+                                            li
+                                                a(href='/main/turagent/assurance/')
+                                                    | Страхование туристов от компании Coral
+                                                    | Travel
+                                            li
+                                                a(href='/hot-offers/coralbonus/') Программа лояльности Coralbonus
+                                            li
+                                                a(href='/poleznaya-informatsiya/faq-po-pokupke-tura-onlayn/')
+                                                    | FAQ по покупке
+                                                    | тура онлайн
+                                    #thirdMenu.flex-fill.collapse(data-parent='#footermenu')
+                                        h5
+                                            a(href='/')
+                                                | Популярные
+                                                | направления
+                                        ul.footer-menu-list-countries
+                                            li
+                                                a(href='/main/andorra/') Андорра
+                                            li
+                                                a(href='/main/bulgaria/') Болгария
+                                            li
+                                                a(href='/main/vietnam/') Вьетнам 
+                                            li
+                                                a(href='/main/greece/') Греция
+                                            li
+                                                a(href='/main/dominikana/') Доминикана
+                                            li
+                                                a(href='/main/israel/') Израиль
+                                            li
+                                                a(href='/main/india/') Индия 
+                                            li
+                                                a(href='/main/jordan/') Иордания
+                                            li
+                                                a(href='/main/spain/') Испания
+                                            li
+                                                a(href='/italia/') Италия
+                                            li
+                                                a(href='/main/cyprus/') Кипр
+                                            li
+                                                a(href='/main/cuba/') Куба
+                                            li
+                                                a(href='/covidinfo/mauritiusinfo/') Маврикий
+                                            li
+                                                a(href='/main/morocco/') Марокко
+                                            li
+                                                a(href='/main/mexico/') Мексика 
+                                            li
+                                                a(href='/main/uae/') ОАЭ
+                                            li
+                                                a(href='/main/russia/') Россия
+                                            li
+                                                a(href='/main/seychelles/') Сейшелы
+                                            li
+                                                a(href='/main/tunis/') Тунис
+                                            li
+                                                a(href='/main/turkey/') Турция
+                            .logo-sub-text.logo-sub-text-mobile.order-2
+                                .text
+                                    | Туроператор по России, Турции, Австрии, Азербайджану, Андорре, Армении,
+                                    | Бахрейну, Беларуси, Болгарии, Вьетнаму, Греции, Доминиканской Республике, Египту, Израилю,
+                                    | Индии, Индонезии, Иордании, Испании, Италии, Катару, Кипру, Кубе, Маврикию, Мальдивам,
+                                    | Марокко, Мексике, ОАЭ, Сейшельским островам, Таиланду, Танзании, Тунису, Узбекистану,
+                                    | Хорватии, Черногории, Шри-Ланке.
+                .container-partners.container
+                    .row
+                        .col-md-12
+                            .flexbox-partners.d-block.d-sm-block.d-md-flex.d-lg-flex.d-xl-flex
+                                .flex-fill.order-4
+                                    a(href='https://www.iata.org' rel='nofollow' target='_blank')
+                                        img.lazy(data-src='/img/content/coral/img/footer/partners/iata.png' alt='')
+                                .flex-fill.order-5
+                                    a(href='https://www.tch.ru' rel='nofollow' target='_blank')
+                                        img.lazy(data-src='/img/content/coral/img/footer/partners/tkp.png' alt='')
+                                .flex-fill.order-6
+                                    a(href='http://www.atorus.ru/' rel='nofollow' target='_blank')
+                                        img.lazy(data-src='/img/content/coral/img/footer/partners/atr.png' alt='')
+                                .flex-fill.order-7
+                                    a(href='javascript:void(0)' rel='nofollow')
+                                        img.lazy(data-src='/img/content/coral/img/footer/partners/rst.png' alt='')
+                .container-hotels.container.d-none.d-md-block.d-lg-block.d-xl-block
+                    .row
+                        .col-md-12
+                            ul.footer-hotels-list.list-unstyled
+                .container-bothside.container-fluid.px-0
+                    .container
+                        .row
+                            .col-md-12
+                                .d-block.d-sm-block.d-md-flex.d-lg-flex.d-xl-flex.text-center.text-md-left.text-lg-left.text-xl-left
+                                    .flexbox-copyright
+                                        small © 1994 - 2022 Coral Travel Туроператор
+                                    .flexbox-bothside-menu.flex-fill
+                                        ul.bothside-menu-list.list-unstyled.mb-0
+                                    .flexbox-exchange
+                                        .d-inline-block
+                                            img.lazy(data-src='/img/content/coral/img/footer/exchange-usd.svg')
+                                            span 77.65
+                                        .d-inline-block
+                                            img.lazy(data-src='/img/content/coral/img/footer/exchange-euro.svg')
+                                            span 88.77
+            .cookieAgreement.d-none
+                .container.text-center
+                    span
+                        | Мы 
+                        a(href='/consent') используем cookie
+                        |  (файлы с данными о прошлых посещениях сайта) для персонализации сервисов и удобства пользователей.
+                    button.btn.btn-primary.btn-sm.d-block.mx-auto.mt-1.px-4.btnCookie Понятно
+            
+            script(src='https://www.coral.ru/bundles/js?v=F_dxHkgcfGQJtGT5bvi3b2mJwzvqCutQO-CuReCLQgY1' defer='')
+            script(src='https://www.coral.ru/bundles/dynamic/4hm0mz1lkjea-wpfo-ccibtlxhajfzx448rgnyf9yaa1?v=1653901444' defer='')

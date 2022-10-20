@@ -1,0 +1,67 @@
+.dm-credit
+    display inline-flex
+    font-size 16px
+    align-items center
+    cursor pointer
+    margin-bottom 1em
+
+    &__img
+        width 47px
+        height 47px
+        margin-right em(14)
+
+    &__img--list
+        width 27px
+        height 27px
+        margin-right em(14)
+        display none
+
+    &__body
+        font-size em(15)
+        line-height 1
+        color #4A4A4A
+
+    &__yellow-color
+        font-size em(25)
+        color #FBB200
+        line-height 1
+
+    &__popup
+        font-size 16px
+        width em(246)
+        height em(188)
+        background url(//cdn.coral.ru/content/insider/russia/credit/credit-popup-bg.png) 0 0 no-repeat
+        background-size contain
+        padding 1em 0 0 em(40)
+        position absolute
+        z-index 1000
+        display none
+
+        @media screen and (max-width: 769px)
+            transform translateX(-100%)
+    
+    &__popup-img
+        margin-bottom (2/10em)
+        height 1em
+
+        &--sber
+            height 1.4em
+
+    &__popup-body
+        font-size em(10)
+        line-height (11/10em)
+        color #000
+        margin-bottom (8/10em)
+    
+    &__popup-note
+        font-size em(8)
+        line-height (9/8em)
+        color #000
+        font-style italic
+
+.hotellist
+    .dm-credit
+        font-size 10px
+
+    .dm-credit__img--list
+        display inline

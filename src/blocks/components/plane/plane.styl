@@ -1,0 +1,88 @@
+.dm-plane
+    margin-bottom em(60)
+
+    &__info-wrap
+        @media screen and (min-width: 769px)
+            display flex
+            justify-content space-between
+            padding-left em(30)
+            padding-right em(30)
+
+            & + &
+                // margin-top em(40)
+
+            &--3
+                justify-content center
+
+    &__info
+        background-color #FBF8EB
+        border-radius em(40)
+        margin 0 em(30) em(40)
+        padding em(56) em(12) em(24)
+
+        @media screen and (min-width: 769px)
+            margin 0 0.5% em(40)
+            width 48%
+
+        // &:last-child
+        //     margin-bottom 0
+
+    &__row--img-wrap
+        margin-bottom em(8)
+
+    &__row--city
+        display flex
+        justify-content space-between
+        margin-bottom em(30)
+
+    &__row--time
+        margin-bottom em(30)
+    
+    &__row--btn-wrap
+        text-align center
+
+    &__img
+        display block
+        margin 0 auto
+        max-width 100%
+        height auto
+
+    &__city
+        font-size em(25)
+        line-height (30/25em)
+        color #000
+        font-weight 700
+        width (280/25em)
+        text-align center
+        white-space nowrap
+
+        @media screen and (min-width: 769px)
+            width (200/25em)
+
+    &__time
+        font-size em(20)
+        line-height (24/20em)
+        color #000
+        font-weight 700
+        text-align center
+        vertical-align middle
+
+        &-img
+            margin-right (8/20em)
+            vertical-align bottom
+
+    &__btn
+        display inline-flex
+        border-radius (4/24em)
+        background-color #FFAE00
+        transition all 0.3s
+        color #fff !important
+        font-size em(24) !important
+        font-weight normal
+        min-width (300/24em)
+        line-height (50/24em) !important
+        justify-content center
+        margin-bottom (6/24em)
+
+        &:hover
+            background-color #d18f00

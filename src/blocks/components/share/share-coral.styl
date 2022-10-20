@@ -1,0 +1,36 @@
+.dm-social-2
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center
+
+    &--bottom
+        margin-left auto
+        margin-right auto
+        padding-bottom 1em
+
+    &-wrap
+        padding em(60) em(46) em(80)
+
+        // @media screen and (min-width: 769px)
+
+    &__item
+        margin em(16)
+
+    &__link
+
+        & > img
+            transform scale(1)
+            transition: all 0.3s;
+            height auto
+            width em(76)
+
+        &:hover > img
+            transform scale(1.1)
+
+    &__title
+        font-size: em(42);
+        line-height: (50/42em);
+        text-align: center;
+        font-weight: 500;
+        color: #000;
+        margin-bottom (60/50em)

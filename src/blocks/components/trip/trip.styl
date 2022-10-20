@@ -1,0 +1,318 @@
+.dm-info
+    margin 0 em(50) em(60)
+    padding em(46) em(24) em(46)
+    box-shadow 0px 0px 6px #283067
+
+    @media screen and (min-width: 769px)
+        margin-bottom em(30)
+        margin-left 0
+        margin-right 0
+        padding em(40) em(40) em(40) em(34)
+        display flex
+        justify-content space-between
+
+    @media screen and (min-width: 1200px)
+        margin-left 0
+        margin-right 0
+    
+    &__left
+        @media screen and (min-width: 769px)
+            width em(560)
+            min-width em(560)
+            max-width em(560)
+
+    &__right
+        @media screen and (min-width: 769px)
+            width em(574)
+            min-width em(574)
+            max-width em(574)
+            display flex
+            flex-direction column
+
+    &__title
+        font-family 'Arial'
+        font-weight 700
+        font-size em(40)
+        line-height (46/40em)
+        text-transform uppercase
+        margin-bottom 0.4em
+        padding-left (16/40em)
+
+        @media screen and (min-width: 769px)
+            padding-left 0
+            margin-bottom 0.1em
+    
+    &__title__note
+        font-size (20/40em)
+        line-height (24/20em)
+        font-weight normal
+        font-style italic
+        text-transform none
+
+    &__text
+        font-family 'Arial'
+        font-style normal
+        font-size em(24)
+        line-height (28/24em)
+        margin-bottom (40/24em)
+        padding-left (16/24em)
+
+        @media screen and (min-width: 769px)
+            margin-bottom 0
+            padding-left 0
+
+        p
+            margin 0
+        
+        p + p
+            margin-top 0.4em
+        
+        ul.dm-ul + p
+            margin-top 0.4em
+
+        ul.dm-ul
+            list-style none!important
+            margin 0!important
+            padding 0 !important
+
+            li
+                padding 0 0 0 (36/24em)!important
+                position relative!important
+                
+                &:after
+                    display none !important
+
+                &:before
+                    width (6/24em)!important
+                    height (6/24em)!important
+                    background-color #000!important
+                    border-radius 50%!important
+                    position absolute!important
+                    content ''
+                    left (14/24em)!important
+                    top (10/24em)!important
+
+        &--tickets
+            p + p
+                margin-top 1em
+            
+            ul.dm-ul + p
+                margin-top 1em
+
+
+    &__item
+        padding 1em em(10) 1em 1em
+        background-color #EBF6FB
+        @media screen and (min-width: 769px)
+            // flex-grow 1
+
+    &__item + &__item
+        margin-top em(20)
+
+    &__left2
+        max-width em(406)
+
+        @media screen and (min-width: 769px)
+            max-width none
+
+    &__inner
+        display flex
+        justify-content space-between
+
+    &__inner + &__inner
+        margin-top em(18)
+
+    &__title2
+        font-family 'Arial'
+        font-style normal
+        font-size em(24)
+        line-height (28/24em)
+
+        ul.dm-ul
+            list-style none!important
+            margin 0!important
+            padding 0 !important
+
+            li
+                padding 0 0 0 (36/24em)!important
+                position relative
+                
+                &:after
+                    display none !important
+
+                &:before
+                    width (6/24em)!important
+                    height (6/24em)!important
+                    background-color #000!important
+                    border-radius 50%!important
+                    position absolute!important
+                    content ''
+                    left (14/24em)!important
+                    top (10/24em)!important
+
+    &__note
+        font-family 'Arial'
+        font-style normal
+        font-size em(20)
+        line-height (23/20em)
+        font-style italic
+
+    &__price
+        font-family 'Arial'
+        font-style normal
+        font-weight 700
+        font-size em(24)
+        line-height (28/24em)
+        text-align right
+        color #BE0027
+
+.dm-info2
+    background #283067
+    box-shadow 2px 2px 2px rgba(0, 0, 0, 0.25)
+    padding em(30) em(24)
+    margin 0 em(50) em(100)
+
+    @media screen and (min-width: 769px)
+        margin-left 0
+        margin-right 0
+        display flex
+        justify-content space-between
+        align-items center
+        padding em(16) em(42) 1em em(36)
+
+    &__inner
+        display flex
+        padding em(14) em(20) em(14) em(26)
+        justify-content space-between
+        background-color #fff
+
+        @media screen and (min-width: 769px)
+            width em(574)
+            min-width em(574)
+            max-width em(574)
+            padding-right em(10)
+
+    &__title
+        font-family 'Arial'
+        font-weight 700
+        font-size em(24)
+        line-height (28/24em)
+        text-align center
+        text-transform uppercase
+        color #fff
+        margin-bottom (30/28em)
+
+        @media screen and (min-width: 769px)
+            margin-bottom 0
+
+    &__text
+        font-family 'Arial'
+        font-size em(24)
+        line-height (28/24em)
+
+    &__price
+        font-family 'Arial'
+        font-weight 700
+        font-size em(24)
+        line-height (28/24em)
+        color #BE0027
+        text-align right
+
+.dm-color-1
+    color #283067
+
+.dm-trip__item--2
+.dm-trip__item--3
+
+    @media screen and (min-width: 769px)
+        .dm-info__left
+            width em(650)
+            min-width em(650)
+            max-width em(650)
+
+.dm-trip__item--4
+    .dm-info2
+        margin-bottom em(60)
+
+.dm-info3__wrap
+    @media screen and (min-width: 769px)
+        display flex
+        justify-content space-between
+
+        .dm-info2
+            width em(640)
+            max-width em(640)
+            min-width em(640)
+            flex-direction column
+            padding em(30) em(34) em(28)
+        
+        .dm-info2__title
+            margin-bottom (12/24em)
+            text-align left
+        
+        .dm-info2__inner
+            padding-top em(6)
+            padding-bottom em(6)
+            min-height em(72)
+            align-items center
+        
+        .dm-info2__left
+            width 100%
+
+.d
+    &--wrap
+        display flex
+        justify-content space-between
+        font-family 'Arial'
+        font-size em(24)
+        line-height (28/24em)
+
+.dm-trip__item--balloon
+    .dm-info__left2
+        min-width em(408)
+        width em(408)
+
+    .dm-info__inner
+        &:nth-child(4)
+        &:nth-child(5)
+        &:nth-child(6)
+            margin-top 0
+    
+    .dm-intro__desc
+        right 10em
+        @media screen and (min-width: 769px)
+            right 1em
+
+.dm-trip__item--helicopter
+    .dm-info__left
+        @media screen and (min-width: 769px)
+            min-width em(650)
+            width em(650)
+
+    .dm-info__text ul.dm-ul
+        padding-top 0.4em!important
+
+    .dm-info--0
+    .dm-info--1
+    .dm-info--2
+    .dm-info--3
+
+        .dm-info__inner
+            &:nth-child(4)
+            &:nth-child(5)
+                margin-top 0
+            
+            &:nth-child(5)
+                .dm-info__right2
+                    align-self flex-end
+    
+    .dm-info2
+        margin-bottom 0
+
+.dm-trip__item--safari2
+.dm-trip__item--transport
+    .dm-info2
+        margin-bottom 0
+
+.dm-info--tickets
+    margin-bottom 0

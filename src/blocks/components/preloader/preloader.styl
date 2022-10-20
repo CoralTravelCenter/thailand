@@ -1,0 +1,103 @@
+.dm-preloader
+
+    &__wrap
+        display flex
+        justify-content center
+        flex-direction column
+        font-size 16px
+        // background-color #000
+
+        @media screen and (max-width: 769px)
+            font-size (100vw/48)
+        
+        @media screen and (max-width: 426px)
+            font-size (100vw/36)
+
+    width em(256)
+    height em(18)
+    border-radius em(9)
+    border em(2) solid #fff
+    display block
+    margin-bottom em(30)
+    z-index 0
+    position relative
+
+    &:before
+        content ''
+        background-color rgba(#fff,0.7)
+        position absolute
+        left 0
+        right 50%
+        top 0
+        bottom 0
+        border-radius em(4) 0 0 em(4)
+        animation 1.8s forwards dm-preloader-right
+        animation-iteration-count infinite
+        animation-timing-function: ease-in;
+        animation-timing-function: ease-out;
+    
+    &:after
+        content ''
+        background url("//cdn.coral.ru/content/insider/russia/preloader/preloader.png") 0 0 no-repeat
+        background-size contain
+        position absolute
+        left 50%
+        top 50%
+        width 1em
+        height 1em
+        transform translate(-50%,-50%)
+        animation 1.8s forwards dm-preloader-left
+        animation-iteration-count infinite
+        animation-timing-function: ease-in;
+        animation-timing-function: ease-out;
+
+    &__title
+    &__text
+        color #fff
+        font-size em(30)
+        line-height (36/30em)
+        font-weight 700
+        display block
+    
+    &__title
+        margin-bottom 1em
+
+@-webkit-keyframes dm-preloader-right
+    0%
+        right 100%
+
+    80%
+        right 0%
+
+    100%
+        right 0%
+
+@keyframes dm-preloader-right
+    0%
+        right 100%
+    
+    80%
+        right 0%
+
+    100%
+        right 0%
+
+@-webkit-keyframes dm-preloader-left
+    0%
+        left 0
+    
+    80%
+        left 100%
+    
+    100%
+        left 100%
+
+@keyframes dm-preloader-left
+    0%
+        left 0
+    
+    80%
+        left 100%
+    
+    100%
+        left 100%

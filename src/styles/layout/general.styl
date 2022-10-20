@@ -1,0 +1,103 @@
+.dm-site-wrap
+    width 100%
+    max-width 1007px
+    margin-left auto
+    margin-right auto
+
+    @media all and (min-width: 1440px)
+        // padding-left 20px
+        // padding-right 20px
+        max-width 1410px
+
+    @media screen and (max-width: 1439px) 
+        max-width 1130px
+
+    @media screen and (max-width: 1199px) 
+        max-width 1007px
+
+    @media screen and (max-width: 768px)
+        padding 0
+
+.dm-site-wrap__inner
+    width 100%
+    color #000
+
+    @media all and (min-width: 1440px)
+        font-size 16px
+
+    @media screen and (max-width: 1439px) 
+        font-size ( 1130px/1370*16 )
+
+    @media screen and (max-width: 1199px) 
+        font-size ( 1007px/1370*16 )
+
+    @media screen and (max-width: 1007px) 
+        font-size ( 100vw / 87.50 )
+
+    @media screen and (max-width: 768px)
+        font-size ( 100vw / 45 )
+
+.site-wrap section > div.contenu
+    padding 0
+
+.dm-font-size-unset
+    font-size unset
+
+.oti-content-typography #dm-site-wrap a
+    font-size unset
+    line-height unset
+    color unset
+
+.dm-nowrap
+    white-space nowrap
+
+.dm-block-sm
+    display block
+    @media screen and (min-width: 769px)
+        display inline
+
+
+.dm-title
+    font-weight bold
+    font-size em(40)
+    line-height (48/40em)
+    color #000
+
+.dm-title2
+    font-weight bold
+    font-size em(24)
+    line-height (28/24em)
+    color #000
+
+.dm-title3
+    font-weight bold
+    font-size em(45)
+    line-height (53/45em)
+    color #000
+
+.dm-title4
+    font-weight bold
+    font-size em(32)
+    line-height (38/32em)
+    color #000
+
+.dm-text
+    font-size em(20)
+    line-height (24/20em)
+    color #000
+
+.dm-text2
+    font-size em(30)
+    line-height (34/30em)
+    color #000
+
+.dm-text3
+    font-size em(24)
+    line-height (28/24em)
+    color #000
+
+    &--center
+        text-align center
+
+.dm-yellow
+    color #FBB200

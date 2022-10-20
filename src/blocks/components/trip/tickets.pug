@@ -1,0 +1,452 @@
+include trip-temp
+
+section.section--trip.section--trip-air
+    .dm-trip__item.dm-trip__item--balloon
+        //- 1
+        +trip({
+            block_img_text : {
+                title: '',
+                text: 'Полет<br />на воздушном шаре',
+                class_suffix: '--trip1',
+                class_wrap: 'dm-intro',
+                class_img: 'dm-intro__img',
+                class_desc: 'dm-intro__desc',
+                class_title: 'dm-intro__title',
+                class_text: 'dm-intro__text',
+                img_lg: './img/content/sunmar/air-trip/balloon-lg.jpg',
+                img_sm: './img/content/sunmar/air-trip/balloon-sm.jpg',
+            },
+            class_suffix: '--trip1',
+            text: ``,
+            class_text: 'dm-block__text',
+
+            info:[
+                    {
+                        title: 'Полет на воздушном<br /> шаре',
+                        text: `
+                            <p>
+                                Вас ждут потрясающие впечатления от&nbsp;полета на воздушном шаре на&nbsp;рассвете, вместе с&nbsp;соколами. А&nbsp;также поездка на&nbsp;Land Rover пятидесятых годов, вкусный завтрак &laquo;шведский стол&raquo; в&nbsp;аутентичном будуинском лагере в&nbsp;пустыне.
+                            </p>
+                            <p>
+                                <b>Возьмите с&nbsp;собой:</b> удобную обувь и&nbsp;одежду, оригиналы паспортов и&nbsp;деньги на&nbsp;личные расходы.
+                            </p>
+                            <p>
+                                <b>Не&nbsp;могут участвовать:</b><br/> беременные женщины со&nbsp;сроком беременности более 3&nbsp;месяцев; дети младше 5&nbsp;лет; люди, перенесшие серьезную операцию или имевшие переломы в&nbsp;последние 6&nbsp;месяцев, а&nbsp;также страдающие хроническими болями или имеющие травмы спины и&nbsp;шеи.
+                            </p>
+                        `,
+                        class_suffix: '--trip',
+                        class_wrap: 'dm-info',
+                        class_left: 'dm-info__left',
+                        class_right: 'dm-info__right',
+                        class_title: 'dm-info__title',
+                        class_text: 'dm-info__text',
+                        class_right_inner: 'dm-info__inner',
+                        class_right_left: 'dm-info__left2',
+                        class_right_title: 'dm-info__title2',
+                        class_right_note: 'dm-info__note',
+                        class_right_text: 'dm-info__text2',
+                        class_right_right: 'dm-info__right2',
+                        class_right_item: 'dm-info__item',
+                        class_right_price: 'dm-info__price',
+                        items: [
+                                    [
+                                        {
+                                            title: '<b>Продолжительность:</b> 4 часа',
+                                            note: '(Не включает время трансфера<br />от отеля и обратно)',
+                                            price: '',
+                                        },
+                                        {
+                                            title: '<b>Время отъезда из отеля:</b>',
+                                            note: '(Зависит от времени года)',
+                                            text: `
+                                                <div class="d--wrap">
+                                                    <div class="d--title">Сентябрь - ноябрь:</div>
+                                                    <div class="d--time">03:30 - 04:30</div>
+                                                </div>
+                                                <div class="d--wrap">
+                                                    <div class="d--title">Март - май:</div>
+                                                    <div class="d--time">03:30 - 04:30</div>
+                                                </div>
+                                                <div class="d--wrap">
+                                                    <div class="d--title">Декабрь - февраль: </div>
+                                                    <div class="d--time">04:30 - 05:30</div>
+                                                </div>
+                                            `,
+                                            price: '',
+                                        },
+                                        {
+                                            title: '<b>1 - 2 человека</b>',
+                                            note: '',
+                                            price: '2850&nbsp;у.е.',
+                                        },
+                                        {
+                                            title: '<b>3 - 4 человека</b>',
+                                            note: '',
+                                            price: '4500&nbsp;у.е.',
+                                        },
+                                        {
+                                            title: '<b>5 - 8 человека</b>',
+                                            note: '',
+                                            price: '5075&nbsp;у.е.',
+                                        },
+                                        {
+                                            title: '<b>9 - 23 человека</b>',
+                                            note: '',
+                                            price: '7325&nbsp;у.е.',
+                                        },
+                                        {
+                                            title: 'Трансфер&nbsp;оплачивается&nbsp;дополнительно',
+                                            note: '',
+                                            price: '',
+                                        },
+                                        {
+                                            title: '',
+                                            note: '* Программа тура может меняться<br />в&nbsp;зависимости от&nbsp;погодных условий',
+                                            price: '',
+                                        },            
+                                    ],
+                                ],
+                    },
+            ],
+            info2:{
+                title: 'Услуги русскоговорящего гида',
+                text: `<b>Продолжительность:</b> 8 часов`,
+                price: `235 у.е.`,
+                class_suffix: '--trip',
+                class_wrap: 'dm-info2',
+                class_left: 'dm-info2__left',
+                class_right: 'dm-info2__right',
+                class_inner: 'dm-info2__inner',
+                class_title: 'dm-info2__title',
+                class_text: 'dm-info2__text',
+                class_price: 'dm-info2__price',
+            }
+        })
+
+    .dm-trip__item.dm-trip__item--helicopter
+        //- 2
+        +trip({
+            block_img_text : {
+                title: '',
+                text: 'Полет на вертолете<br />над Дубаем',
+                class_wrap: 'dm-intro',
+                class_img: 'dm-intro__img',
+                class_desc: 'dm-intro__desc',
+                class_title: 'dm-intro__title',
+                class_text: 'dm-intro__text',
+                class_suffix: '--trip1',
+                img_lg: './img/content/sunmar/air-trip/helicopter-lg.jpg',
+                img_sm: './img/content/sunmar/air-trip/helicopter-sm.jpg',                
+            },
+            class_suffix: '--trip1',
+            text: ``,
+            class_text: 'dm-block__text',
+
+            info:[
+                    {
+                        title: 'Вертолетная прогулка<br />12 минут ',
+                        text: `
+                            <p>
+                                Вертолет будет ждать вас на&nbsp;вертолетной площадке Дубайской Полицейской академии.
+                            </p>
+                            <p>
+                                <b>Вы увидите:</b>
+                            </p>
+                            <ul class="dm-ul">
+                                <li>уникальный остров Палм-Джумейра</li>
+                                <li>культовый отель Бурдж-аль-Араб</li>
+                                <li>удивительные пляжи Дубая</li>
+                                <li>искусственный архипелаг Мир</li>
+                                <li>удивительный архитектурный шедевр Бурж-Халифа, самое высокое здание в мире</li>
+                                <li>Дубайский канал</li>
+                                <li>небоскребы Бизнес-бей</li>
+                            </ul>
+                        `,
+                        class_suffix: '--trip',
+                        class_wrap: 'dm-info',
+                        class_left: 'dm-info__left',
+                        class_right: 'dm-info__right',
+                        class_title: 'dm-info__title',
+                        class_text: 'dm-info__text',
+                        class_right_inner: 'dm-info__inner',
+                        class_right_left: 'dm-info__left2',
+                        class_right_title: 'dm-info__title2',
+                        class_right_note: 'dm-info__note',
+                        class_right_text: 'dm-info__text2',
+                        class_right_right: 'dm-info__right2',
+                        class_right_item: 'dm-info__item',
+                        class_right_price: 'dm-info__price',
+                        items: [
+                                    [
+                                        {
+                                            title: '<b>Продолжительность:</b> 12 минут',
+                                            note: '(Не включает время трансфера<br />от отеля и обратно)',
+                                            price: '194&nbsp;у.е.<br />на&nbsp;1&nbsp;чел.',
+                                        },
+                                        {
+                                            title: '<b>Максимум:</b> 5 человек',
+                                            note: '',
+                                            text: ``,
+                                            price: '738&nbsp;у.е.<br />за&nbsp;услугу',
+                                        },
+                                        {
+                                            title: '<b>Трансфер оплачивается<br />дополнительно:</b>',
+                                            note: '',
+                                            price: '',
+                                        },
+                                        {
+                                            title: `
+                                                <ul class="dm-ul">
+                                                    <li>Дубаи - Шарджа - Аджман:</li>
+                                                </ul>
+                                            `,
+                                            note: '',
+                                            price: '158&nbsp;у.е.',
+                                        },
+                                        {
+                                            title: `
+                                                <ul class="dm-ul">
+                                                    <li>Абу-Даби - Умм-аль-Кувейн -<br />Рас-эль-Хайма - Фуджейра:</li>
+                                                </ul>
+                                            `,
+                                            note: '',
+                                            price: '180&nbsp;у.е.',
+                                        },
+                                    ],
+                                ],
+                    },
+                    {
+                        title: 'Вертолетная прогулка<br />17 минут ',
+                        text: `
+                            <p>
+                                Вы отправитесь с вертолетной площадки Helidubai Jumeirah Heliport.
+                            </p>
+                            <p>
+                                <b>Вы увидите:</b>
+                            </p>
+                            <ul class="dm-ul">
+                                <li>удивительные виды на Пальм-Джумейра, отель Atlantis, Бурдж-эль-Араб и острова Мир</li>
+                                <li>некоторые из построек-рекордсменов: высокое здание в мире Бурдж-Халифа и самый высокий в мире отель JW Marriot</li>
+                                <li>захватывающие виды побережья Джумейра, знаменитого порта Рашид и супер современной архитектуры города</li>
+                                <li>Дубайский канал, ветряную башня в Бар-Дубаи, гольф клуб на Дубай-крик и традиционные виды старого города Мир</li>
+                            </ul>
+                        `,
+                        class_suffix: '--trip',
+                        class_wrap: 'dm-info',
+                        class_left: 'dm-info__left',
+                        class_right: 'dm-info__right',
+                        class_title: 'dm-info__title',
+                        class_text: 'dm-info__text',
+                        class_right_inner: 'dm-info__inner',
+                        class_right_left: 'dm-info__left2',
+                        class_right_title: 'dm-info__title2',
+                        class_right_note: 'dm-info__note',
+                        class_right_text: 'dm-info__text2',
+                        class_right_right: 'dm-info__right2',
+                        class_right_item: 'dm-info__item',
+                        class_right_price: 'dm-info__price',
+                        items: [
+                                    [
+                                        {
+                                            title: '<b>Продолжительность:</b> 17 минут',
+                                            note: '(Не включает время трансфера<br />от отеля и обратно)',
+                                            price: '241&nbsp;у.е.<br />на&nbsp;1&nbsp;чел.',
+                                        },
+                                        {
+                                            title: '<b>Максимум:</b> 5 человек',
+                                            note: '',
+                                            text: ``,
+                                            price: '1046&nbsp;у.е.<br />за&nbsp;услугу',
+                                        },
+                                        {
+                                            title: '<b>Трансфер оплачивается<br />дополнительно:</b>',
+                                            note: '',
+                                            price: '',
+                                        },
+                                        {
+                                            title: `
+                                                <ul class="dm-ul">
+                                                    <li>Дубаи - Шарджа - Аджман:</li>
+                                                </ul>
+                                            `,
+                                            note: '',
+                                            price: '158&nbsp;у.е.',
+                                        },
+                                        {
+                                            title: `
+                                                <ul class="dm-ul">
+                                                    <li>Абу-Даби - Умм-аль-Кувейн -<br />Рас-эль-Хайма - Фуджейра:</li>
+                                                </ul>
+                                            `,
+                                            note: '',
+                                            price: '180&nbsp;у.е.',
+                                        },
+                                    ],
+                                ],
+                    },
+                    {
+                        title: 'Вертолетная прогулка<br />22 минут ',
+                        text: `
+                            <p>
+                                Вы отправитесь с вертолетной площадки Полицейской академии Дубая.
+                            </p>
+                            <p>
+                                <b>Вы увидите:</b>
+                            </p>
+                            <ul class="dm-ul">
+                                <li>захватывающие дух виды на Палм-Джумейра, отель Атлантис и острова Мир</li>
+                                <li>знаменитые пляжи Дубая</li>
+                                <li>культовый отель Бурдж-аль-Араб</li>
+                                <li>самое высокое здание в мире Бурдж Халифа</li>
+                                <li>историческую часть города, где расположены Ветряные башни, старый рынок и Дубай-крик</li>
+                                <li>Дубайский канал</li>
+                            </ul>
+                        `,
+                        class_suffix: '--trip',
+                        class_wrap: 'dm-info',
+                        class_left: 'dm-info__left',
+                        class_right: 'dm-info__right',
+                        class_title: 'dm-info__title',
+                        class_text: 'dm-info__text',
+                        class_right_inner: 'dm-info__inner',
+                        class_right_left: 'dm-info__left2',
+                        class_right_title: 'dm-info__title2',
+                        class_right_note: 'dm-info__note',
+                        class_right_text: 'dm-info__text2',
+                        class_right_right: 'dm-info__right2',
+                        class_right_item: 'dm-info__item',
+                        class_right_price: 'dm-info__price',
+                        items: [
+                                    [
+                                        {
+                                            title: '<b>Продолжительность:</b> 22 минуты',
+                                            note: '(Не включает время трансфера<br />от отеля и обратно)',
+                                            price: '314&nbsp;у.е.<br />на&nbsp;1&nbsp;чел.',
+                                        },
+                                        {
+                                            title: '<b>Максимум:</b> 5 человек',
+                                            note: '',
+                                            text: ``,
+                                            price: '1374&nbsp;у.е.<br />за&nbsp;услугу',
+                                        },
+                                        {
+                                            title: '<b>Трансфер оплачивается<br />дополнительно:</b>',
+                                            note: '',
+                                            price: '',
+                                        },
+                                        {
+                                            title: `
+                                                <ul class="dm-ul">
+                                                    <li>Дубаи - Шарджа - Аджман:</li>
+                                                </ul>
+                                            `,
+                                            note: '',
+                                            price: '158&nbsp;у.е.',
+                                        },
+                                        {
+                                            title: `
+                                                <ul class="dm-ul">
+                                                    <li>Абу-Даби - Умм-аль-Кувейн -<br />Рас-эль-Хайма - Фуджейра:</li>
+                                                </ul>
+                                            `,
+                                            note: '',
+                                            price: '180&nbsp;у.е.',
+                                        },
+                                    ],
+                                ],
+                    },
+                    {
+                        title: 'Вертолетная прогулка<br />40 минут ',
+                        text: `
+                            <p>
+                                <b>Вы увидите:</b>
+                            </p>
+                            <ul class="dm-ul">
+                                <li>панорамные виды на побережье Джумейра</li>
+                                <li>Бурдж-аль-Араб</li>
+                                <li>острова Мир</li>
+                                <li>Палм-Джумейра</li>
+                                <li>Отель Атлантис</li>
+                                <li>Бурдж-Халифа</li>
+                                <li>Марина Джумейра</li>
+                                <li>Озера Джумейра</li>
+                                <li>залив Дубай-Крик</li>
+                                <li>все основные достопримечательности Дубая</li>
+                                <li>ипподром Мейдан</li>
+                                <li>Эмирейтс Хиллс с его знаменитыми гольф-полями</li>
+                                <li>порт Джебел-Али</li>
+                                <li>Джебел-Али Палм</li>
+                                <li>Бизнес Бей</li>
+                                <li>Дубайский канал</li>
+                                <li>Историческую часть города</li>
+                                <li>Ветряные башни</li>
+                            </ul>
+                        `,
+                        class_suffix: '--trip',
+                        class_wrap: 'dm-info',
+                        class_left: 'dm-info__left',
+                        class_right: 'dm-info__right',
+                        class_title: 'dm-info__title',
+                        class_text: 'dm-info__text',
+                        class_right_inner: 'dm-info__inner',
+                        class_right_left: 'dm-info__left2',
+                        class_right_title: 'dm-info__title2',
+                        class_right_note: 'dm-info__note',
+                        class_right_text: 'dm-info__text2',
+                        class_right_right: 'dm-info__right2',
+                        class_right_item: 'dm-info__item',
+                        class_right_price: 'dm-info__price',
+                        items: [
+                                    [
+                                        {
+                                            title: '<b>Продолжительность:</b> 40 минут',
+                                            note: '(Не включает время трансфера<br />от отеля и обратно)',
+                                            price: '550&nbsp;у.е.<br />на&nbsp;1&nbsp;чел.',
+                                        },
+                                        {
+                                            title: '<b>Максимум:</b> 5 человек',
+                                            note: '',
+                                            text: ``,
+                                            price: '2537&nbsp;у.е.<br />за&nbsp;услугу',
+                                        },
+                                        {
+                                            title: '<b>Трансфер оплачивается<br />дополнительно:</b>',
+                                            note: '',
+                                            price: '',
+                                        },
+                                        {
+                                            title: `
+                                                <ul class="dm-ul">
+                                                    <li>Дубаи - Шарджа - Аджман:</li>
+                                                </ul>
+                                            `,
+                                            note: '',
+                                            price: '158&nbsp;у.е.',
+                                        },
+                                        {
+                                            title: `
+                                                <ul class="dm-ul">
+                                                    <li>Абу-Даби - Умм-аль-Кувейн -<br />Рас-эль-Хайма - Фуджейра:</li>
+                                                </ul>
+                                            `,
+                                            note: '',
+                                            price: '180&nbsp;у.е.',
+                                        },
+                                    ],
+                                ],
+                    },
+            ],
+            info2:{
+                title: 'Услуги русскоговорящего гида',
+                text: `<b>Продолжительность:</b> 8 часов`,
+                price: `235 у.е.`,
+                class_suffix: '--trip',
+                class_wrap: 'dm-info2',
+                class_left: 'dm-info2__left',
+                class_right: 'dm-info2__right',
+                class_inner: 'dm-info2__inner',
+                class_title: 'dm-info2__title',
+                class_text: 'dm-info2__text',
+                class_price: 'dm-info2__price',
+            }
+        })

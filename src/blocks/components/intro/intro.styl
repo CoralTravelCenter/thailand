@@ -1,0 +1,37 @@
+.dm-intro	
+	position relative	
+	margin-top 0
+
+	@media screen and (min-width: 769px)
+		margin-top em(74)
+
+	&__img
+		display block
+		height auto
+		margin 0 auto
+		max-width 100%
+
+	&__desc
+		position absolute
+		left em(50)
+		bottom em(70)
+		right em(20)
+		
+		@media screen and (min-width: 769px)
+			left em(88)
+			bottom em(30)
+			right em(50)
+	
+	&__title
+		color #fff
+		font-size em(30)
+		line-height (36em/30)
+		font-weight 700
+		display block
+	
+	&__text
+		color #fff
+		font-size em(48)
+		line-height (58em/48)
+		font-weight 900
+		display block

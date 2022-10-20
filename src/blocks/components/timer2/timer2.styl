@@ -1,0 +1,130 @@
+.serction--timer
+    background $timer2-bg
+
+.timer
+
+    padding (33/16em) (20/16em)
+    color $white
+
+    +md-block()
+        padding-top (25/16em)
+        padding-bottom (22/16em)
+    
+    +lg-block()
+        padding-top (35/16em)
+        padding-bottom (34/16em)
+
+    &__title
+
+        font-size (14/16em)
+        line-height 1.5
+        color $white
+        font-weight 700
+        text-align center
+        padding 0 (20/16em)
+        margin-bottom (8/14em)
+
+        +md-block()
+            font-size 1em
+            margin-bottom (7/16em)
+
+        +lg-block()
+            font-size (30/16em)
+            margin-bottom (14/30em)
+
+
+    &__subtitle
+
+        font-size (12/16em)
+        line-height 1.5
+        color $white
+        text-align center
+        margin-bottom (21/12em)
+
+        +md-block()
+            margin-bottom (28/12em)
+
+        +lg-block()
+            font-size (24/16em)
+            margin-bottom (30/24em)
+
+    &__wrap
+        position relative
+    
+    &__list
+        padding 0
+        margin 0 auto
+        list-style none
+        width (280/16em)
+        display flex
+        justify-content space-between
+
+        +md-block()
+            width (534/16em)
+        
+        +lg-block()
+            width (840/16em)
+
+        &-item
+            width (60/16em)
+
+            +md-block()
+                width (96/16em)
+            
+            +lg-block()
+                width (150/16em)
+
+    &__num
+        font-size (24/16em)
+        font-weight 700
+        text-align center
+        height (60/24em)
+        line-height (60/24em)
+        margin-bottom (9/24em)
+
+        +md-block()
+            font-size (32/16em)
+            height (96/32em)
+            line-height (96/32em)
+        
+        +lg-block()
+            font-size (50/16em)
+            height (150/50em)
+            line-height (150/50em)
+
+    &__unit
+        font-size (10/16em)
+        font-weight normal
+        text-align center
+
+        +md-block()
+            font-size (12/16em)            
+        
+        +lg-block()
+            font-size (18/16em)            
+    
+    &__circle
+        position absolute
+        left 0
+        top 0
+        right 0
+
+        svg
+            height (60/16em)
+            width (60/16em)
+
+            +md-block()
+                height (96/16em)
+                width (96/16em)
+            
+            +lg-block()
+                height (150/16em)
+                width (150/16em)
+
+        &-path
+            fill rgba(255,255,255,0.3)
+            transition all 0.5s
+
+            &-active
+                fill #fff
+                transition all 0.5s

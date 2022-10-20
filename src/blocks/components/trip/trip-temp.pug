@@ -1,0 +1,25 @@
+include ../block-img-text/block-img-text
+include ../block-img-text2/block-img-text2
+include ../info/info
+include ../info/info2
+include ../info/info3
+
+mixin trip(data)
+    if data.block_img_text
+        +block-img-text(data.block_img_text)
+    if data.text
+        div(class=data.class_text class=data.class_text + data.class_suffix)!=data.text
+
+    if data.info3
+        div(class=data.class_info3 class=data.class_info3 + data.class_suffix)
+            +info3(data.info3)
+
+    if data.block_img_text2
+        +block-img-text2(data.block_img_text2)
+
+    if data.info
+        each item, index in data.info
+            +info(item, index)
+
+    if data.info2
+        +info2(data.info2)

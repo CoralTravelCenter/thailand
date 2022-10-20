@@ -1,0 +1,26 @@
+mixin block-img-text(data)
+    div(class=data.class_wrap class=data.class_wrap + data.class_suffix)
+        if data.link
+            a(href=data.link class=data.class_link class=data.class_link + data.class_suffix target="_blank")
+                if data.img_lg && data.img_sm
+                    img(class=data.class_img class=data.class_img + data.class_suffix src=data.img_lg, data-src-desk=data.img_lg, data-src-mobile=data.img_sm, alt=data.title)
+                else
+                    img(class=data.class_img class=data.class_img + data.class_suffix src=data.img_lg, alt=data.title)
+                if data.title || data.text
+                    span(class=data.class_desc class=data.class_desc + data.class_suffix)
+                        if data.title
+                            span(class=data.class_title class=data.class_title + data.class_suffix)!=data.title
+                        if data.text
+                            span(class=data.class_text class=data.class_text + data.class_suffix)!=data.text
+
+        else
+            if data.img_lg && data.img_sm
+                img(class=data.class_img class=data.class_img + data.class_suffix src=data.img_lg, data-src-desk=data.img_lg, data-src-mobile=data.img_sm, alt=data.title)
+            else
+                img(class=data.class_img class=data.class_img + data.class_suffix src=data.img_lg, alt=data.title)
+            if data.title || data.text
+                span(class=data.class_desc class=data.class_desc + data.class_suffix)
+                    if data.title
+                        span(class=data.class_title class=data.class_title + data.class_suffix)!=data.title
+                    if data.text
+                        span(class=data.class_text class=data.class_text + data.class_suffix)!=data.text

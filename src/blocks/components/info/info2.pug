@@ -1,0 +1,9 @@
+mixin info2(data)
+    div(class=data.class_wrap class=data.class_wrap + data.class_suffix)
+        div(class=data.class_left class=data.class_left + data.class_suffix)
+            div(class=data.class_title class=data.class_title + data.class_suffix)!=data.title
+
+        div(class=data.class_right class=data.class_right + data.class_suffix)
+            div(class=data.class_inner class=data.class_inner + data.class_suffix)
+                div(class=data.class_text class=data.class_text + data.class_suffix)!=data.text
+                div(class=data.class_price class=data.class_price + data.class_suffix)!=data.price

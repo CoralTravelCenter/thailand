@@ -1,0 +1,33 @@
+mixin benefits4(data)
+    .dm-benefits4
+        if data.title && data.text
+            .dm-benefits4__desc
+                if data.text
+                    p.dm-text.dm-text--benefits4!=data.text
+                if data.title
+                    h2.dm-title4.dm-title4--benefits4!=data.title
+
+        .dm-benefits4__items
+            each item, index in data.items
+                .dm-benefits4__item
+                    if item.img
+                        .dm-benefits4__img-wrap
+                            img.dm-benefits4__img(src=item.img)
+                    if item.title && item.text
+                        .dm-benefits4__item-desc
+                            if item.title
+                                .dm-benefits4__title!=item.title
+                            if item.text
+                                .dm-benefits4__text!=item.text
+
+                            if item.notes
+                                .dm-benefits4__notes
+                                    each note, index2 in item.notes
+                                        .dm-benefits4__note
+                                            .dm-benefits4__note-img-wrap
+                                                img.dm-benefits4__note-img(src=note.img, alt=note.title)
+                                            .dm-benefits4__note-text!=note.text
+
+                            if item.link
+                                .dm-benefits4__item-btn
+                                    a.dm-btn.dm-btn--benefits4(href=item.link target="_blank") Выбрать тур
