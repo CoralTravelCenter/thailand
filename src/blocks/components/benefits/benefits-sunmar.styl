@@ -1,13 +1,11 @@
-.dm-benefits
+.dm-benefits6
     padding-top em(60)
+    margin-bottom em(50)
 
     @media screen and (min-width: 769px)
         text-align center
         padding-top em(60)
-        max-width em(1152)
-        margin-left auto
-        margin-right auto
-        margin-bottom em(20)
+        margin-bottom em(60)
 
     &__desc
         padding 0 em(60) em(60)
@@ -19,7 +17,7 @@
             margin-right auto
 
     &__items
-        padding 0 em(68)
+        padding 0 em(30)
         display flex
         flex-wrap wrap
         justify-content space-between
@@ -33,22 +31,26 @@
         display flex
         flex-direction column
         align-items: center
+        flex 0 0 em(300)
 
         @media screen and (min-width: 769px)
-            flex-direction: row
+            flex 0 0 em(160)
 
     &__img-wrap
-        margin-bottom em(26)
+        margin-bottom em(12)
 
         @media screen and (min-width: 769px)
-            margin-bottom 0
+            // margin-bottom 0
 
     &__img
-        width em(132)
-        height em(132)
+        width em(300)
+        height em(80)
         background-repeat no-repeat
         background-position 50% 0
         background-size contain
+
+        @media screen and (min-width: 769px)
+            width em(160)
 
         &--1
             background-image embedurl('../img/content/sunmar/icon-1.svg')
@@ -56,16 +58,21 @@
             background-image embedurl('../img/content/sunmar/icon-2.svg')
         &--3
             background-image embedurl('../img/content/sunmar/icon-3.svg')
+        &--4
+            background-image embedurl('../img/content/sunmar/icon-4.svg')
+        &--5
+            background-image embedurl('../img/content/sunmar/icon-5.svg')
+        &--6
+            background-image embedurl('../img/content/sunmar/icon-6.svg')
 
     &__title
-        font-size em(20)
-        line-height (28/20em)
+        font-size em(32)
+        line-height (44/32em)
         text-align center
-        font-weight normal
 
         @media screen and (min-width: 769px)
-            text-align left
-            margin-left (24/20em)
+            font-size em(24)
+            line-height (32/24em)
 
     &__header
         font-size em(48)
@@ -78,3 +85,6 @@
         @media screen and (min-width: 769px)
             font-size em(40)
             line-height (44/40em)
+
+    &__btn-wrap
+        text-align center

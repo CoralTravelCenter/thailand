@@ -1,19 +1,17 @@
-.dm-benefits4
+.dm-benefits5
     margin-bottom em(60)
 
     @media screen and (min-width: 769px)
         margin-bottom em(40)
-        max-width em(1336)
+        max-width em(1340)
         margin-left auto
         margin-right auto
 
     &__items
-        padding 0 em(50)
+        padding 0 2em
 
         @media screen and (min-width: 769px)
             padding 0
-            // display flex
-            // flex-wrap wrap
 
     &__item
         margin-bottom em(60)
@@ -22,26 +20,26 @@
             display flex
             margin-bottom em(60)
 
-            .dm-benefits4__item-desc
-                width (580/16em)
+            .dm-benefits5__item-desc
+                width (584/16em)
             
-            &:nth-child(even)
+            &:nth-child(odd)
                 flex-direction row-reverse
 
-                .dm-benefits4__item-desc
-                    width (580/16em)
+                .dm-benefits5__item-desc
+                    width (584/16em)
                 
     &__img-wrap
 
     &__img
         display block
         height auto
-        border-radius em(50)
-        width em(620)
+        width 100%
+        max-width: 100%
         margin-bottom em(40)
 
         @media screen and (min-width: 769px)
-            width em(656)
+            width em(658)
             margin-bottom 0
 
 
@@ -86,27 +84,87 @@
         margin-bottom (40/14em)
         text-transform uppercase
 
+    &__title
+        font-size em(48)
+        line-height (54/48em)
+        color #000
+        margin-bottom (20/48em)
+        font-weight bold
+
+        @media screen and (min-width: 769px)
+            font-size em(32)
+            line-height (36/32em)
+            margin-bottom (20/32em)
+
+    &__text__p
+        font-size em(32)
+        line-height (44/32em)
+        color #000
+        margin-bottom (50/32em)
+
+        @media screen and (min-width: 769px)
+            font-size em(18)
+            line-height (28/18em)
+            margin-bottom (50/18em)
+
+    &__title2
+        font-size em(40)
+        line-height (44/40em)
+        color #000
+        text-align center
+        margin-bottom (80/40em)
+
+        @media screen and (min-width: 769px)
+            font-size em(40)
+            line-height (44/40em)
+
+.dm-text__items
+    columns 2
+    margin-bottom em(50)
+
 .dm-text__item
-    color #102856
-    font-size (24/20em)
-    line-height (32/20em)
+    color #000
+    font-size em(24)
+    line-height (32/24em)
     margin-bottom 0.5em
     position relative
-    padding 0 0 0 (36/20em)
+    padding 0 0 0 (36/24em)
 
     @media screen and (min-width: 769px)
-        font-size 1em
-        line-height (28/20em)
+        padding 0 0 0 (10/18em)
+        font-size em(18)
+        line-height (28/18em)
+        margin-bottom 1em
 
     &:before
         position absolute
         content ''
-        width: (6/20em)
-        height: (6/20em)
-        background-color #102856
+        width: (6/24em)
+        height: (6/24em)
+        background-color #000
         border-radius: 50%
-        left (16/20em)
-        top: (12/20em)
+        left (16/24em)
+        top: (12/24em)
 
-.dm-benefits4__item-btn
-    margin-top em(30)
+        @media screen and (min-width: 769px)
+            left 0
+            top (11/18em)
+            width (4/18em)
+            height (4/18em)
+
+.dm-benefits5__item-btn
+    // text-align center
+
+.dm-btn--benefits5
+    font-size em(42)!important
+    line-height (64/42em)!important
+    min-width 0
+    padding 0
+    border-radius: (32/42em)
+    padding 0 (40/42em)
+
+    @media screen and (min-width: 769px)
+        font-size em(20)!important
+        line-height (48/20em)!important
+        border-radius: (24/20em)
+        padding 0 (30/20em)
