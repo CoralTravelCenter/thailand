@@ -1,5 +1,5 @@
-# https://www.coral.ru/poleznaya-informatsiya/gid-po-otdyhu/kuda-poehaty-na-osennie-sshkolynye-kanikuly-vsey-semyey/
-# https://www.sunmar.ru/idei-otdykha/kuda-poekhat-na-kanikuly-osen/
+# https://www.coral.ru/pattayya-tayland/
+# https://www.sunmar.ru/thailand/amazing-thailand/
 
 # gulp-pug-starter
 
