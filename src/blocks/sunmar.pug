@@ -3,10 +3,20 @@ include components/benefits4/benefits4-temp-sunmar
 include components/benefits/benefits-temp
 include components/banner/banner-temp
 //- добавляем нужные блоки
-//- include components/intro/intro-sunmar
-.dm-site-wrap
-	.dm-site-wrap__inner
-		section.dm-section--benefits6
+
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		include components/intro/intro-sunmar
+
+
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		.dm-block
+			.dm-block__text Таиланд с&nbsp;первых секунд знакомство очаровывает своей многогранностью: умиротворенность, буйство природы, белоснежные пляжи, экзотические фрукты&nbsp;&mdash; все это привлекает миллионы путешественников круглый год. Если вы&nbsp;хотите совместить качественное обслуживание и&nbsp;получить новые впечатления, то&nbsp;Таиланд&nbsp;&mdash; это, что вам нужно! Вас ждет идеальный пляжный отдых и&nbsp;незабываемые экскурсии по&nbsp;духовному и&nbsp;культурному наследию страны!
+
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		.dm-section--benefits6
 			.dm-benefits6
 				.dm-benefits6__desc
 					//- .dm-text.dm-text--benefits6 Каникулы&nbsp;&mdash; это прекрасная возможность отдохнуть и&nbsp;провести время с&nbsp;семьей. Вы&nbsp;можете устроить себе ленивый пляжный отдых на&nbsp;берегу теплого океана, побывать в&nbsp;самом лучше парке развлечений в&nbsp;ОАЭ, изучить подводный мир Египта, посчитать всех хомлинов в&nbsp;Калининграде или отлично повеселиться во&nbsp;время вечернего шоу в&nbsp;одном из&nbsp;отелей Турции. Такие каникулы подарят море эмоций и&nbsp;взрослым и&nbsp;детям!
@@ -42,72 +52,117 @@ include components/banner/banner-temp
 					//- a.dm-benefits4__btn.dm-btn.dm-btn--js(href="#pattayya" target="_blank") Выбрать тур
 					a.dm-benefits6__btn.dm-btn(href="https://www.sunmar.ru/packagetours/moskva-to-tailand-tours/?q=%7b%22Bgn%22%3a%2221.11.2022%22%2c%22End%22%3a%2227.11.2022%22%2c%22Dr%22%3a%223%22%2c%22Acc%22%3a%227%2c10%2c13%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22glvG3qrY%2bA7L2gyMjCyuDZoDQl1U4AglL%2brZbLAl%2fjLDb7%2b1a7oXjH9xGjs7CkqmMtaVP0E83IHkbWpqkYhE%2bDspcQlm996ubxJybDx3ZzQAasouwSthQ96DHuOFzX2deFF6pCxHe18zFA7A%2bgH5qA%3d%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3afalse%2c%22Rglr%22%3atrue%2c%22Srt%22%3a1%7d&f={%22Rh%22:false,%22Ao%22:[%22available%22]}&page=1" target="_blank") Выбрать тур
 
-.dm-site-wrap
-	.dm-site-wrap__inner
-		section.dm-section--benefits5
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		.dm-section--benefits5
 			h2.dm-benefits5__title2 Какой курорт выбрать?
 			+benefits4({
-						'title': '',
-						'text': '',
-						'items':[
-							{
-								'title': 'Паттайя',
-								'text': `
-								<p class="dm-benefits4__text__p">
-								Находится на юго-востоке страны, на побережье Сиамского залива.
-								</p>
-								<div class="dm-text__items">
-									<div class="dm-text__item">Тайская кухня</div>
-									<div class="dm-text__item">Насыщенная ночная жизнь</div>
-									<div class="dm-text__item">Много достопримечательностей</div>
-									<div class="dm-text__item">Крупнейшая курортная зона Юго-Восточной Азии</div>
-									<div class="dm-text__item">Белоснежные пляжи</div>
-								</div>
-								`,
-								'img': './img/content/sunmar/city-1.jpg',
-								'link': 'https://www.sunmar.ru/packagetours/moskva-to-pattayyapattaya-tours/?q=%7b%22Bgn%22%3a%2214.11.2022%22%2c%22End%22%3a%2220.11.2022%22%2c%22Dr%22%3a%223%22%2c%22Acc%22%3a%227%2c8%2c9%2c10%2c11%2c12%2c13%2c14%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22lSOkY98cmljdkhm63LroANC7rs33UxZkG0eVyqSkIrE8mVc7%2b9u3lT0q%2fOJj9CbjsDm3s0pT68UK4tY8d5ccgI1icL4Rc0OeOLng6qF44rkXae6l28aI8pu3sh34FNwKDfXd6apS83WhZejLhtC7gSTKulDU%2baxaT0xQImm%2fp%2fU%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3afalse%2c%22Rglr%22%3atrue%2c%22Srt%22%3a1%7d&f={%22Rh%22:false,%22Ao%22:[%22available%22]}&page=1',
-							},
-							{
-								'title': 'Районг',
-								'text': `
-								<p class="dm-benefits4__text__p">
-								Провинция Районг расположилась в восточной части Таиланда. 
-								</p>
-								<div class="dm-text__items">
-									<div class="dm-text__item">Широкие белоснежные пляжи</div>
-									<div class="dm-text__item">Идеальное место для дайвинга</div>
-									<div class="dm-text__item">Развитая инфраструктура</div>
-									<div class="dm-text__item">Большое количество достопримечательностей</div>
-									<div class="dm-text__item">Морепродукты</div>
-								</div>
-								`,
-								'img': './img/content/sunmar/city-2.jpg',
-								'link': 'https://www.sunmar.ru/packagetours/moskva-to-rayongrayong-tours/?q=%7b%22Bgn%22%3a%2214.11.2022%22%2c%22End%22%3a%2220.11.2022%22%2c%22Dr%22%3a%223%22%2c%22Acc%22%3a%227%2c8%2c9%2c10%2c11%2c12%2c13%2c14%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22rzxzGRzOF72ElA8yM4v2bA5mdu8ZpGiPNgYVRLXCqW%2fqSnmMyJxNuUIgLE1WZClDGf2nBnbTaPGeXqvEqzKP%2bt2ZxF7AJMg6f%2bqpZisOwPtrUfXEsKqTeG%2b4rGP9X%2bSESldKdjOqyRRL8iCL%2fUGi0NZlMC%2fJOslHhA6HMwgRND4%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3afalse%2c%22Rglr%22%3atrue%2c%22Srt%22%3a1%7d&f={%22Rh%22:false,%22Ao%22:[%22available%22]}&page=1',
-							},
-							{
-								'title': 'Ко Чанг',
-								'text': `
-								<p class="dm-benefits4__text__p">
-								Один из самых больших островов Таиланда.
-								</p>
-								<div class="dm-text__items">
-									<div class="dm-text__item">Отличное место для пляжного отдыха</div>
-									<div class="dm-text__item">Очень чистое море</div>
-									<div class="dm-text__item">Джунгли и мангровые деревья</div>
-									<div class="dm-text__item">Удивительные водопады</div>
-									<div class="dm-text__item">Идеальное место для спокойного семейного отдыха</div>
-								</div>
-								`,
-								'img': './img/content/sunmar/city-3.jpg',
-								'link': 'https://www.sunmar.ru/packagetours/moskva-to-okochangkohchang-tours/?q=%7b%22Bgn%22%3a%2214.11.2022%22%2c%22End%22%3a%2220.11.2022%22%2c%22Dr%22%3a%223%22%2c%22Acc%22%3a%227%2c8%2c9%2c10%2c11%2c12%2c13%2c14%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22wpDKw51jhY634QkhAx5RWvYNhsW8QBjZzWc%2fsrNVBHqzvC6Xj3%2bhDK14AChWVaxgpZHd6M5%2f3RKWy%2bHvgowcfNPyECfn%2bjguj1NUL9X%2bAlkzHEGtKoz6vwOzLlDuztExN6ynZ5Hb1Rn2CaYl6Y6ss%2bxpWaRcEar3TV9Agb7yz0A%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3afalse%2c%22Rglr%22%3atrue%2c%22Srt%22%3a1%7d&f={%22Rh%22:false,%22Ao%22:[%22available%22]}&page=1',
-							},
-						],
-					})
+				'title': '',
+				'text': '',
+				'items':[
+					{
+						'title': 'Паттайя',
+						'text': `
+						<p class="dm-benefits4__text__p">
+						Находится на юго-востоке страны, на побережье Сиамского залива.
+						</p>
+						<div class="dm-text__items">
+							<div class="dm-text__item">Тайская кухня</div>
+							<div class="dm-text__item">Насыщенная ночная жизнь</div>
+							<div class="dm-text__item">Много достопримечательностей</div>
+							<div class="dm-text__item">Крупнейшая курортная зона Юго-Восточной Азии</div>
+							<div class="dm-text__item">Белоснежные пляжи</div>
+						</div>
+						`,
+						'img': './img/content/sunmar/city-1.jpg',
+						'link': 'https://www.sunmar.ru/packagetours/moskva-to-pattayyapattaya-tours/?q=%7b%22Bgn%22%3a%2214.11.2022%22%2c%22End%22%3a%2220.11.2022%22%2c%22Dr%22%3a%223%22%2c%22Acc%22%3a%227%2c8%2c9%2c10%2c11%2c12%2c13%2c14%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22lSOkY98cmljdkhm63LroANC7rs33UxZkG0eVyqSkIrE8mVc7%2b9u3lT0q%2fOJj9CbjsDm3s0pT68UK4tY8d5ccgI1icL4Rc0OeOLng6qF44rkXae6l28aI8pu3sh34FNwKDfXd6apS83WhZejLhtC7gSTKulDU%2baxaT0xQImm%2fp%2fU%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3afalse%2c%22Rglr%22%3atrue%2c%22Srt%22%3a1%7d&f={%22Rh%22:false,%22Ao%22:[%22available%22]}&page=1',
+					},
+					{
+						'title': 'Районг',
+						'text': `
+						<p class="dm-benefits4__text__p">
+						Провинция Районг расположилась в восточной части Таиланда. 
+						</p>
+						<div class="dm-text__items">
+							<div class="dm-text__item">Широкие белоснежные пляжи</div>
+							<div class="dm-text__item">Идеальное место для дайвинга</div>
+							<div class="dm-text__item">Развитая инфраструктура</div>
+							<div class="dm-text__item">Большое количество достопримечательностей</div>
+							<div class="dm-text__item">Морепродукты</div>
+						</div>
+						`,
+						'img': './img/content/sunmar/city-2.jpg',
+						'link': 'https://www.sunmar.ru/packagetours/moskva-to-rayongrayong-tours/?q=%7b%22Bgn%22%3a%2214.11.2022%22%2c%22End%22%3a%2220.11.2022%22%2c%22Dr%22%3a%223%22%2c%22Acc%22%3a%227%2c8%2c9%2c10%2c11%2c12%2c13%2c14%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22rzxzGRzOF72ElA8yM4v2bA5mdu8ZpGiPNgYVRLXCqW%2fqSnmMyJxNuUIgLE1WZClDGf2nBnbTaPGeXqvEqzKP%2bt2ZxF7AJMg6f%2bqpZisOwPtrUfXEsKqTeG%2b4rGP9X%2bSESldKdjOqyRRL8iCL%2fUGi0NZlMC%2fJOslHhA6HMwgRND4%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3afalse%2c%22Rglr%22%3atrue%2c%22Srt%22%3a1%7d&f={%22Rh%22:false,%22Ao%22:[%22available%22]}&page=1',
+					},
+					{
+						'title': 'Ко Чанг',
+						'text': `
+						<p class="dm-benefits4__text__p">
+						Один из самых больших островов Таиланда.
+						</p>
+						<div class="dm-text__items">
+							<div class="dm-text__item">Отличное место для пляжного отдыха</div>
+							<div class="dm-text__item">Очень чистое море</div>
+							<div class="dm-text__item">Джунгли и мангровые деревья</div>
+							<div class="dm-text__item">Удивительные водопады</div>
+							<div class="dm-text__item">Идеальное место для спокойного семейного отдыха</div>
+						</div>
+						`,
+						'img': './img/content/sunmar/city-3.jpg',
+						'link': 'https://www.sunmar.ru/packagetours/moskva-to-okochangkohchang-tours/?q=%7b%22Bgn%22%3a%2214.11.2022%22%2c%22End%22%3a%2220.11.2022%22%2c%22Dr%22%3a%223%22%2c%22Acc%22%3a%227%2c8%2c9%2c10%2c11%2c12%2c13%2c14%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22wpDKw51jhY634QkhAx5RWvYNhsW8QBjZzWc%2fsrNVBHqzvC6Xj3%2bhDK14AChWVaxgpZHd6M5%2f3RKWy%2bHvgowcfNPyECfn%2bjguj1NUL9X%2bAlkzHEGtKoz6vwOzLlDuztExN6ynZ5Hb1Rn2CaYl6Y6ss%2bxpWaRcEar3TV9Agb7yz0A%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3afalse%2c%22Rglr%22%3atrue%2c%22Srt%22%3a1%7d&f={%22Rh%22:false,%22Ao%22:[%22available%22]}&page=1',
+					},
+				],
+			})
 
-//- .dm-site-wrap.dm-font-size-unset
-	.dm-site-wrap__inner.dm-font-size-unset
-		section.dm-section--benefits4
-			//- include components/temp/sunmar.html
+section.dm-site-wrap2.dm-font-size-unset
+	.dm-site-wrap__inner2.dm-font-size-unset
+		h2.dm-benefits6__title2(style="margin-bottom: 1.5em;") РЕКОМЕНДУЕМЫЕ ОТЕЛИ
+		//- include components/temp/sunmar.html
+
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		.dm-intresting
+			h2.dm-intresting__header Чем заняться в Таиланде?
+			.dm-intresting__items
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/sunmar/int-1.jpg", alt="Побывать в волшебном парке Dream World")
+					.dm-intresting__title Побывать в волшебном парке Dream&nbsp;World
+					.dm-intresting__text В&nbsp;Бангкоке находится тематический парк развлечений Dream World. Здесь можно сходить в&nbsp;гости к&nbsp;Санта-Клаусу, покормить животных на&nbsp;ферме, увидеть домик Великана и&nbsp;замок Спящей Красавицы. Парк развлечений понравится и&nbsp;детям, и&nbsp;взрослым!
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/sunmar/int-2.jpg", alt="Сделать фотографию на&nbsp;фоне Большого Будды")
+					.dm-intresting__title Сделать фотографию на&nbsp;фоне Большого Будды
+					.dm-intresting__text Статуя Большого Будды находится на&nbsp;Пхукете. Ее&nbsp;видно из&nbsp;любой точки острова. По&nbsp;легенде, гора была домом для гигантского змея Наги&nbsp;&mdash; символа мудрости у&nbsp;буддистов. Чтобы попасть сюда необходимо пару часов подниматься в&nbsp;гору пешком или нанять водителя на&nbsp;тук-туке (небольшая трехколесная машина).
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/sunmar/int-3.jpg", alt="Освежиться в аквапарке Ramayana Water Park")
+					.dm-intresting__title Освежиться в аквапарке Ramayana&nbsp;Water&nbsp;Park
+					.dm-intresting__text Ramayana Water Park&nbsp;&mdash; это самый большой аквапарк в&nbsp;Таиланде. Здесь есть &laquo;ленивая речка&raquo;, искусственные водопады и&nbsp;гейзеры, бассейны с&nbsp;двойными волнами и&nbsp;водные горки на&nbsp;любой вкус. Для самых юных гостей в&nbsp;аквапарке также есть детский лабиринт и&nbsp;плавучий рынок.
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/sunmar/int-4.jpg", alt="Полюбоваться Королевским дворцом ")
+					.dm-intresting__title Полюбоваться Королевским&nbsp;дворцом 
+					.dm-intresting__text Королевский дворец&nbsp;&mdash; это самая популярна достопримечательность Бангкока. Посетители смогут насладиться идеально ровными зелеными лужайками, пышными садами и&nbsp;храмом Изумрудного Будды.
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/sunmar/int-5.jpg", alt="Посетить остров Джеймса Бонда")
+					.dm-intresting__title Посетить остров#[br]Джеймса Бонда
+					.dm-intresting__text Остров Джеймса Бонда или Пинг Кан&nbsp;&mdash; это одно из&nbsp;самых красивых мест Таиланда. Это место славится известняковыми скалами с&nbsp;живописными пещерами и&nbsp;водными гратами. Здесь получаются очень эффектные фотографии!
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/sunmar/int-6.jpg", alt="Рассмотреть Храм Истины ")
+					.dm-intresting__title Рассмотреть#[br] Храм Истины 
+					.dm-intresting__text Живописный храмовый комплекс, возведенных из&nbsp;дерева ценных пород, находится в&nbsp;северной части города Паттайя. Это настоящее архитектурное чудо! Храм полностью сооружен из&nbsp;железного и&nbsp;тикового дерева, а&nbsp;все элементы конструкции держатся без единого гвоздя!
+
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		.dm-gift
+			.dm-gift__items
+				.dm-gift__item
+					.dm-gift__img-wrap
+						.dm-gift__img.dm-gift__img--1
+
 //- .dm-site-wrap
 	.dm-site-wrap__inner
 		section.dm-section--banner
@@ -134,8 +189,8 @@ include components/banner/banner-temp
 				'btn_title':'Подробнее',
 			})
 
-//- .dm-site-wrap
-	.dm-site-wrap__inner
+.dm-site-wrap2
+	.dm-site-wrap__inner2
 		include components/share/share-sunmar
 
 link(rel="stylesheet" href='./styles/sunmar.reset.css')

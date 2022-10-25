@@ -1,0 +1,72 @@
+.dm-intresting
+    padding em(60) em(30)
+
+    @media screen and (min-width: 769px)
+        padding em(60) 0 0
+
+    &__header
+        font-size em(40)
+        line-height (48/40em)
+        text-align center
+        color #000
+        margin-bottom (60/40em)
+
+        @media screen and (min-width: 769px)
+            font-size em(40)
+            line-height (44/40em)
+            margin-bottom (60/40em)
+
+    &__items
+
+        @media screen and (min-width: 769px)
+            max-width: em(1356)
+            margin 0 auto
+            display flex
+            flex-wrap: wrap
+            justify-content: center
+
+    &__item
+        @media screen and (min-width: 769px)
+            width em(428+24)
+            padding 0 em(12)
+            margin-bottom em(60)
+
+    &__item + &__item
+        margin-top em(60)
+
+        @media screen and (min-width: 769px)
+            margin-top 0
+
+    &__img-wrap
+        margin-bottom em(40)
+
+    &__img
+        width em(660)
+        display block
+        border-radius: em(0)
+
+        @media screen and (min-width: 769px)
+            width em(428)
+
+    &__title
+        font-size em(42)
+        line-height (48/42em)
+        text-align center
+        color #000
+        font-weight bold
+        margin-bottom (20/42em)
+
+        @media screen and (min-width: 769px)
+            font-size em(24)
+            line-height (29/24em)
+            margin-bottom 1em
+    
+    &__text
+        font-size em(32)
+        line-height (44/32em)
+        text-align center
+        color #000
+
+        @media screen and (min-width: 769px)
+            font-size em(18)
+            line-height (24/18em)

@@ -3,9 +3,15 @@ include components/benefits4/benefits4-temp
 include components/benefits/benefits-temp
 include components/banner/banner-temp
 //- добавляем нужные блоки
-.dm-site-wrap
-	.dm-site-wrap__inner
-		section.dm-section--benefits
+
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		.dm-block
+			.dm-block__text Таиланд&nbsp;&mdash; это страна тысячи храмов и&nbsp;тысячи улыбок, страна яркого солнца, широких пляжей и&nbsp;приветливых местных жителей. Туристов привлекает потрясающая воображение природа, неповторимая тайская кухня, экзотические фрукты и&nbsp;богатое духовное и&nbsp;культурное наследие. Здесь круглый год тепло! Если вы&nbsp;ищите приключения, но&nbsp;при этом для вас важен комфорт и&nbsp;высокий уровень обслуживания&nbsp;&mdash; это страна для вас!
+
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		.dm-section--benefits
 			.dm-benefits
 				.dm-benefits__desc
 					//- .dm-text.dm-text--benefits Осенние каникулы&nbsp;&mdash; это прекрасный повод порадовать себя и&nbsp;своих детей полезным отдыхом в&nbsp;сочетании с&nbsp;насыщенной, развивающей и&nbsp;интересной программой. Можно отправиться загорать на&nbsp;белоснежные пляжи, исследовать яркие коралловые сады Красного моря, изучить традиции гостеприимства Востока, попробовать все турецкие сладости или попытаться посчитать все крыши в&nbsp;Санкт-Петербурге. Не&nbsp;упустите возможность отлично провести время с&nbsp;семьей! Забронируйте тур на&nbsp;осенние каникулы прямо сейчас!
@@ -44,9 +50,9 @@ include components/banner/banner-temp
 					//- a.dm-benefits4__btn.dm-btn.dm-btn--js(href="#pattayya" target="_blank") Выбрать тур
 					a.dm-benefits4__btn.dm-btn(href="https://www.coral.ru/packagetours/moskva-to-tailand-tours/?q=%7b%22Bgn%22%3a%2221.11.2022%22%2c%22End%22%3a%2227.11.2022%22%2c%22Dr%22%3a%223%22%2c%22Acc%22%3a%227%2c10%2c13%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22glvG3qrY%2bA7L2gyMjCyuDZoDQl1U4AglL%2brZbLAl%2fjLDb7%2b1a7oXjH9xGjs7CkqmMtaVP0E83IHkbWpqkYhE%2bDspcQlm996ubxJybDx3ZzQAasouwSthQ96DHuOFzX2deFF6pCxHe18zFA7A%2bgH5qA%3d%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3afalse%2c%22Rglr%22%3atrue%2c%22Srt%22%3a1%7d&f={%22Rh%22:false,%22Ao%22:[%22available%22]}&page=1" target="_blank") Выбрать тур
 
-.dm-site-wrap
-	.dm-site-wrap__inner
-		section.dm-section--benefits4
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		.dm-section--benefits4
 			h2.dm-benefits__title3 Какой курорт выбрать?
 			br
 			br
@@ -75,10 +81,52 @@ include components/banner/banner-temp
 				],
 			})
 
-.dm-site-wrap.dm-font-size-unset
-	.dm-site-wrap__inner.dm-font-size-unset
-		section.dm-section--benefits4
-	//- include components/temp/coral.html
+section.dm-site-wrap2.dm-font-size-unset
+	.dm-site-wrap__inner2.dm-font-size-unset
+		h2.dm-benefits__title2(style="margin-bottom: 1.5em;") РЕКОМЕНДУЕМЫЕ ОТЕЛИ
+		include components/temp/coral.html
+
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		.dm-intresting
+			h2.dm-intresting__header Интересное в Таиланде
+			.dm-intresting__items
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/coral/int-1.jpg", alt="Большой Будда на горе Накакед")
+					.dm-intresting__title Большой Будда на горе Накакед
+					.dm-intresting__text 45-метровая статую из белого мрамора. Ее видно с любой точки Пхукета. Согласно легенде, гора была домом для гигантского змея Наги — символа мудрости у буддистов. Сегодня, чтобы попасть сюда необходимо пару часов подниматься в гору пешком или нанять водителя на тук-туке (небольшая трехколесная машина). 
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/coral/int-2.jpg", alt="Улица Уокинг-стрит ")
+					.dm-intresting__title Улица Уокинг-стрит 
+					.dm-intresting__text Эта улица позволит вам погрузиться в&nbsp;необычный быт азиатской страны. Здесь можно прогуляться среди магазинов, перевести дух в&nbsp;местном кафе и&nbsp;понаблюдать за&nbsp;жизнью местного населения. Ночью улица особенно красивая: после заката солнца вся улица вспыхивает неоновыми вывесками.
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/coral/int-3.jpg", alt="Деревня слонов")
+					.dm-intresting__title Деревня слонов
+					.dm-intresting__text Это настоящий поселок, чье население здесь составляют лишь слоны и&nbsp;их&nbsp;дрессировщики. В&nbsp;деревне можно не&nbsp;только прокатиться на&nbsp;этих дружелюбных животных, но&nbsp;и&nbsp;посмотреть интересное шоу&nbsp;&mdash; вы&nbsp;своими глазами увидите, как слоны играют в&nbsp;баскетбол или ходят строем.
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/coral/int-4.jpg", alt="Парк миллионолетних камней")
+					.dm-intresting__title Парк миллионолетних камней
+					.dm-intresting__text Это очень необычное и&nbsp;любопытное место. Здесь можно не&nbsp;только получить эстетическое удовольствие, но&nbsp;и&nbsp;испытать сильные эмоции от&nbsp;увиденного. Особенно внимание туристов привлекают каменные скульптуры с&nbsp;весом больше 8000&nbsp;тонн, миниатюрные деревья Бонсай, которым больше 200&nbsp;лет, и&nbsp;самый большой в&nbsp;стране искусственный водопад.
+				.dm-intresting__item
+					.dm-intresting__img-wrap
+						img.dm-intresting__img(src="./img/content/coral/int-5.jpg", alt="Океанариум Underwater World Pattaya")
+					.dm-intresting__title Океанариум Underwater World Pattaya
+					.dm-intresting__text Это одна из&nbsp;самых популярных достопримечательностей в&nbsp;Паттайи. Здесь можно ближе познакомиться с&nbsp;подводной жизнью Сиамского залива и&nbsp;Южно-Китайского моря. А&nbsp;еще в&nbsp;океанариуме есть открытый бассейн, где гости могут потрогать безопасных обителей подводного мира, водопад с&nbsp;карпами, вольер с&nbsp;выдрами, тоннель с&nbsp;акулами и&nbsp;многое другое!
+
+
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
+		.dm-gift
+			.dm-gift__items
+				.dm-gift__item
+					.dm-gift__img-wrap
+						.dm-gift__img.dm-gift__img--1
+					.dm-gift__title Что привезти из Таиланда в подарок?
+					.dm-gift__text – Тайские цукаты и фруктовые сладости#[br]– Лаковые шкатулки#[br]– Бумажные зонтики и веера#[br]— Зубные пасты на травах#[br]– Чай#[br]– Изделия из шелка#[br]– Кокосовое масло#[br]– Украшения с жемчугом, сапфирами и рубинами
 
 //- section.dm-section--banner
 //- 	+banner({
@@ -101,8 +149,8 @@ include components/banner/banner-temp
 //- 		'link':'https://www.coral.ru/poleznaya-informatsiya/hotels-service-packages/',
 //- 		'btn_title':'Подробнее',
 //- 	})
-//- .dm-site-wrap
-	.dm-site-wrap__inner
+section.dm-site-wrap2
+	.dm-site-wrap__inner2
 		.dm-bottom
 			.dm-bottom__left
 				include components/share/share-coral
