@@ -1,4 +1,4 @@
-# https://www.coral.ru/pattayya-tayland/
+# https://www.coral.ru/amazing-tayland/
 # https://www.sunmar.ru/thailand/amazing-thailand/
 
 # gulp-pug-starter

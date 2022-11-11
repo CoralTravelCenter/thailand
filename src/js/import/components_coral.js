@@ -1,6 +1,7 @@
 // import "%components%/scrollfix/scrollfix.js";
 // import "%components%/preloader/preloader.js";
 // import "%components%/animator/animator.js";
+import "%components%/tab/tab.js";
 
 
 document.addEventListener('DOMContentLoaded', function(){

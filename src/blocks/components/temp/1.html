@@ -1,0 +1,1386 @@
+<style type="text/css">
+    .reset {
+        position: static;
+        left: auto;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+        background: none;
+    }
+    .bbox,
+    .bbox * {
+        box-sizing: border-box;
+    }
+    .interactive {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .interactive:active {
+        -webkit-transform: translateY(2px);
+        -moz-transform: translateY(2px);
+        -ms-transform: translateY(2px);
+        -o-transform: translateY(2px);
+        transform: translateY(2px);
+    }
+    .abs100x100 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .centering {
+        display: table !important;
+        width: 100%;
+        height: 100%;
+    }
+    .centering > *:first-child {
+        width: 100%;
+        height: 100%;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .centering > *:first-child > *:first-child {
+        display: inline-block;
+    }
+    @media screen and (max-width: 768px) {
+        .hidden-on-mobile {
+            display: none !important;
+        }
+    }
+    @media screen and (min-width: 769px) {
+        .hidden-on-desktop {
+            display: none !important;
+        }
+    }
+    .rur:not(:empty):after {
+        content: ' \20BD ';
+    }
+    .rur.per-person:not(:empty):after {
+        content: ' \20BD / чел.';
+    }
+    .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #hotels-set {
+        opacity: 0;
+        transform: translateY(10vh);
+        -webkit-transition: opacity 0.5s, transform 0.5s;
+        -moz-transition: opacity 0.5s, transform 0.5s;
+        -ms-transition: opacity 0.5s, transform 0.5s;
+        -o-transition: opacity 0.5s, transform 0.5s;
+        transition: opacity 0.5s, transform 0.5s;
+        overflow: hidden;
+    }
+    #hotels-set,
+    #hotels-set * {
+        box-sizing: border-box;
+    }
+    #hotels-set .buttonlike {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        outline: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        line-height: 1;
+        font-size: inherit;
+        height: 2.6em;
+        padding: 0 2em;
+        border: 0;
+        text-decoration: none;
+        border-radius: 0.25em;
+    }
+    #hotels-set .buttonlike:active {
+        -webkit-transform: translateY(2px);
+        -moz-transform: translateY(2px);
+        -ms-transform: translateY(2px);
+        -o-transform: translateY(2px);
+        transform: translateY(2px);
+    }
+    #hotels-set .buttonlike.transparent {
+        color: inherit;
+        border: 1px solid currentColor;
+    }
+    #hotels-set .buttonlike.yellow {
+        color: white;
+        background-color: #F0AB00;
+    }
+    #hotels-set .buttonlike.white {
+        color: inherit;
+        background-color: white;
+    }
+    #hotels-set .buttonlike.blue {
+        color: white;
+        background-color: #0093D0;
+    }
+    #hotels-set .buttonlike.deepblue {
+        color: white;
+        background-color: #0F2855;
+    }
+    #hotels-set .buttonlike.red {
+        color: white;
+        background-color: #D7232A;
+    }
+    #hotels-set.shown {
+        opacity: 1;
+        transform: none;
+    }
+    #hotels-set .group-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #hotels-set .group-filters > * {
+        flex: 0 1 auto;
+        margin: 0.5em 1em;
+        -webkit-transition: color 0.5s, bacgground 0.5s;
+        -moz-transition: color 0.5s, bacgground 0.5s;
+        -ms-transition: color 0.5s, bacgground 0.5s;
+        -o-transition: color 0.5s, bacgground 0.5s;
+        transition: color 0.5s, bacgground 0.5s;
+        cursor: pointer;
+    }
+    #hotels-set .group-filters > *[data-group='*'] {
+        flex-grow: 1;
+    }
+    #hotels-set .group-filters > *.selected {
+        pointer-events: none;
+        color: white;
+        background-color: #0E2855;
+    }
+    #hotels-set .cards-grid .card-cell {
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+        padding: 1em;
+        min-height: 0;
+    }
+    @media screen and (max-width: 1280px) {
+        #hotels-set .cards-grid .card-cell {
+            width: 33.33333333%;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        #hotels-set .cards-grid .card-cell {
+            width: 50%;
+        }
+    }
+    @media screen and (max-width: 576px) {
+        #hotels-set .cards-grid .card-cell {
+            width: 100%;
+        }
+    }
+    #hotels-set .cards-grid .card-cell > .pad {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        border-radius: 1em;
+        overflow: hidden;
+    }
+    #hotels-set .cards-grid .card-cell > .pad > * {
+        max-width: 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual {
+        width: 100%;
+        position: relative;
+        background: center no-repeat;
+        background-size: cover;
+        border-radius: 1em;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual:before {
+        content: '';
+        display: block;
+        padding-top: 56.25%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual > * {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual [is="hotel-stars"] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        filter: drop-shadow(0px -2px 2px #0E2855);
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual [is="hotel-stars"] .star {
+        width: 1.5em;
+        height: 100%;
+        margin: 0 2px;
+        background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjkiIGhlaWdodD0iMjkiIHZpZXdCb3g9IjAgMCAyOSAyOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTkuNjEwMiA4LjIyMDIxTDI3LjUwMTEgOS4zNzk0NUMyNy44MjMzIDkuNDI2NDIgMjguMTI2IDkuNTYxOCAyOC4zNzUyIDkuNzcwNDFDMjguNjI0NSA5Ljk3OTAyIDI4LjgxMDUgMTAuMjUyNiAyOC45MTI0IDEwLjU2MDZDMjkuMDE0MiAxMC44NzAyIDI5LjAyNzUgMTEuMjAxOSAyOC45NTA5IDExLjUxODZDMjguODc0MyAxMS44MzUzIDI4LjcxMDggMTIuMTI0NiAyOC40Nzg2IDEyLjM1NDFMMjIuNzU2NyAxNy45NDI1TDI0LjEwNzUgMjUuOTU4N0MyNC4xNjI2IDI2LjI4MTUgMjQuMTI1NCAyNi42MTMxIDI0LjAwMDIgMjYuOTE1OEMyMy44NzQ5IDI3LjIxODUgMjMuNjY2NiAyNy40Nzk5IDIzLjM5OTIgMjcuNjcwM0MyMy4xMzMgMjcuODYwNyAyMi44MTg4IDI3Ljk3MzMgMjIuNDkxOCAyNy45OTU1QzIyLjE2NDkgMjguMDE3NyAyMS44MzgyIDI3Ljk0ODYgMjEuNTQ4NiAyNy43OTZMMTQuNDk3OCAyNC4wNTMxTDcuNDUyNDYgMjcuNzk4OEM3LjE2MTg3IDI3Ljk1MTUgNi44MzQzMiAyOC4wMjA2IDYuNTA2NDkgMjcuOTk4NEM2LjE3ODY3IDI3Ljk3NjIgNS44NjM1NCAyNy44NjM1IDUuNTk2NDEgMjcuNjczQzUuMzI5NjUgMjcuNDgyMiA1LjEyMjI0IDI3LjIyMDUgNC45OTc5MyAyNi45MTc4QzQuODczNjIgMjYuNjE1MSA0LjgzNzQ0IDI2LjI4MzcgNC44OTM1MiAyNS45NjE1TDYuMjQ0MzggMTcuOTQ1MkwwLjUyMDgxNCAxMi4zNTQxQzAuMjg4ODI0IDEyLjEyNDUgMC4xMjU0NjcgMTEuODM1MiAwLjA0ODk2MzggMTEuNTE4NUMtMC4wMjc1Mzk3IDExLjIwMTggLTAuMDE0MTgyMSAxMC44NzAxIDAuMDg3NTUxIDEwLjU2MDZDMC4xODg5MDggMTAuMjUyIDAuMzc0OTU4IDkuOTc3ODYgMC42MjQ2NTQgOS43NjkxM0MwLjg3NDM1IDkuNTYwNCAxLjE3NzczIDkuNDI1NDEgMS41MDA0NiA5LjM3OTQ1TDkuMzg0ODUgOC4yMjAyMUwxMi45MjEyIDAuOTg0MjY1QzEzLjA2NDQgMC42ODkyNjIgMTMuMjg4MyAwLjQ0MDQzNiAxMy41NjcgMC4yNjYzNDJDMTMuODQ1OCAwLjA5MjI0ODEgMTQuMTY4MiAtNi4wNjA4OWUtMDUgMTQuNDk3MiA1LjY2NzUzZS0wNkMxNC44MjcyIC0wLjAwMDgzMTUyMyAxNS4xNTA2IDAuMDkxMDk3NiAxNS40MzA0IDAuMjY1MjIxQzE1LjcxMDIgMC40MzkzNDQgMTUuOTM0OSAwLjY4ODU4NiAxNi4wNzg3IDAuOTg0MjY1TDE5LjYxMDIgOC4yMjAyMVoiIGZpbGw9IiNEODI0MkEiLz48L3N2Zz4K") center no-repeat;
+        background-size: contain;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual [is="hotel-stars"]:not([data-category*='*']) {
+        filter: none;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual [is="hotel-stars"]:not([data-category*='*']):after {
+        content: attr(data-category);
+        font-size: 1.2em;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        color: #D7232A;
+        padding: 0 0.5em;
+        border-radius: 3px;
+        background: white;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .visual .trait {
+        height: 1.5em;
+        top: 100%;
+        transform: translateY(-60%);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info {
+        width: 100%;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2em;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info > * {
+        max-width: 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info > *:nth-child(n+2) {
+        margin-top: 1em;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+        line-height: 1.1;
+        height: 2.2em;
+        text-align: inherit;
+        margin: 0;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info h4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 1.2;
+        text-align: inherit;
+        margin: 0;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .benefits {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        font-weight: normal;
+        margin-bottom: auto;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .benefits > * {
+        max-width: 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .benefits > * {
+        display: flex;
+        font-size: 13px;
+        line-height: 1.1;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .benefits > *:nth-child(n+2) {
+        margin-top: 0.25em;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .benefits > *:before {
+        content: '\25CF';
+        margin-right: 0.5em;
+        color: #D7232A;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms {
+        font-weight: normal;
+        line-height: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge {
+        flex: 0 1 auto;
+        display: inline-flex;
+        align-items: center;
+        font-size: 11px;
+        line-height: 1;
+        margin: 2px;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge .icon {
+        position: relative;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.2em;
+        height: 2.2em;
+        background-color: #eaf2ff;
+        color: #0E2855;
+        font-weight: bold;
+        border-radius: 3px;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge .icon:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge .label {
+        display: inline-flex;
+        align-items: center;
+        text-align: left;
+        height: 2.2em;
+        padding: 0 0.5em;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge.depart-from .icon:before {
+        content: '';
+        background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM1IiBoZWlnaHQ9Ijg3IiB2aWV3Qm94PSIwIDAgMTM1IDg3IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMzQuNDUxIDEzLjE2OTJDMTM0IDEyLjA5MzQgMTMzLjI5IDExLjEzOTEgMTMyLjMxOSAxMC4zMDYzQzEzMS4zNDkgOS40NzM0NyAxMzAuMjA1IDguODE0MTUgMTI4Ljg4OCA4LjMyODMzQzEyNy41NzEgNy44MDc4MSAxMjYuMTY3IDcuNTEyODUgMTI0LjY3NiA3LjQ0MzQ0QzEyMy4yMjEgNy4zNzQwNCAxMjEuNzk5IDcuNTEyODQgMTIwLjQxMyA3Ljg1OTg2TDg5LjU4MTkgMTUuNjE1NkwzNC40NzA2IDBMMjAuNjkyNyA1LjIwNTJMNjIuMDI2MiAyNi4wMjZMMzQuNDcwNiAzNi40MzY0TDYuOTE0OTEgMjYuMDI2TDAgMzEuMjMxMkwyNy41NTU3IDUyTDEyNy43OTYgMjMuNjMxNkMxMjkuMTEzIDIzLjI4NDYgMTMwLjMwOSAyMi43NDY3IDEzMS4zODMgMjIuMDE4QzEzMi40NTggMjEuMjU0NiAxMzMuMzA3IDIwLjM4NzEgMTMzLjkzMSAxOS40MTU0QzEzNC41NTUgMTguNDQzOCAxMzQuOTAxIDE3LjQyMDEgMTM0Ljk3MSAxNi4zNDQzQzEzNS4wNzUgMTUuMjMzOSAxMzQuOTAxIDE0LjE3NTUgMTM0LjQ1MSAxMy4xNjkyWiIgZmlsbD0iIzBFMjg1NSIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTM1IDg3SDBWODNIMTM1Vjg3WiIgZmlsbD0iIzBFMjg1NSIvPjwvc3ZnPgo=") center no-repeat;
+        background-size: 62%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge.depart-date .icon:before {
+        content: '';
+        background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjciIGhlaWdodD0iNzUiIHZpZXdCb3g9IjAgMCA2NyA3NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUuNTkyMSAwSDEzLjcwODdDMTMuNDY4MyAwIDEzLjI0MDQgMC4wNTA0OTk4IDEzLjAxOTYgMC4xMjIyNTZDMTEuOTE2NCAwLjQ4MDA1NSAxMS4xMDA5IDEuNjU3ODkgMTEuMTAwOSAzLjA3MDc4VjQuMzY3MzFWNy42ODU5MlY5LjQxMjQ5QzExLjEwMDkgOS43MzMzMSAxMS4xNTQzIDEwLjAzNjQgMTEuMjMxOCAxMC4zMjY2QzExLjU2MzggMTEuNTczMyAxMi41NDA4IDEyLjQ4MzMgMTMuNzA4NyAxMi40ODMzSDE1LjU5MjFDMTcuMDMyNyAxMi40ODMzIDE4LjE5OTkgMTEuMTA4NiAxOC4xOTk5IDkuNDEyNDlWNy42ODU5MlY0LjM2NzMxVjMuMDcwNzhDMTguMTk5OSAxLjM3NDY3IDE3LjAzMjcgMCAxNS41OTIxIDBaIiBmaWxsPSIjMEUyODU1Ii8+PHBhdGggZD0iTTUyLjY2NDcgMEg1MC43ODEzQzQ5LjM0MDcgMCA0OC4xNzM0IDEuMzc0NjcgNDguMTczNCAzLjA3MDc4VjQuMzY3MzFWNy42ODU5MlY5LjQxMjQ5QzQ4LjE3MzQgMTEuMTA4NiA0OS4zNDA3IDEyLjQ4MzMgNTAuNzgxMyAxMi40ODMzSDUyLjY2NDdDNTQuMTA1MyAxMi40ODMzIDU1LjI3MjUgMTEuMTA4NiA1NS4yNzI1IDkuNDEyNDlWNy42ODU5MlY0LjM2NzMxVjMuMDcwNzhDNTUuMjcxOSAxLjM3NDY3IDU0LjEwNDcgMCA1Mi42NjQ3IDBaIiBmaWxsPSIjMEUyODU1Ii8+PHBhdGggZD0iTTYyLjI4NTIgNy42ODU5MUg1Ny42MjE4VjkuNDEyNDlDNTcuNjIxOCAxMi40MDE2IDU1LjM5NzYgMTQuODMzMiA1Mi42NjQxIDE0LjgzMzJINTAuNzgwNkM0OC4wNDcxIDE0LjgzMzIgNDUuODIyOSAxMi40MDE2IDQ1LjgyMjkgOS40MTI0OVY3LjY4NTkxSDIwLjU0OThWOS40MTI0OUMyMC41NDk4IDEyLjQwMTYgMTguMzI1NiAxNC44MzMyIDE1LjU5MjEgMTQuODMzMkgxMy43MDg3QzEwLjk3NSAxNC44MzMyIDguNzUwOTYgMTIuNDAxNiA4Ljc1MDk2IDkuNDEyNDlWNy42ODU5MUg0LjY4NzUxQzIuMDk5MTIgNy42ODU5MSAwIDkuNjUzOTMgMCAxMi4wODAzVjcwLjYwNTdDMCA3My4wMzY1IDIuMDk5IDc1IDQuNjg3NTEgNzVINjIuMjg0NkM2NC44NzU0IDc1IDY2Ljk3MiA3My4wMzYgNjYuOTcyIDcwLjYwNTdWMTIuMDgwOUM2Ni45NzI2IDkuNjU0NTQgNjQuODc2IDcuNjg1OTEgNjIuMjg1MiA3LjY4NTkxWk02MC44MzE4IDY4LjU0OTRMNS45Njk5MSA2OC41MjgzVjIxLjM0NDdINjAuODMxOFY2OC41NDk0WiIgZmlsbD0iIzBFMjg1NSIvPjxwYXRoIGQ9Ik0zOS4zNjE0IDMyLjcxNTNINTMuNzg5OUM1NS4wNDIzIDMyLjcxNTMgNTYuMDU1MiAzMS40NjQ2IDU2LjA1NTIgMjkuOTE4OEM1Ni4wNTUyIDI4LjM3MzEgNTUuMDQxOCAyNy4xMjI0IDUzLjc4OTkgMjcuMTIyNEgzOS4zNjE0QzM4LjEwOSAyNy4xMjI0IDM3LjA5NjEgMjguMzczMSAzNy4wOTYxIDI5LjkxODhDMzcuMDk2MSAzMS40NjM5IDM4LjEwODkgMzIuNzE1MyAzOS4zNjE0IDMyLjcxNTNaIiBmaWxsPSIjMEUyODU1Ii8+PHBhdGggZD0iTTM5LjM2MTQgNDIuODE2M0g1My43ODk5QzU1LjA0MjMgNDIuODE2MyA1Ni4wNTUyIDQxLjU2NTYgNTYuMDU1MiA0MC4wMTk5QzU2LjA1NTIgMzguNDc0MyA1NS4wNDE4IDM3LjIyMzYgNTMuNzg5OSAzNy4yMjM2SDM5LjM2MTRDMzguMTA5IDM3LjIyMzYgMzcuMDk2MSAzOC40NzQzIDM3LjA5NjEgNDAuMDE5OUMzNy4wOTYxIDQxLjU2NTYgMzguMTA4OSA0Mi44MTYzIDM5LjM2MTQgNDIuODE2M1oiIGZpbGw9IiMwRTI4NTUiLz48cGF0aCBkPSJNMzkuMzYxNCA1Mi45MTczSDUzLjc4OTlDNTUuMDQyMyA1Mi45MTczIDU2LjA1NTIgNTEuNjY2NSA1Ni4wNTUyIDUwLjEyMDlDNTYuMDU1MiA0OC41NzUzIDU1LjA0MTggNDcuMzI0NSA1My43ODk5IDQ3LjMyNDVIMzkuMzYxNEMzOC4xMDkgNDcuMzI0NSAzNy4wOTYxIDQ4LjU3NTMgMzcuMDk2MSA1MC4xMjA5QzM3LjA5NjEgNTEuNjY2NSAzOC4xMDg5IDUyLjkxNzMgMzkuMzYxNCA1Mi45MTczWiIgZmlsbD0iIzBFMjg1NSIvPjxwYXRoIGQ9Ik0zOS4zNjE0IDYzLjAxOUg1My43ODk5QzU1LjA0MjMgNjMuMDE5IDU2LjA1NTIgNjEuNzY4MiA1Ni4wNTUyIDYwLjIyMjZDNTYuMDU1MiA1OC42NzY5IDU1LjA0MTggNTcuNDI2MiA1My43ODk5IDU3LjQyNjJIMzkuMzYxNEMzOC4xMDkgNTcuNDI2MiAzNy4wOTYxIDU4LjY3NjkgMzcuMDk2MSA2MC4yMjI2QzM3LjA5NjEgNjEuNzY4MiAzOC4xMDg5IDYzLjAxOSAzOS4zNjE0IDYzLjAxOVoiIGZpbGw9IiMwRTI4NTUiLz48cGF0aCBkPSJNMTMuODA2MiAzMi43MTUzSDI4LjIzNDZDMjkuNDg3MSAzMi43MTUzIDMwLjQ5OTkgMzEuNDY0NiAzMC40OTk5IDI5LjkxODhDMzAuNDk5OSAyOC4zNzMxIDI5LjQ4NjQgMjcuMTIyNCAyOC4yMzQ2IDI3LjEyMjRIMTMuODA2MkMxMi41NTM3IDI3LjEyMjQgMTEuNTQwOCAyOC4zNzMxIDExLjU0MDggMjkuOTE4OEMxMS41NDEgMzEuNDYzOSAxMi41NTM3IDMyLjcxNTMgMTMuODA2MiAzMi43MTUzWiIgZmlsbD0iIzBFMjg1NSIvPjxwYXRoIGQ9Ik0xMy44MDYyIDQyLjgxNjNIMjguMjM0NkMyOS40ODcxIDQyLjgxNjMgMzAuNDk5OSA0MS41NjU2IDMwLjQ5OTkgNDAuMDE5OUMzMC40OTk5IDM4LjQ3NDMgMjkuNDg2NCAzNy4yMjM2IDI4LjIzNDYgMzcuMjIzNkgxMy44MDYyQzEyLjU1MzcgMzcuMjIzNiAxMS41NDA4IDM4LjQ3NDMgMTEuNTQwOCA0MC4wMTk5QzExLjU0MSA0MS41NjU2IDEyLjU1MzcgNDIuODE2MyAxMy44MDYyIDQyLjgxNjNaIiBmaWxsPSIjMEUyODU1Ii8+PHBhdGggZD0iTTEzLjgwNjIgNTIuOTE3M0gyOC4yMzQ2QzI5LjQ4NzEgNTIuOTE3MyAzMC40OTk5IDUxLjY2NjUgMzAuNDk5OSA1MC4xMjA5QzMwLjQ5OTkgNDguNTc1MyAyOS40ODY0IDQ3LjMyNDUgMjguMjM0NiA0Ny4zMjQ1SDEzLjgwNjJDMTIuNTUzNyA0Ny4zMjQ1IDExLjU0MDggNDguNTc1MyAxMS41NDA4IDUwLjEyMDlDMTEuNTQwOCA1MS42NjY1IDEyLjU1MzcgNTIuOTE3MyAxMy44MDYyIDUyLjkxNzNaIiBmaWxsPSIjMEUyODU1Ii8+PHBhdGggZD0iTTEzLjgwNjIgNjMuMDE5SDI4LjIzNDZDMjkuNDg3MSA2My4wMTkgMzAuNDk5OSA2MS43NjgyIDMwLjQ5OTkgNjAuMjIyNkMzMC40OTk5IDU4LjY3NjkgMjkuNDg2NCA1Ny40MjYyIDI4LjIzNDYgNTcuNDI2MkgxMy44MDYyQzEyLjU1MzcgNTcuNDI2MiAxMS41NDA4IDU4LjY3NjkgMTEuNTQwOCA2MC4yMjI2QzExLjU0MSA2MS43NjgyIDEyLjU1MzcgNjMuMDE5IDEzLjgwNjIgNjMuMDE5WiIgZmlsbD0iIzBFMjg1NSIvPjwvc3ZnPgo=") center no-repeat;
+        background-size: 50%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .terms .term-badge.meal .icon:before {
+        content: '';
+        background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDUiIGhlaWdodD0iNDMiIHZpZXdCb3g9IjAgMCA0NSA0MyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNDMuNjkwMiAzLjczNDM3QzQzLjI1IDMuMjk0MSA0Mi42NjQ0IDMuMDEyNjkgNDIuMDQ3MSAyLjk1MzY5QzQwLjg5ODggMi44NDAyMSAzNy43NTM0IDQuNjc4NDYgMzUuOTgzMiA1Ljc4NTk1QzMzLjQ0NiA3LjM3MDAyIDI5LjYyNDIgMTAuMDU3IDI1LjgyOTcgMTMuODUxNkwxNy41MjM1IDIyLjE1MzJDMTYuNDY2IDIzLjIxMDggMTYuNDY2IDI0LjkzMSAxNy41MjM1IDI1Ljk4ODZMMTcuNTY0NCAyNi4wMjQ5TDYuMTY3MjIgMzcuNDIyQzUuMTA5NjYgMzguNDc5NiA1LjEwOTY2IDQwLjE5OTggNi4xNjcyMiA0MS4yNTc0QzcuMjI0NzkgNDIuMzE0OSA4Ljk0NTAzIDQyLjMxNDkgMTAuMDAyNiA0MS4yNTc0TDQzLjY5MDIgNy41Njk3NEM0NC40MjU1IDYuODM0NDQgNDQuNjc1MiA1LjcyMjQxIDQ0LjMyNTcgNC43NDIwMUM0NC4xOTg2IDQuMzY1MjggNDMuOTc2MiA0LjAxNTc5IDQzLjY5MDIgMy43MzQzN1oiIGZpbGw9IiMwRTI4NTUiLz48cGF0aCBkPSJNMjguNzk4MSAyNS4yMzA1TDI0Ljk2MjggMjkuMDY1OUwzNi44NzI4IDQwLjk3NTlDMzcuOTMwNCA0Mi4wMzM1IDM5LjY1MDYgNDIuMDMzNSA0MC43MDM2IDQwLjk3NTlDNDEuNzYxMiAzOS45MTg0IDQxLjc2MTIgMzguMTk4MSA0MC43MDM2IDM3LjE0MDZMMjguNzk4MSAyNS4yMzA1WiIgZmlsbD0iIzBFMjg1NSIvPjxwYXRoIGQ9Ik0xMy40MjQ5IDE3LjQ0NjRMMTYuNDAyNCAyMC40MjM5TDIwLjE4MzMgMTYuNjQzTDE3LjM1MSAxMy44MTA3QzE3Ljg3MyAxMi4wMzYgMTcuNDM3MyAxMC4wMzQzIDE2LjAzOTMgOC42MzYzN0MxNi4wMjU3IDguNjIyNzYgMTYuMDA3NSA4LjYxMzY4IDE1Ljk5MzkgOC42MDAwNkMxNS45ODAzIDguNTg2NDQgMTUuOTcxMiA4LjU2ODI5IDE1Ljk1NzYgOC41NTQ2N0w3LjY2NTA1IDAuMjYyMTIxQzcuMzE1NTYgLTAuMDg3MzczNiA2Ljc1MjczIC0wLjA4NzM3MzYgNi40MDMyNCAwLjI2MjEyMUM2LjA1Mzc0IDAuNjExNjE1IDYuMDUzNzQgMS4xNzQ0NCA2LjQwMzI0IDEuNTIzOTNMMTQuMTA1NyA5LjIyMTg5QzE0LjEwNTcgOS4yMjE4OSAxNC4xMTAzIDkuMjI2NDMgMTQuMTE0OCA5LjIyNjQzQzE0LjMzMjcgOS40NDQyOSAxNC4zMzI3IDkuNzkzNzkgMTQuMTE0OCAxMC4wMTE3QzEzLjg5NjkgMTAuMjI5NSAxMy41NDc1IDEwLjIyOTUgMTMuMzI5NiAxMC4wMTE3TDEzLjMyNSAxMC4wMDcxTDUuNjE4MDEgMi4zMDQ2MkM1LjI2ODUyIDEuOTU1MTMgNC43MDU2OSAxLjk1NTEzIDQuMzU2MiAyLjMwNDYyQzQuMDA2NyAyLjY1NDEyIDQuMDA2NyAzLjIxNjk0IDQuMzU2MiAzLjU2NjQzTDEyLjA1ODcgMTEuMjczNUMxMi4wNTg3IDExLjI3MzUgMTIuMDYzMiAxMS4yNzM1IDEyLjA2MzIgMTEuMjc4QzEyLjI4MTEgMTEuNDk1OSAxMi4yODExIDExLjg0NTQgMTIuMDYzMiAxMi4wNjMyQzExLjg0NTQgMTIuMjgxMSAxMS40OTU5IDEyLjI4MTEgMTEuMjc4IDEyLjA2MzJDMTEuMjc4IDEyLjA2MzIgMTEuMjc4IDEyLjA1ODcgMTEuMjczNSAxMi4wNTg3TDMuNTcwOTcgNC4zNTE2NkMzLjIyMTQ4IDQuMDAyMTcgMi42NTg2NSA0LjAwMjE3IDIuMzA5MTYgNC4zNTE2NkMxLjk1OTY3IDQuNzAxMTUgMS45NTk2NyA1LjI2Mzk4IDIuMzA5MTYgNS42MTM0N0wxMC4wMTE3IDEzLjMxNkwxMC4wMTYyIDEzLjMyMDVDMTAuMjM0MSAxMy41Mzg0IDEwLjIzNDEgMTMuODg3OSAxMC4wMTYyIDE0LjEwNTdDOS43OTgzMyAxNC4zMjM2IDkuNDQ4ODMgMTQuMzIzNiA5LjIzMDk3IDE0LjEwNTdDOS4yMzA5NyAxNC4xMDU3IDkuMjMwOTcgMTQuMTAxMiA5LjIyNjQzIDE0LjEwMTJWMTQuMTA1N0wxLjUyMzkzIDYuMzk4N0MxLjE3ODk4IDYuMDQ5MiAwLjYxMTYxNSA2LjA0OTIgMC4yNjIxMjEgNi4zOTg3Qy0wLjA4NzM3MzYgNi43NDgxOSAtMC4wODczNzM2IDcuMzExMDIgMC4yNjIxMjEgNy42NjA1MUw4LjU1OTIxIDE1Ljk1NzZDOC41NzI4MyAxNS45NzEyIDguNTkwOTggMTUuOTgwMyA4LjYwNDYgMTUuOTkzOUM4LjYxODIyIDE2LjAwNzUgOC42MjcyOSAxNi4wMjU3IDguNjQwOTEgMTYuMDM5M0M5LjkzOTAzIDE3LjMzMjkgMTEuNzU0NiAxNy44MDA0IDEzLjQyNDkgMTcuNDQ2NFoiIGZpbGw9IiMwRTI4NTUiLz48cGF0aCBkPSJNNDAuMjA0NCAzNi42Njg2TDI5LjMyMDEgMjUuNzc5OEwyNS41MzkyIDI5LjU1NjFMMzYuNDI4IDQwLjQ0NDlDMzcuNDcyIDQxLjQ4ODkgMzkuMTY1IDQxLjQ4ODkgNDAuMjA4OSA0MC40NDQ5QzQxLjI0ODMgMzkuNDA1NSA0MS4yNDgzIDM3LjcwOCA0MC4yMDQ0IDM2LjY2ODZaIiBmaWxsPSIjMEUyODU1Ii8+PC9zdmc+Cg==") center no-repeat;
+        background-size: 62%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .price-info {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.5em;
+        padding-top: 0.66em;
+        margin-top: auto;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .price-info.from:before {
+        content: 'от ';
+        font-weight: normal;
+        font-size: 66%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .price-info:after {
+        font-weight: normal;
+        font-size: 66%;
+    }
+    #hotels-set .cards-grid .card-cell > .pad .info .actions .buttonlike {
+        font-size: 13px;
+        text-transform: uppercase;
+    }
+    @media screen and (max-width: 576px) {
+        #hotels-set .cards-grid .card-cell > .pad .info .actions .buttonlike {
+            font-size: 12px;
+        }
+    }
+</style>
+
+
+<div id="hotels-set" data-component-instance="6f3a4e11-8e87-4edc-a612-6cfba19f01f7">
+
+    <div class="group-filters">
+        <button class="buttonlike white selected" data-group="*">Все отели</button>
+        <button class="buttonlike white " data-group="Паттайя">Паттайя</button>
+        <button class="buttonlike white " data-group="Районг">Районг</button>
+        <button class="buttonlike white " data-group="о. Ко Чанг  (регион)">о. Ко Чанг  (регион)</button>
+    </div>
+
+    <div class="cards-grid">
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/31151/637186646900006767.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">THE MANGROVE HOTEL</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">66 506</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/the-mangrove-hotel-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22T%2fLzYKO0VhMFV%2for9j1AEWbnPH%2bMYIbmJWfWMg4RyzMMOCY9Fcdz6NZw9Tnu3bnbRUxjY3ZRM7V3IVHAt5o7fyXVNecMdtzt4v2yAVSLjQh1O7NQaxzfBWiblsh8ivAtJ96an5gPn0jWCWRA6Z7jvAY7tZUI1r2f4tTnVGH9nuI%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/5338/636336607119726371.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">RITA RESORT &amp; RESIDENCE</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">67 869</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/rita-resort-residence-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22%2bfXKiv8jHtL0FHeVlLPNGTYBEGKic9pRGAVu9E6TmeRWkGyn2cfW63Zl3ZtdVCUaFMzZKW91C9j3NG7ohFknIZmAn6wx6nQzvKDK8a%2bO2WM8BvqHpybXbcZIHquhm34G%2fNTJmnI3919NZrV8VF6qNWg9nzgw1xUvhiMhMpNMFgc%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/19658/636583344527757148.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">SAVOTEL</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">68 543</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/savotel-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22ELoDT%2fxC7qfmYE427IyGVhDgP1lU4Jvnz7co0QiYQ%2bc4vtITGgwk3H%2fgmEEfp%2fHgmbqYpVuXU5cOdQcmHRxHNcqfFVVbJMnDO3VahgZk3Edja0DjxDi4mxcQlsROf1ygAQFXcmYGYNdxEgoo61BjEw%3d%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/1090/636538405152961136.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">PATTAYA PARK BEACH RESORT</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">68 792</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/pattaya-park-beach-resort-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%220nzdgo%2f3lbtPPSxDiz5mGnvGU7F74ecwO5vlC%2fppRDF2WYkOjxd%2f208bZoW5He6xziUHqzN1fWJHYsP%2ffjO%2fv8Gegm8kBjEEjnvcYEfFfgHu%2fI6MTDP4syQ2JD3s8EzqBAKbcZQYqqB9WmDMaQcVQGrQCYnnHgMr75%2b7jGXYEXI%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/25550/636681134993976896.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">OLIVE TREE HOTEL</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">25.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">69 277</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/olive-tree-hotel-pattaya/?q=%7b%22Bgn%22%3a%2225.11.2022%22%2c%22End%22%3a%2225.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22kWQl9bVi5mKkQ%2fokWzIKM6J6wsTuFJx37WvShhtU8VMN2MCQN1dLFENpCKOtJNEfC1DSmz81bHGNQkzAAeUohRF7EbwYyadNzDgiNUU3LneyNdDJDq6vrxL4lbPOlrYYS76kr%2bXt6dM56rQxCvBDrT5Po8fvP9r%2b2DHuBrzO2%2fg%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/5721/636886063457837443.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">WONGAMAT PRIVACY RESIDENCE</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">69 406</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/wongamat-privacy-residence-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22FsG2UewIxAUYtqVH17e34G%2b1sHg0HldsRXtieuM49ufSFw60%2fKM5KV5s9Vr78mwwRtMEksTYTbLlKf2xXLx3XniFno%2bALg9H%2fVFwqi5a6hyR9Ki%2bfjBGeat1ZcgO7P51zLFiX5mMrN1OryCTt47JCZ8DQla1jlW0SOMlDVgiZNM%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2212/636776192018071129.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">ASIA PATTAYA HOTEL</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">70 021</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/asia-pattaya-hotel-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22L%2bt3x9en%2bNxJS%2fAjpkzAZttBzCF2HCD6zkB3qxSTxmjLH%2fRYuisE%2fMrMgxgPBEVUUWAV%2b2nhsQmh8%2bI03%2bNe9bKmbwDpywg9SusjjrbHZKoyL9hWuUkuKq6i%2bFOYDONx9JGZ2%2bLXBjkZz5hNopZhMQHW%2fMaJe0MdmpXoPVXYR%2fE%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2325/636552216569018089.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">GREEN PARK RESORT</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">71 097</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/green-park-resort-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22TTO32mVnVzrUbogBBJaNMQ4HyoF4AMVaRy5dPvKwFUneHgoWbHocyr%2fiRBpjnKai6zmEkfF8eXq1GeGCG06MPyG30Rf2og6qZlmeLmMjcRIfEzABMk3jv3KJ1hbwcnB8FeePKeJwtlxuGDLPkntuZVk5%2fAfo%2b26Dfg5adWvitwU%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Районг">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/23382/636576608348904915.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">ROYAL PHALA CLIFF BEACH RESORT</h3>
+                    <h4 class="location">Районг</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">71 251</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/royal-phala-cliff-beach-resort-rayong/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22WVXZpFj3GSmIHc4%2bt4pYPg5V4IOv%2bhNWpYxJQ9Htd4EwpDbJzohcomFX2mc1yMxorz15C2mf8AHv9aBNs5caPP5VQj9tAanwPJc62cWYYGhL9B8YO1psGQS7biNPbtdDQzWoTBSa4bJi9GWesaj8T%2bm6cPJb4UQkPl%2f8B8OQj%2bNowEQm0xfUmPf8bSTYah%2bO%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2393/636497957899379075.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">LONG BEACH GARDEN HOTEL &amp; SPA</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">71 701</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/long-beach-garden-hotel-spa-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22onq0pFQXjNxNw%2bCkThCkD6UQFNEV4NlMQd3AF20uKm5nQ6fj%2fnMLo79ymu22ZmVFmy%2f7ZoHJri1Q9%2bzH9PEdEuhoENQKDH3ToryLlINsD4E%2fDwn%2fzoW1Xtbzc%2fj7AZy%2biQ2V3BVvKMb%2btjpMaeSB0VhiBk09oOh8wl1U79OMCOg%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2466/637178753482797244.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">PINNACLE GRAND JOMTIEN RESORT</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">73 513</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/pinnacle-grand-jomtien-resort-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22BF4nSwn6sssAlUL3FK7Yu0CQdSGlDNkmaV%2frUppatNU7UciUXaIT2zIrBG6xbZWJS4e%2f0BJ%2fwNzqgoF%2b4SPp3fnGLdJturEB%2fwWgvDiJ18QD%2beq0z%2b0UDGx6RUqOJqZSGDd1ZEBVbIZ6cospoZ16GGUkR1036JiuxWN%2bvXwmO80%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="о. Ко Чанг  (регион)">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2378/636588619647553231.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">KOH CHANG CLIFF BEACH RESORT</h3>
+                    <h4 class="location">о. Ко Чанг  (регион)</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">75 305</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/koh-chang-cliff-beach-resort-koh-chang/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22FZ0nlPSsMy%2bpQv9BhXbI%2fggDyVjdZtyFUDLczeJDPPui8ZKV37ki%2ffJFmBbaoobNJms%2f7ARvapFqMX3shBTjLYPmSOit1WaQjYWWGvjNq6wLLNY11B2AoTpY%2bJTLgSC3SdkgkVTACnFQo77WXcDxNJBlWB1VUXVCn6HBm5gSz%2f4%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2252/636335567246709394.jfif);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">BOTANY BEACH RESORT</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">75 371</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/botany-beach-resort-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22%2fJ8GyLeK0fVEqysK2747n7vdMWsyaTgT4xMldf8oXAD8EAZU7jyBjYfJ%2fYR%2fp7F22lkqbIjgYZQM9Pe69NP7NRvxTxQISCtSjg6kHUMygYui82YcUqoeCDErH%2bVr2GsjTwgdysqdfX5NqwWQCLcQtaB1O21vp0iZWcY6k64nnOg%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="о. Ко Чанг  (регион)">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/31417/637342264803626246.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">THE SPLASH KOH CHANG</h3>
+                    <h4 class="location">о. Ко Чанг  (регион)</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">25.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">75 385</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/the-splash-koh-chang-koh-chang/?q=%7b%22Bgn%22%3a%2225.11.2022%22%2c%22End%22%3a%2225.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22%2fCZCwrfBUjmH3wPWXAjLkqHnbCo6B91gUW44s3xz2JRGUHmNEwoq9Mov%2b8eAMon7SmxVc1sBVZQ%2fPvW46gXFb5fhXB6Yl9%2b4Uh4UVY7AE5uSVCasHZvmALo2RkBkn8YfiznwDWof3dXJSGh9rwc7ZcdpcxnNGMw%2f29PqI0cfsZA%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="о. Ко Чанг  (регион)">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/22695/637232471306591110.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="3 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">VAYNA BOUTIQUE KOH CHANG</h3>
+                    <h4 class="location">о. Ко Чанг  (регион)</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">76 475</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/vayna-boutique-koh-chang-ex-v-j-searenity-koh-chang-koh-chang/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22KS3uqe7iTQURL0KaUCCXES3VMs4AlYT%2f%2fZ1GTheg%2fNAX1%2bZ73KDJFCF43i6%2beXbztSCUSN2sdqBj3ypXzV53VpvlSJHkXuJqp636QUpsszp5dTDFzIwfjIik1DHaHtD%2f7ueHYtDnedUxXgyl1KituYkWKtkrna5O8BJncVt5j5i2dsYsLvZi9PtVrN4UMw4s25VQ0BG0dOPwGva6yznGXA%3d%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="о. Ко Чанг  (регион)">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2382/636600673135547554.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">CENTARA KOH CHANG TROPICANA RESORT</h3>
+                    <h4 class="location">о. Ко Чанг  (регион)</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">78 249</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/centara-koh-chang-tropicana-resort-koh-chang/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22jVMsvrg6tq%2bBxzq67Z%2brFldlUEDCubnjJIJuHuLNPaveaFOjl6sTWDRQU7dQ1lQV6XGeTGDccsbyCdRAjWdw%2fiq8te6QtAeTQADZMoOm5T4Jj%2bsnVX%2fKaDRHmQxe12ihxxF%2fPA0Bkh9wo3etxjRVgmec%2fZk9YQggqyFbohFXw%2fhAT6UI6IF6szo%2foIqhas9p%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="о. Ко Чанг  (регион)">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2511/636558297912244437.png);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">SYLVAN KOH CHANG</h3>
+                    <h4 class="location">о. Ко Чанг  (регион)</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">78 928</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/sylvan-koh-chang-ex-sea-view-koh-chang-koh-chang/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22qVu4iBiGz0ihHmv0VgM4qL0Ri8mkbUz6oBIPZA2%2b8veWTZgOdSyimfwmk1mEN7PtZ49aU1AweIEYWhzMHr5PAc5DsrN4rzcrNBNtg1GB7mCg4y7JpCjLV002wfJ9LIltiK5mboOJYPt3EDWOmqVdIl%2bzWdAfTtGTKd2t2ViEwUngG9YW%2fqDXpY6boYm3tklZ%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="о. Ко Чанг  (регион)">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2177/637145048981735180.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">THE AIYAPURA KOH CHANG</h3>
+                    <h4 class="location">о. Ко Чанг  (регион)</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">78 962</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/the-aiyapura-koh-chang-koh-chang/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22mkjww3dNhwGOrjGv%2f0N9MnAXh3TNJRIIpCo0WibRLaOXaUqpwFbAkSghLGepSiQoWR%2b8xNlEUpUwx3QTfhYRIGuPrI66hgsmhAawVIUL26yVdXi%2biCMydvzjVRkCyta1ck%2f4gV%2f9oXwTWm0LG7mEyh%2bzr8WA%2bzaN6he8kavsuZs%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2481/637181562690084264.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">RAVINDRA BEACH RESORT &amp; SPA</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">79 300</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/ravindra-beach-resort-spa-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%2285DMjz3a%2bOPWtN9renIh1qkjMSxcRUOnUudpkzL0oLMs7WDYU%2fSzBea%2fmkccBDp1oCTmo12rMxsqz218beVS4HFiZ1bYmerbDTkLaP95VhfHvdQqChB31XBW6f7THgcBV5YVKGHg9EYRDEzSfG8opwMyFZynL5yPtBKAXUBBenM%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="о. Ко Чанг  (регион)">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2379/636320151468753086.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">KACHA RESORT &amp; SPA KOH CHANG</h3>
+                    <h4 class="location">о. Ко Чанг  (регион)</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">25.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">79 965</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/kacha-resort-spa-koh-chang-koh-chang/?q=%7b%22Bgn%22%3a%2225.11.2022%22%2c%22End%22%3a%2225.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22ji3JJgyyuh6NUh%2f%2fcy6vIdC1R3cUiLI5%2bVEBSTg4Xn4kVm2mgQCTntlfpYCuSTSLPA64ir23i8%2fKY3VNIQ5OeYmZc5R8Y%2bbbiHQDmGORJd50iWBtw8txcP5GCoNC%2fx6LcavCfIVWTJx4jiGhY%2bKegPeweoJ4waPm38LHHDBd44E%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Районг">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/26476/636735807273430952.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">AKSORN RAYONG, THE VITALITY COLLECTION</h3>
+                    <h4 class="location">Районг</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">81 002</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/aksorn-rayong-the-vitality-collection-rayong/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22i6ViVtbnimo7ij6qxblGQJRFSgYzgPV6a%2f8SZJVc%2bbgTG0q9W9e36Kg1455B9iY6xCIY1V0ereMLpBaSCRHj72nA99mwnz50vmznSQTsILqkWOjqxbQGyWEscFSNBZYqLTp6csqFCbGJM0m5%2bFIkpaYZI9F%2fFsv%2bE4gPfuMtPcV1bR0w%2fnpyG9tvaYN1DnSa%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="Паттайя">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2290/636577558207438622.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">DOR-SHADA RESORT BY THE SEA</h3>
+                    <h4 class="location">Паттайя</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">82 131</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/dor-shada-resort-by-the-sea-pattaya/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%225dvY2jOPUeImZCt3x2wNpaOlSjVgJpZbtFB%2bdHhO8TZKdH5xYciTUejQ8bb1BiINWM%2fOi52Km8THlwgw9jarmI7niobR0zsvEw5R6X9r%2b18FldiVlo54PhjTXgsSAAVw4PJpt6E3OlnW5N3Sbzrkuufg899rhTygbqG500CAf38%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="о. Ко Чанг  (регион)">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.coral.ru//resize/800x600/media/image/33/7642/636560242346754444.png);">
+                    <div is="hotel-stars" class="trait" data-category="4 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">MERCURE KOH CHANG HIDEAWAY</h3>
+                    <h4 class="location">о. Ко Чанг  (регион)</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">91 309</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/mercure-koh-chang-hideaway-koh-chang/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%222hlJMqmuUaOcDbCnfENUDHF7Fkp2rOAZ4pW%2fPBBK7V%2fT1HLwH3E1gfHaHOkcAQGLcSUxAiw6CU4EeSYqHnwHNl1yQoqbcOw7XFZtZcj9rKkciMpecVJc4DxM5n3UWFrKnbhJCte%2fqoRqYO5qctDK0%2fRw0%2bZDNfN19s%2bmFMbmlkY%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-cell" data-group="о. Ко Чанг  (регион)">
+            <div class="pad">
+                <div class="visual" style="background-image: url(https://content.sunmar.ru/resize/800x600/media/image/33/2185/636936960143091467.jpg);">
+                    <div is="hotel-stars" class="trait" data-category="5 *">
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                        <span class="star"> </span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 class="name">THE EMERALD COVE KOH CHANG</h3>
+                    <h4 class="location">о. Ко Чанг  (регион)</h4>
+                    <div class="terms">
+                        <span class="term-badge depart-from">
+                            <span class="icon"></span><span class="label">Москва</span>
+                        </span>
+                        <span class="term-badge depart-date">
+                            <span class="icon"></span><span class="label">22.11.22</span>
+                        </span>
+                        <span class="term-badge accomodation">
+                            <span class="icon">7</span><span class="label">ночей</span>
+                        </span>
+                        <span class="term-badge meal">
+                            <span class="icon"></span><span class="label">Завтрак</span>
+                        </span>
+                    </div>
+                    <div class="price-info from rur per-person">96 141</div>
+                    <div class="actions">
+                        <a href="https://www.sunmar.ru/hotels/thailand/the-emerald-cove-koh-chang-koh-chang/?q=%7b%22Bgn%22%3a%2222.11.2022%22%2c%22End%22%3a%2222.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%227%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22ScbtVq0eMfiOs6i%2fqX%2baPtXGuPoQdbslw6pbv5ayY2CAKwiPMrf%2bxOOUYwnolHJKdVq3eRuez4uh5e%2bqhX9AF4fki9ecAVjl6Z3FDjm0u9kVuHU%2bycW7MzQZEhEqUIjxGgVoi635IBuVapcZ48dXRJ90%2fQAP3Cpi%2fNB029kkuwc%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d" class="buttonlike red" target="_blank">Выбрать тур</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    window.ASAP || (window.ASAP = (function() {
+        var callall, fns;
+        fns = [];
+        callall = function() {
+            var f, results;
+            results = [];
+            while (f = fns.shift()) {
+                results.push(f());
+            }
+            return results;
+        };
+        if (document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', callall, false);
+            window.addEventListener('load', callall, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('onreadystatechange', callall);
+            window.attachEvent('onload', callall);
+        }
+        return function(fn) {
+            fns.push(fn);
+            if (document.readyState === 'complete') {
+                return callall();
+            }
+        };
+    })());
+
+    window.log || (window.log = function() {
+        if (window.console && window.DEBUG) {
+            if (typeof console.group === "function") {
+                console.group(window.DEBUG);
+            }
+            if (arguments.length === 1 && Array.isArray(arguments[0]) && console.table) {
+                console.table.apply(window, arguments);
+            } else {
+                console.log.apply(window, arguments);
+            }
+            return typeof console.groupEnd === "function" ? console.groupEnd() : void 0;
+        }
+    });
+
+    window.trouble || (window.trouble = function() {
+        var ref;
+        if (window.console) {
+            if (window.DEBUG) {
+                if (typeof console.group === "function") {
+                    console.group(window.DEBUG);
+                }
+            }
+            if ((ref = console.warn) != null) {
+                ref.apply(window, arguments);
+            }
+            if (window.DEBUG) {
+                return typeof console.groupEnd === "function" ? console.groupEnd() : void 0;
+            }
+        }
+    });
+
+    window.preload || (window.preload = function(what, fn) {
+        var lib;
+        if (!Array.isArray(what)) {
+            what = [what];
+        }
+        return $.when.apply($, (function() {
+            var j, len, results;
+            results = [];
+            for (j = 0, len = what.length; j < len; j++) {
+                lib = what[j];
+                results.push($.ajax(lib, {
+                    dataType: 'script',
+                    cache: true
+                }));
+            }
+            return results;
+        })()).done(function() {
+            return typeof fn === "function" ? fn() : void 0;
+        });
+    });
+
+    window.queryParam || (window.queryParam = function(p, nocase) {
+        var k, params, params_kv;
+        params_kv = location.search.substr(1).split('&');
+        params = {};
+        params_kv.forEach(function(kv) {
+            var k_v;
+            k_v = kv.split('=');
+            return params[k_v[0]] = k_v[1] || '';
+        });
+        if (p) {
+            if (nocase) {
+                for (k in params) {
+                    if (k.toUpperCase() === p.toUpperCase()) {
+                        return decodeURIComponent(params[k]);
+                    }
+                }
+                return void 0;
+            } else {
+                return decodeURIComponent(params[p]);
+            }
+        }
+        return params;
+    });
+
+    ASAP(function() {
+        var $ctx, libs;
+        libs = ['https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js'];
+        $ctx = $('#hotels-set');
+        $ctx = $('[data-component-instance="6f3a4e11-8e87-4edc-a612-6cfba19f01f7"]');
+
+        preload(libs, function() {
+            var $grid, group2select, initial_selector;
+            initial_selector = '*';
+            if (group2select = $('.group-filters > *.selected', $ctx).attr('data-group')) {
+                initial_selector = group2select !== '*' ? "[data-group*='" + group2select + "']" : '*';
+            }
+            $grid = $('.cards-grid', $ctx).on('layoutComplete', function(e, items) {
+                var by_top, els, max_height, results, row, t, tallest_item;
+                els = items.map(function(i) {
+                    return i.element;
+                });
+                by_top = _.groupBy(els, function(el) {
+                    return $(el).css('top');
+                });
+                results = [];
+                for (t in by_top) {
+                    row = by_top[t];
+                    tallest_item = _.maxBy(row, function(el) {
+                        return $(el).outerHeight();
+                    });
+                    max_height = $(tallest_item).outerHeight();
+                    results.push($(row).css({
+                        minHeight: max_height
+                    }));
+                }
+                return results;
+            }).isotope({
+                itemSelector: '.card-cell',
+                layoutMode: 'fitRows',
+                stagger: 30,
+                filter: initial_selector
+            });
+            $('.group-filters > [data-group]', $ctx).on('click', function() {
+                var $this, group, selector;
+                $this = $(this);
+                group = $this.attr('data-group');
+                selector = group !== '*' ? "[data-group*='" + group + "']" : '*';
+                $grid.find('.card-cell').css({
+                    minHeight: 0
+                });
+                $grid.isotope({
+                    filter: selector
+                });
+                return $this.addClass('selected').siblings('.selected').removeClass('selected');
+            });
+            return setTimeout(function() {
+                return $ctx.addClass('shown');
+            }, 0);
+        });
+    });
+</script>
