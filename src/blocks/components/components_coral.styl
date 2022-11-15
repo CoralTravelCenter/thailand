@@ -12,6 +12,65 @@
 .bcrumb.d-xl-block
     display none!important
 
+.dm-tab
+    &__headers
+        display block
+        padding 0 em(48)
+        margin-bottom em(80)
+        display flex
+        justify-content space-between
+
+        @media screen and (min-width: 769px)
+            margin-bottom em(60)
+            justify-content: center
+    
+    &__title
+        font-size em(24)
+        line-height (29/24em)
+        color #000
+        font-weight bold
+        transition all 0.3s
+        border-radius (8/24em)
+        border: 2px solid #000;
+        text-align center
+        cursor pointer
+        padding (10/24em) (20/24em)
+        user-select none
+        margin 0
+        min-width: (300/24em)
+
+        @media screen and (min-width: 769px)
+            font-size em(20)
+            line-height (24/20em)
+            padding (10/20em) (30/20em)
+            margin 0 1em
+
+        &:hover
+        &.selected
+            background-color #F0AB00
+            color #fff
+            border-color #F0AB00
+
+        &__span
+            text-transform uppercase
+            font-weight 700
+            display block
+
+        &:first-child
+            margin-left 0
+        
+        &:last-child
+            margin-right 0
+
+.dm-tabs
+
+    &__header
+        font-size: em(40)
+        line-height: (44/40em)
+        text-align: center;
+        color: #000000;
+        margin-bottom 2em
+
 .dm-bottom
     @media screen and (min-width: 769px)
         display flex
