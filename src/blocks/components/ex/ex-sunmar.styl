@@ -1,0 +1,80 @@
+.dm-ex
+    margin 0 em(30) em(80)
+    background-color #fff
+
+    @media screen and (min-width: 769px)
+        max-width: em(1336)
+        margin 0 auto em(80)
+        display flex
+
+    &__img
+        height: em(400)
+        background url('../img/content/sunmar/ex-sm.jpg') 50% 50% no-repeat
+        background-size cover
+        border-radius: 0
+
+        @media screen and (min-width: 769px)
+            background url('../img/content/sunmar/ex-lg.jpg') 50% 50% no-repeat
+            background-size cover
+            border-radius: 0
+            height auto
+            min-width: em(840)
+            max-width: em(840)
+
+    &__desc
+        padding em(36) em(30) em(30)
+
+        @media screen and (min-width: 769px)
+            padding em(20) em(50) em(20) em(60)
+            display flex
+            flex-direction: column
+            min-height: em(370)
+            justify-content: center
+
+    &__header
+        position relative
+        font-size: em(42)
+        line-height: (48/42em)
+        color #000
+        padding (94/42em) 0 0 0
+        margin-bottom (24/42em)
+
+        @media screen and (min-width: 769px)
+            font-size: em(24)
+            line-height: (28/24em)
+            padding: (72/24em) 0 0 0
+            margin-bottom (24/24em)
+
+        &:before
+            content ''
+            position absolute
+            left 0
+            top 0
+            right 0
+            height em(70)
+            font-size (16/42em)
+            background embedurl('../img/content/sunmar/ex-icon.svg') 0 0 no-repeat
+            background-size auto em(70)
+
+            @media screen and (min-width: 769px)
+                font-size (16/24em)
+                left 0
+                top 0
+                bottom auto
+                right 0
+                height em(48)
+                width auto
+                background-size auto em(48)
+
+    &__text
+        p
+            font-size: em(24)
+            line-height: 133%
+            color: #000000;
+
+            @media screen and (min-width: 769px)
+                font-size em(16)
+                line-height (22/16em)
+
+            &:last-child
+                margin-bottom 0
