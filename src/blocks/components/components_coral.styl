@@ -1,6 +1,6 @@
 // стили компонентов для проекта Coral
 @import "btn/btn-coral"
-@import "intro/intro-search-coral"
+// @import "intro/intro-search-coral"
 @import "benefits/benefits-coral"
 @import "benefits4/benefits4-coral"
 @import "intresting/intresting-coral"
@@ -16,10 +16,11 @@
 .dm-tab
     &__headers
         display block
-        padding 0 em(48)
+        padding 0 em(20)
         margin-bottom em(80)
         display flex
-        justify-content space-between
+        justify-content center
+        margin-top em(-30)
 
         @media screen and (min-width: 769px)
             margin-bottom em(60)
@@ -32,25 +33,32 @@
         font-weight bold
         transition all 0.3s
         border-radius (8/24em)
-        border: 2px solid #000;
         text-align center
         cursor pointer
         padding (10/24em) (20/24em)
         user-select none
         margin 0
-        min-width: (300/24em)
+        min-width: (210/24em)
+        font-weight bold
+        filter: drop-shadow(0px 0px 40px rgba(0, 0, 0, 0.25));
+        border-radius: 0
+        background-color #fff
+
+        &:nth-child(1)
+            border-radius: (8/24em) 0 0 (8/24em)
+        
+        &:nth-child(2)
+            border-radius: 0 (8/24em) (8/24em) 0
 
         @media screen and (min-width: 769px)
             font-size em(20)
             line-height (24/20em)
             padding (10/20em) (30/20em)
-            margin 0 1em
 
         &:hover
         &.selected
             background-color #F0AB00
             color #fff
-            border-color #F0AB00
 
         &__span
             text-transform uppercase
@@ -63,6 +71,40 @@
         &:last-child
             margin-right 0
 
+    &__banners
+        height em(980)
+        width em(680)
+        margin 0 auto
+
+        @media screen and (min-width: 769px)
+            width em(1336)
+            height em(420)
+
+    &__img
+        height em(980)
+        width em(680)
+        background-repeat no-repeat
+        background-position 50% 0
+        background-size em(680) em(980)
+        border-radius: em(20)
+
+        @media screen and (min-width: 769px)
+            width em(1336)
+            height em(420)
+            background-size em(1336) em(420)
+
+        &--1
+            background-image url('../img/content/coral/banner-2-sm.jpg')
+
+            @media screen and (min-width: 769px)
+                background-image url('../img/content/coral/banner-2-lg.jpg')
+        
+        &--2
+            background-image url('../img/content/coral/banner-1-sm.jpg')
+
+            @media screen and (min-width: 769px)
+                background-image url('../img/content/coral/banner-1-lg.jpg')
+
 .dm-tabs
 
     &__header
@@ -71,6 +113,7 @@
         text-align: center;
         color: #000000;
         margin-bottom 2em
+        font-weight bold
 
 .dm-bottom
     @media screen and (min-width: 769px)

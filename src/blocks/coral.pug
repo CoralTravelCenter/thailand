@@ -50,7 +50,7 @@ section.dm-site-wrap2
 					//- a.dm-benefits4__btn.dm-btn.dm-btn--js(href="#pattayya" target="_blank") Выбрать тур
 					a.dm-benefits4__btn.dm-btn(href="https://www.coral.ru/packagetours/moskva-to-tailand-tours/?q=%7b%22Bgn%22%3a%2221.11.2022%22%2c%22End%22%3a%2221.11.2022%22%2c%22Dr%22%3a%220%22%2c%22Acc%22%3a%2214%22%2c%22Gest%22%3a%222%22%2c%22Q%22%3a%22R6U30VRkBarm7NJyIxCpDKp0gPHE%2bIFpkOdpFEXrA9niw1iKD1KfwRzg8tnlZlz35N9gm39gxHnFE%2be5Fo%2f7%2fPVx1xu%2faTbIEtUMJ1x7tBA3hCCiu6h%2bIDdUjKMg%2bNRuFXtF%2f4G2WS7V4EwfurtTnw%3d%3d%22%2c%22Ts%22%3a0%2c%22Las%22%3afalse%2c%22AcId%22%3a0%2c%22FDate%22%3a%220001-01-01T00%3a00%3a00Z%22%2c%22Ref%22%3afalse%2c%22Pstatus%22%3afalse%2c%22TransferPrice%22%3a0.0%2c%22Chr%22%3atrue%2c%22Rglr%22%3afalse%2c%22Srt%22%3a1%7d&f={%22Rh%22:false,%22Ao%22:[%22available%22]}&page=1" target="_blank") Выбрать тур
 
-section.dm-site-wrap2
+//- section.dm-site-wrap2
 	.dm-site-wrap__inner2
 		include components/ex/ex-coral
 
@@ -59,6 +59,10 @@ section.dm-site-wrap2
 		.dm-section--benefits4
 			h2.dm-tabs__header Какой курорт выбрать?
 			.dm-tabs
+				.dm-tab__banners
+					.dm-tab__img.dm-tab__img--1(data-content-for="Паттайя")
+					.dm-tab__img.dm-tab__img--2(data-content-for="Пхукет" style="display: none;")
+
 				.dm-tab__headers
 					.dm-tab__title.selected(data-show="Паттайя") Паттайя
 					.dm-tab__title(data-show="Пхукет") Пхукет
